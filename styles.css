@@ -1,5 +1,5 @@
 * {
-
+    /* border: 1px solid black; */
     box-sizing: border-box;
 
 }
@@ -357,6 +357,164 @@ main .search-bar img {
     object-fit: contain;
     margin-right: 5px;
 }
+
+
+
+/* ------carousel------ */
+.carousel-banner {
+
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-gap: 1%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    padding: 4%
+}
+
+
+
+.carousel {
+    position: relative;
+    display: grid;
+    background-image: url('./Images/Carousel.png');
+    background-size: cover;
+    height: 500px;
+    border-radius: 5px;
+    text-align: left;
+    padding: 5% 10% 0% 10%;
+    color: #ffffff;
+}
+
+.carousel h1 {
+    font-family: myriad-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
+    font-size: 48px;
+
+
+}
+
+.carousel>div {
+    max-width: 350px;
+    width: auto;
+    font-family: myriad pro, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+
+.carousel button {
+    width: 147px;
+    height: 36px;
+    border-radius: 50px;
+    border: 2px solid #ffffff;
+    background-color: transparent;
+    opacity: 0.5;
+    color: #ffffff;
+    font-family: Lato;
+    font-size: 14px;
+}
+
+
+.advertising {
+    display: grid;
+    grid-template-rows: 70% 10% 10% 10%;
+    text-align: center;
+}
+
+
+
+
+
+.sales-box {
+    position: relative;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    max-height: 335px;
+    background-color: #84bc22;
+    color: #ffffff
+}
+
+.sales-box h1 {
+    font-family: Lato;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 68px;
+}
+
+.sales-box>div {
+    max-width: 100px;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 20px;
+    margin: auto;
+}
+
+.sales-box>img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+.advertising>div:nth-child(2) {
+    font-family: myriad, sans-serif;
+    font-size: 24px;
+
+}
+
+.advertising>div:nth-child(3) {
+    width: 195px;
+    height: auto;
+    color: #45413e;
+    font-family: myriad pro, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.advertising>button {
+    display: flex;
+
+    justify-content: space-evenly;
+    padding-left: 13%;
+    padding-right: 13%;
+    height: 80% !important;
+    width: 70% !important;
+    border-radius: 50px;
+    border: 2px #3B5B96 solid;
+    outline: none;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    color: #3B5B96;
+    font-family: Lato;
+    font-size: 18px;
+
+}
+
+.elipses {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.elipses input {
+    border-radius: 50%;
+}
+
 
 
 

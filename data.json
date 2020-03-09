@@ -1,0 +1,63 @@
+{
+    "popular-items": [{
+            "name": "Kristina Dam Oak Table With White Marble Top",
+            "price": "$ 659.55",
+            "imageURL": "item1.jpg"
+        },
+        {
+            "name": "Hay=About A Lounge Chair AAL 93",
+            "price": "$ 799.55",
+            "imageURL": "item2.jpg"
+        },
+        {
+            "name": "Activate Facial Massage",
+            "price": "$ 129.55",
+            "imageURL": "item3.jpg"
+        },
+        {
+            "name": "Cocktail Table Walnut |Yes",
+            "price": "$ 799.55",
+            "imageURL": "item4.jpg"
+        },
+        {
+            "name": "TRY DESK CALENDAR",
+            "price": "$ 410.99",
+            "imageURL": "item5.jpg"
+        },
+        {
+            "name": "Hay=About A Lounge Chair AAL 93",
+            "price": "$ 330.55",
+            "imageURL": "item6.jpg"
+        },
+        {
+            "name": "CH445 Wing Chair on SUITE NY",
+            "price": "$ 299.99",
+            "imageURL": "item7.jpg"
+        },
+        {
+            "name": "Cocktail Table Walnut |Yes",
+            "price": "$ 499.55",
+            "imageURL": "item8.jpg"
+        },
+        {
+            "name": "Kristina Dam Oak Table With White Marble Top",
+            "price": "$ 199.55",
+            "imageURL": "item9.jpg"
+        },
+        {
+            "name": "TRY DESK CALENDAR",
+            "price": "$ 699.55",
+            "imageURL": "item10.jpg"
+        },
+        {
+            "name": "Cocktail Table Walnut |Yes",
+            "price": "$ 459.55",
+            "imageURL": "item11.jpg"
+        },
+        {
+            "name": "Kristina Dam Oak Table With White Marble Top",
+            "price": "$ 299.55",
+            "imageURL": "item11.jpg"
+        }
+    ]
+}

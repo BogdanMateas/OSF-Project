@@ -127,21 +127,25 @@ let navItems = [
 const menu = `<div class='nav-links'>${navItems
   .map(navItem => {
     return (
-      "<div>" +
+      "<div class='dropdown-level-I'>" +
+      "<div >" +
       navItem.name +
       "<i class='fas fa-caret-down'></i>" +
-      "<div class='dropdown-level-I'>" +
+      "</div>" +
+      "<div class='nav-links-l-II'>" +
       navItem.children
         .map(child => {
           return (
             "<div class='dropdown-level-II'>" +
             "<div>" +
             child.name +
-            "</div>" +
             "<i class='fas fa-caret-down'></i>" +
+            "</div>" +
             child.children
               .map(childElem => {
-                return "<div>" + childElem.name + "</div>";
+                return (
+                  "<div class='dropdown-level-III'>" + childElem.name + "</div>"
+                );
               })
               .join("") +
             "</div>"
@@ -157,4 +161,45 @@ const menu = `<div class='nav-links'>${navItems
 
 $(document).ready(() => {
   $("nav").prepend(menu);
+  $(".main-titles").click(function() {
+    console.log(this);
+    $(this)
+      .next(".contact-details, .categories-links , .about-links")
+      .toggleClass("active-footer");
+
+    $(this)
+      .children("i")
+      .toggleClass("rotate");
+  });
+  $(".x-hamburger").click(function() {
+    $(".icon").toggleClass("close");
+    $(".nav-links").toggleClass("nav-mobile-links");
+  });
+  console.log($(".nav-links>div:first-child"));
+  $(".nav-links .dropdown-level-I:first-child").hover(function() {
+    if (window.matchMedia("(min-width: 1280px)").matches) {
+      event.stopPropagation();
+      console.log("click");
+      $(this)
+        .children(".nav-links-l-II")
+        .toggleClass("active-level-I");
+    }
+  });
+  $(".nav-links .dropdown-level-I:first-child").click(function() {
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      event.stopPropagation();
+      $(this)
+        .children(".nav-links-l-II")
+        .toggleClass("active-mobile-II");
+    }
+  });
+  $(".dropdown-level-II>div").click(function() {
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      console.log("click");
+      event.stopPropagation();
+      $(this)
+        .siblings()
+        .toggleClass("active-mobile-III");
+    }
+  });
 });

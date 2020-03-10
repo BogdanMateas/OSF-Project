@@ -204,10 +204,83 @@ $(document).ready(() => {
   });
 });
 
-fetch("./data.json")
-  .then(function(res) {
-    return res.json();
-  })
-  .then(function(data) {
-    console.log(data);
+const getData = async () => {
+  const response = await fetch("./data.json");
+  const data = await response.json();
+  return data;
+};
+
+getData().then(data => {
+  return data.popularItems
+    .filter(item => {
+      console.log(item.id <= 8);
+      return item.id <= 8;
+    })
+    .map(popItem => {
+      return $(".items").append(
+        ` <div class="item">
+          <img src='./Images/${popItem.imageURL}'/>
+           <div>
+            ${popItem.name}
+            </div>
+            <div>
+           ${popItem.price}
+            </div>
+
+            </div>
+           `
+      );
+    });
+});
+
+$(document).ready(() => {
+  $(".popular-items>button").one("click", () => {
+    console.log("click");
+    getData().then(data => {
+      return data.popularItems
+        .filter(item => {
+          console.log(item.id >= 8);
+          return item.id >= 8;
+        })
+        .map(popItem => {
+          return $(".items").append(
+            ` <div class="item">
+          <img src='./Images/${popItem.imageURL}'/>
+           <div>
+            ${popItem.name}
+            </div>
+            <div>
+           ${popItem.price}
+            </div>
+
+            </div>
+           `
+          );
+        });
+    });
   });
+});
+
+$(document).ready(() => {
+  getData().then(data => {
+    return data.popularItems
+      .filter(item => {
+        console.log(item.id <= 8);
+        return item.id <= 4;
+      })
+      .map(popItem => {
+        return $(".products").append(
+          ` <div class="item">
+            <img src='./Images/${popItem.imageURL}'/>
+             <div class="product-name">
+              ${popItem.name}
+              </div>
+              <div class="description">
+             ${popItem.description}
+              </div>  
+              </div>
+             `
+        );
+      });
+  });
+});

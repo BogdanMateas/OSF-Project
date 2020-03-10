@@ -1,5 +1,5 @@
 * {
-    /* border: 1px solid black; */
+    border: 1px solid black;
     box-sizing: border-box;
 
 }
@@ -9,6 +9,14 @@ body {
     padding: 0px;
     overflow: scroll;
 
+}
+
+/* the big container */
+
+.container {
+    max-width: 1280px;
+    width: auto;
+    margin: auto;
 }
 
 /* header */
@@ -514,6 +522,236 @@ main .search-bar img {
 .elipses input {
     border-radius: 50%;
 }
+
+
+/* -------- popular items------- */
+
+
+.popular-items {
+    background-color: #262A33;
+    display: flex;
+    flex-direction: column;
+    /* height: 1500px; */
+    padding: 1%;
+}
+
+
+
+.popular-items h1 {
+    display: flex;
+    flex-direction: row;
+}
+
+
+h1:before,
+h1:after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid #000;
+    margin: auto;
+}
+
+h1:before {
+    margin-right: 10px
+}
+
+h1:after {
+    margin-left: 10px
+}
+
+
+.popular-items .items {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 23% 23% 23% 23%;
+
+}
+
+.items img {
+    width: 100%;
+}
+
+.popular-items button {
+    display: flex;
+    border: 2px solid #fff;
+    color: #fff;
+    align-items: center;
+    padding: 1%;
+    padding-left: 7%;
+    padding-right: 7%;
+    border-radius: 50px;
+    background-color: transparent;
+    margin: auto;
+}
+
+.popular-items button img {
+    margin-left: 20px;
+}
+
+
+/* -----banner osf------ */
+
+.banner-osf {
+    height: 445px;
+    background-image: url('./Images/banner-osf.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff
+}
+
+.banner-osf h1 {
+    color: #ffffff;
+    font-family: "Lato";
+    font-size: 48px;
+
+}
+
+.banner-osf div {
+    font-family: Lato;
+    font-size: 14px;
+    width: 25%;
+    text-align: center;
+}
+
+/* ----featured product ---- */
+.featured-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    background-color: #262A33;
+    padding: 3%;
+}
+
+.featured-products h1 {
+    font-family: "Lato";
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.featured-products h2 {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.featured-products .slide-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.slide-controls>div:nth-child(2){
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+.featured-products .prev,
+.featured-products .next {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.featured-products .slide-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: space-between;
+    grid-gap: 2%;
+    border-radius: 5px;
+
+}
+
+.products .item {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0px !important;
+
+}
+
+.product-name {
+    color: #45413e;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.products .description {
+    color: #84bc22;
+    font-family: "Lato";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+
+
+
+/* ----benefits content----- */
+
+
+.benefits-content {
+    /* height: 198px; */
+    display: grid;
+    grid-template-columns: 10% 23% 10% 23% 10% 23%;
+    justify-content: center;
+    align-items: center;
+    background-color: #45413e;
+    padding: 3%
+}
+
+.benefits-content .benefits-icon {
+    display: flex;
+    align-items: center;
+}
+
+
+.benefits-content>div {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.benefits-text>div {
+    color: #fff;
+    padding: 2%;
+}
+
+.benefits-text>div:first-child {
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+
+}
+
+.benefits-text>div:nth-child(2) {
+    color: #868380;
+    font-family: "Myriad Pro", "sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    width: 90%;
+}
+
+
 
 
 

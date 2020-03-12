@@ -4,6 +4,8 @@
             "price": "$ 659.55",
             "imageURL": "item1.png",
             "description": "Awesome",
+            "class": "",
+            "button": true,
             "id": "1"
         },
         {
@@ -11,6 +13,8 @@
             "price": "$ 799.55",
             "imageURL": "item2.png",
             "description": "Marketing",
+            "class": "",
+            "button": true,
             "id": "2"
         },
         {
@@ -18,6 +22,8 @@
             "price": "$ 129.55",
             "imageURL": "item3.png",
             "description": "Awesome",
+            "class": "",
+            "button": true,
             "id": "3"
         },
         {
@@ -25,6 +31,8 @@
             "price": "$ 799.55",
             "imageURL": "item4.png",
             "description": "Marketing",
+            "class": "",
+            "button": true,
             "id": "4"
         },
         {
@@ -32,6 +40,8 @@
             "price": "$ 410.99",
             "imageURL": "item5.png",
             "description": "Awesome",
+            "class": "",
+            "button": true,
             "id": "5"
         },
         {
@@ -39,6 +49,8 @@
             "price": "$ 330.55",
             "imageURL": "item6.png",
             "description": "Marketing",
+            "class": "",
+            "button": true,
             "id": "6"
         },
         {
@@ -46,6 +58,8 @@
             "price": "$ 299.99",
             "imageURL": "item7.png",
             "description": "Awesome",
+            "class": "",
+            "button": true,
             "id": "7"
         },
         {
@@ -53,6 +67,8 @@
             "price": "$ 499.55",
             "imageURL": "item8.png",
             "description": "Marketing",
+            "class": "",
+            "button": true,
             "id": "8"
         },
         {
@@ -60,6 +76,8 @@
             "price": "$ 199.55",
             "imageURL": "item9.png",
             "description": "Awesome",
+            "class": "",
+            "button": true,
             "id": "9"
         },
         {
@@ -67,6 +85,8 @@
             "price": "$ 699.55",
             "imageURL": "item10.png",
             "description": "Marketing",
+            "class": "",
+            "button": true,
             "id": "10"
         },
         {
@@ -74,6 +94,8 @@
             "price": "$ 459.55",
             "imageURL": "item11.png",
             "description": "Awesome",
+            "class": "",
+            "button": true,
             "id": "11"
         },
         {
@@ -81,6 +103,8 @@
             "price": "$ 299.55",
             "imageURL": "item11.png",
             "description": "Marketing",
+            "class": "",
+            "button": true,
             "id": "12"
         }
     ]

@@ -369,6 +369,8 @@ main .search-bar img {
 
 
 /* ------carousel------ */
+
+
 .carousel-banner {
 
     display: grid;
@@ -382,38 +384,65 @@ main .search-bar img {
     padding: 4%
 }
 
-
-
-.carousel {
+.carousels {
     position: relative;
-    display: grid;
-    background-image: url('./Images/Carousel.png');
+}
+
+
+
+.carousels .carousel {
+    /* position: relative; */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-evenly;
+
     background-size: cover;
     height: 500px;
     border-radius: 5px;
-    text-align: left;
-    padding: 5% 10% 0% 10%;
     color: #ffffff;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
-.carousel h1 {
+.carousels .car-left {
+    background-image: url('./Images/Carousel-1.png');
+    align-items: flex-end;
+    text-align: left;
+}
+
+.carousels .car-center {
+    background-image: url('./Images/Carousel-2.png');
+    align-items: center;
+    text-align: center !important;
+}
+
+.carousels .car-right {
+    background-image: url('./Images/Carousel-3.png');
+    align-items: flex-start;
+    text-align: right;
+
+}
+
+
+
+
+.carousels .carousel h1 {
     font-family: myriad-pro, sans-serif;
     font-weight: 700;
     font-style: normal;
-
+    max-width: 90%;
     font-size: 48px;
-
-
 }
 
-.carousel>div {
+
+
+.carousels .carousel>div {
     max-width: 350px;
     width: auto;
     font-family: myriad pro, sans-serif;
     font-size: 14px;
     font-weight: 400;
 }
-
 
 
 .carousel button {
@@ -531,8 +560,10 @@ main .search-bar img {
     background-color: #262A33;
     display: flex;
     flex-direction: column;
-    /* height: 1500px; */
+    height: auto;
     padding: 1%;
+    padding-bottom: 4%;
+    /* height: auto !important; */
 }
 
 
@@ -540,19 +571,23 @@ main .search-bar img {
 .popular-items h1 {
     display: flex;
     flex-direction: row;
+    color: #fff;
+    font-family: Lato;
 }
 
 
 h1:before,
 h1:after {
     content: "";
+
     flex: 1 1;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #fff;
     margin: auto;
 }
 
 h1:before {
-    margin-right: 10px
+    margin-right: 10px;
+
 }
 
 h1:after {
@@ -564,12 +599,52 @@ h1:after {
     display: grid;
     justify-content: center;
     grid-template-columns: 23% 23% 23% 23%;
+    grid-gap: 2%;
+    height: auto;
+    margin-bottom: 5%;
+    padding-bottom: 2%
+}
+
+.popular-items .items .item {
+    background-color: white;
+    border-radius: 5px;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 
-.items img {
+.popular-items .items img {
     width: 100%;
+
+    flex-grow: 2;
+
+
 }
+
+
+
+.items .item-name {
+    color: #45413e;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    padding: 2%;
+
+}
+
+.items .item-price {
+    color: #011847;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 2%;
+}
+
+
 
 .popular-items button {
     display: flex;
@@ -616,6 +691,7 @@ h1:after {
 }
 
 /* ----featured product ---- */
+
 .featured-products {
     display: flex;
     flex-direction: column;
@@ -638,14 +714,8 @@ h1:after {
     line-height: 36px;
 }
 
-.featured-products .slide-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-}
-
-.slide-controls>div:nth-child(2){
+.slide-controls>div:nth-child(2) {
     font-size: 26px;
     font-weight: bolder;
 }
@@ -669,20 +739,25 @@ h1:after {
 .products {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    justify-content: space-between;
+    max-width: 1280px;
     grid-gap: 2%;
-    border-radius: 5px;
-
+    padding: 4%;
+    justify-content: center;
 }
 
-.products .item {
+.products .product {
     background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
     padding: 0px !important;
+    border-radius: 5px;
 
+}
+
+.product img {
+    max-height: 200px;
 }
 
 .product-name {
@@ -691,6 +766,7 @@ h1:after {
     font-size: 16px;
     font-weight: 400;
     line-height: 18px;
+    padding: 3%;
 }
 
 .products .description {
@@ -698,6 +774,7 @@ h1:after {
     font-family: "Lato";
     font-size: 14px;
     font-weight: 400;
+    padding: 3%;
 }
 
 

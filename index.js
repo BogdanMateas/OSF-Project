@@ -210,6 +210,18 @@ const getData = async () => {
   return data;
 };
 
+// let data = async () => {
+//   const response = await fetch("./data.json");
+//   const data = await response.json();
+//   return data;
+// };
+
+// $(document).ready(() => {
+//   console.log(data);
+// });
+
+// injecting the items inside popular items section
+
 getData().then(data => {
   return data.popularItems
     .filter(item => {
@@ -218,20 +230,26 @@ getData().then(data => {
     })
     .map(popItem => {
       return $(".items").append(
-        ` <div class="item">
+        ` <div id="" class="item">
           <img src='./Images/${popItem.imageURL}'/>
-           <div>
+          <div class="item-info">
+           <div class="item-name">
             ${popItem.name}
             </div>
             <div>
+            <div class="item-price">
            ${popItem.price}
+            </div> 
+            
             </div>
-
+          </div>
             </div>
            `
       );
     });
 });
+
+// loading more items inside popular items section
 
 $(document).ready(() => {
   $(".popular-items>button").one("click", () => {
@@ -240,7 +258,7 @@ $(document).ready(() => {
       return data.popularItems
         .filter(item => {
           console.log(item.id >= 8);
-          return item.id >= 8;
+          return item.id > 8;
         })
         .map(popItem => {
           return $(".items").append(
@@ -261,26 +279,51 @@ $(document).ready(() => {
   });
 });
 
-$(document).ready(() => {
-  getData().then(data => {
-    return data.popularItems
-      .filter(item => {
-        console.log(item.id <= 8);
-        return item.id <= 4;
-      })
-      .map(popItem => {
-        return $(".products").append(
-          ` <div class="item">
-            <img src='./Images/${popItem.imageURL}'/>
-             <div class="product-name">
-              ${popItem.name}
-              </div>
-              <div class="description">
-             ${popItem.description}
-              </div>  
-              </div>
-             `
-        );
-      });
+// injecting the popular items inside featured products section
+$(document).ready(async function() {
+  await getData().then(data => {
+    return $(".featured-products").append(
+      `<div class="products">${data.popularItems
+        .filter(item => {
+          console.log(item.id <= 8);
+          return item.id <= 12;
+        })
+        .map(popItem => {
+          return ` <div class="product">
+              <img src='./Images/${popItem.imageURL}'/>
+               <div class="product-name">
+                ${popItem.name}
+                </div>
+                <div class="description">
+               ${popItem.description}
+                </div> 
+                </div>                                `;
+        })
+        .join("")}</div>`
+    );
+  });
+  $(".products").slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    infinite: true,
+    arrows: true,
+    speed: 500,
+    cssEase: "linear",
+    nextArrow: $(".next"),
+    prevArrow: $(".prev")
+  });
+});
+
+$(document).ready(function() {
+  $(".carousels").slick({
+    rtl: true,
+    infinite: true,
+    dots: true,
+    speed: 500,
+    cssEase: "linear",
+    // autoplay: true,
+    autoplaySpeed: 6000
   });
 });

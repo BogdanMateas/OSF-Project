@@ -4,8 +4,8 @@
             "price": "$ 659.55",
             "imageURL": "item1.png",
             "description": "Awesome",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "1"
         },
         {
@@ -13,7 +13,7 @@
             "price": "$ 799.55",
             "imageURL": "item2.png",
             "description": "Marketing",
-            "class": "",
+            "class": "item",
             "button": true,
             "id": "2"
         },
@@ -22,8 +22,8 @@
             "price": "$ 129.55",
             "imageURL": "item3.png",
             "description": "Awesome",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "3"
         },
         {
@@ -31,8 +31,8 @@
             "price": "$ 799.55",
             "imageURL": "item4.png",
             "description": "Marketing",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "4"
         },
         {
@@ -40,8 +40,8 @@
             "price": "$ 410.99",
             "imageURL": "item5.png",
             "description": "Awesome",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "5"
         },
         {
@@ -49,8 +49,8 @@
             "price": "$ 330.55",
             "imageURL": "item6.png",
             "description": "Marketing",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "6"
         },
         {
@@ -58,17 +58,19 @@
             "price": "$ 299.99",
             "imageURL": "item7.png",
             "description": "Awesome",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "7"
         },
         {
             "name": "Cocktail Table Walnut |Yes",
-            "price": "$ 499.55",
             "imageURL": "item8.png",
             "description": "Marketing",
-            "class": "",
-            "button": true,
+            "class": "item-gradient",
+            "button": false,
+            "moreInfo": "My dragons are misbehaving again! Unbelievable",
+            "icon": "gradient-icon.png",
+            "time": "5H",
             "id": "8"
         },
         {
@@ -76,8 +78,9 @@
             "price": "$ 199.55",
             "imageURL": "item9.png",
             "description": "Awesome",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
+
             "id": "9"
         },
         {
@@ -85,8 +88,8 @@
             "price": "$ 699.55",
             "imageURL": "item10.png",
             "description": "Marketing",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "10"
         },
         {
@@ -94,8 +97,8 @@
             "price": "$ 459.55",
             "imageURL": "item11.png",
             "description": "Awesome",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "11"
         },
         {
@@ -103,8 +106,8 @@
             "price": "$ 299.55",
             "imageURL": "item11.png",
             "description": "Marketing",
-            "class": "",
-            "button": true,
+            "class": "item",
+            "button": false,
             "id": "12"
         }
     ]

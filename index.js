@@ -210,43 +210,56 @@ const getData = async () => {
   return data;
 };
 
-// let data = async () => {
-//   const response = await fetch("./data.json");
-//   const data = await response.json();
-//   return data;
-// };
-
-// $(document).ready(() => {
-//   console.log(data);
-// });
-
 // injecting the items inside popular items section
-
-getData().then(data => {
-  return data.popularItems
-    .filter(item => {
-      console.log(item.id <= 8);
-      return item.id <= 8;
-    })
-    .map(popItem => {
-      return $(".items").append(
-        ` <div id="" class="item">
+$(document).ready(async function() {
+  await getData().then(data => {
+    return data.popularItems
+      .filter(item => {
+        console.log(item.id <= 8);
+        return item.id <= 8;
+      })
+      .map(popItem => {
+        return $(".items").append(
+          ` <div class=${popItem.class}>
           <img src='./Images/${popItem.imageURL}'/>
           <div class="item-info">
            <div class="item-name">
             ${popItem.name}
             </div>
-            <div>
-            <div class="item-price">
-           ${popItem.price}
-            </div> 
-            
+            <div class="item-details">
+            ${
+              popItem.price
+                ? `<div class="item-price">
+            ${popItem.price} 
+             </div>`
+                : " "
+            }
+            ${popItem.button === true ? `<button>BUY NOW</button>` : " "}
             </div>
           </div>
+          ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
+          ${popItem.icon ? `<img src="./Images/${popItem.icon}"/>` : " "}
+          ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
             </div>
            `
-      );
+        );
+      });
+  });
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    
+    $(".items").slick({
+      rtl: true,
+      infinite: true,
+      dots: true,
+      arrows: false,
+      speed: 500,
+      cssEase: "linear",
+      // autoplay: true,
+      autoplaySpeed: 6000
     });
+  } else {
+    $(".items").removeAttr("dir");
+  }
 });
 
 // loading more items inside popular items section
@@ -262,15 +275,25 @@ $(document).ready(() => {
         })
         .map(popItem => {
           return $(".items").append(
-            ` <div class="item">
+            ` <div class=${popItem.class}>
           <img src='./Images/${popItem.imageURL}'/>
+          <div class="item-info">
            <div>
             ${popItem.name}
             </div>
-            <div>
-           ${popItem.price}
+            <div class="item-details">
+            ${
+              popItem.price
+                ? `<div class="item-price">
+            ${popItem.price} 
+             </div>`
+                : " "
+            }
+            ${popItem.button === true ? `<button>BUY NOW</button>` : " "}
             </div>
-
+          </div>
+          </div>
+           
             </div>
            `
           );
@@ -291,13 +314,15 @@ $(document).ready(async function() {
         .map(popItem => {
           return ` <div class="product">
               <img src='./Images/${popItem.imageURL}'/>
+              <div class="product-details">
                <div class="product-name">
                 ${popItem.name}
                 </div>
                 <div class="description">
                ${popItem.description}
+                </div>
                 </div> 
-                </div>                                `;
+                </div> `;
         })
         .join("")}</div>`
     );
@@ -321,9 +346,12 @@ $(document).ready(function() {
     rtl: true,
     infinite: true,
     dots: true,
+    arrows: false,
     speed: 500,
     cssEase: "linear",
     // autoplay: true,
     autoplaySpeed: 6000
   });
 });
+
+// popular item mobile carousel

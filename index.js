@@ -204,6 +204,27 @@ $(document).ready(() => {
   });
 });
 
+// showing login  box
+$(document).ready(function() {
+  $(".login-trigger").click(function(e) {
+    $(".login-box").addClass("active-login-box");
+    console.log(e.currentTarget);
+  });
+  $(".login-box").click(function(e) {
+    if (
+      $(e.target).hasClass("login-box") ||
+      $(e.target).hasClass("login-exit")
+    ) {
+      console.log($(".login-box"));
+      $(".login-box").removeClass("active-login-box");
+    }
+  });
+});
+
+// cart and wishlist
+
+// get data from JSON file
+
 const getData = async () => {
   const response = await fetch("./data.json");
   const data = await response.json();
@@ -213,14 +234,17 @@ const getData = async () => {
 // injecting the items inside popular items section
 $(document).ready(async function() {
   await getData().then(data => {
-    return data.popularItems
-      .filter(item => {
-        console.log(item.id <= 8);
-        return item.id <= 8;
-      })
-      .map(popItem => {
-        return $(".items").append(
-          ` <div class=${popItem.class}>
+    return (
+      data.popularItems
+        // .filter(item => {
+        //   console.log(item.id <= 8);
+        //   return item.id <= 8;
+        // })
+        .map(popItem => {
+          return $(".items").append(
+            ` <div class='${popItem.class} ${
+              popItem.id > 8 ? "inactive-item" : ""
+            }' >
           <img src='./Images/${popItem.imageURL}'/>
           <div class="item-info">
            <div class="item-name">
@@ -234,71 +258,71 @@ $(document).ready(async function() {
              </div>`
                 : " "
             }
-            ${popItem.button === true ? `<button>BUY NOW</button>` : " "}
+            ${
+              popItem.button === true
+                ? `<button class="buy-btn">BUY NOW</button>`
+                : " "
+            }
             </div>
           </div>
           ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
           ${popItem.icon ? `<img src="./Images/${popItem.icon}"/>` : " "}
           ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
-            </div>
-           `
-        );
-      });
-  });
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    
-    $(".items").slick({
-      rtl: true,
-      infinite: true,
-      dots: true,
-      arrows: false,
-      speed: 500,
-      cssEase: "linear",
-      // autoplay: true,
-      autoplaySpeed: 6000
-    });
-  } else {
-    $(".items").removeAttr("dir");
-  }
-});
-
-// loading more items inside popular items section
-
-$(document).ready(() => {
-  $(".popular-items>button").one("click", () => {
-    console.log("click");
-    getData().then(data => {
-      return data.popularItems
-        .filter(item => {
-          console.log(item.id >= 8);
-          return item.id > 8;
-        })
-        .map(popItem => {
-          return $(".items").append(
-            ` <div class=${popItem.class}>
-          <img src='./Images/${popItem.imageURL}'/>
-          <div class="item-info">
-           <div>
-            ${popItem.name}
-            </div>
-            <div class="item-details">
-            ${
-              popItem.price
-                ? `<div class="item-price">
-            ${popItem.price} 
-             </div>`
-                : " "
-            }
-            ${popItem.button === true ? `<button>BUY NOW</button>` : " "}
-            </div>
-          </div>
-          </div>
-           
+          ${
+            popItem.greenGradient === true
+              ? `<div class="green-gradient">
+                <div><i class="fas fa-plus"></i></div>
+                <div><i class="fas fa-heart"></i></div>
+              </div>`
+              : " "
+          }
             </div>
            `
           );
-        });
-    });
+        })
+    );
+  });
+
+  $(window).on("resize load", function() {
+    if ($(window).width() <= 768) {
+      $(".items").attr("dir", "rtl");
+      $(".items").slick({
+        rtl: true,
+        infinite: true,
+        dots: true,
+        arrows: false,
+        speed: 500,
+        cssEase: "linear",
+        // autoplay: true,
+        autoplaySpeed: 6000
+      });
+    } else {
+      $(".items").slick("unslick");
+      $(".items").removeAttr("dir");
+    }
+  });
+  $(".item").hover(function() {
+    console.log(this);
+    $(this)
+      .children(".green-gradient")
+      .toggleClass("active-gradient");
+  });
+
+  $(".buy-btn").click(function() {
+    console.log(this);
+    $("#cart").text(parseInt($("#cart").text()) + 1);
+  });
+  $(".fa-plus").click(function() {
+    console.log(this);
+    $("#cart").text(parseInt($("#cart").text()) + 1);
+  });
+
+  $(".fa-heart").click(function() {
+    console.log(this);
+    $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
+  });
+  $(".popular-items>button").one("click", function() {
+    $(".item").removeClass("inactive-item");
   });
 });
 
@@ -327,6 +351,7 @@ $(document).ready(async function() {
         .join("")}</div>`
     );
   });
+
   $(".products").slick({
     slidesToShow: 4,
     slidesToScroll: 4,
@@ -337,7 +362,16 @@ $(document).ready(async function() {
     speed: 500,
     cssEase: "linear",
     nextArrow: $(".next"),
-    prevArrow: $(".prev")
+    prevArrow: $(".prev"),
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      }
+    ]
   });
 });
 
@@ -352,6 +386,61 @@ $(document).ready(function() {
     // autoplay: true,
     autoplaySpeed: 6000
   });
+  if (localStorage.getItem("cookieState") != "accepted") {
+    setTimeout(function() {
+      $(".active-cookie-dialog").removeClass("cookie-dialog");
+    }, 3000);
+  }
+  $(".cookie-dialog button").click(function() {
+    localStorage.setItem("cookieState", "accepted"), console.log("clicked");
+  });
+  $(".cookie-dialog button, .fa-times").click(function() {
+    console.log("out");
+    $(".active-cookie-dialog").addClass("cookie-dialog");
+  });
+
+  // slider Product detailed page
+  $(".slider-main").slick({
+    slidesToShow: 1,
+    arrows: false,
+    asNavFor: ".slider-nav",
+    vertical: true,
+    // verticalSwiping: true,
+    centerMode: true
+  });
+
+  $(".slider-nav").slick({
+    slidesToShow: 4,
+    asNavFor: ".slider-main",
+    vertical: true,
+    // focusOnSelect: true,
+    autoplay: false,
+    centerMode: true
+  });
+
+  $(window).on("resize orientationchange load", function() {
+    if ($(window).width() <= 768) {
+      $(".slider-nav").slick("unslick");
+      $(".slider-nav").slick({
+        slidesToShow: 4,
+        asNavFor: ".slider-main",
+        vertical: true,
+        focusOnSelect: true,
+        autoplay: false,
+        centerMode: true
+      });
+    } else {
+      $(".slider-nav").slick("unslick");
+      $(".slider-nav").slick({
+        slidesToShow: 4,
+        asNavFor: ".slider-main",
+        vertical: true,
+        focusOnSelect: true,
+        autoplay: false,
+        centerMode: true
+      });
+    }
+  });
 });
 
-// popular item mobile carousel
+// add class on hover

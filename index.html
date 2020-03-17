@@ -42,17 +42,54 @@
 
       <div class="icons">
         <img src="/Images/search.png" alt="search-icon" />
-        <img src="/Images/login.png" alt="login-icon" />
+        <img class="login-trigger" src="/Images/login.png" alt="login-icon" />
         <div>
           <img src="/Images/heart.png" alt="heart-icon" />
-          <span>1</span>
+          <span id="wish-list">1</span>
         </div>
         <div>
           <img src="/Images/bag.png" alt="bag-icon" />
-          <span>1</span>
+          <span id="cart">1</span>
         </div>
       </div>
     </header>
+
+    <div class="login-box">
+      <i class="fas fa-times login-exit"></i>
+      <div class="login">
+        <h2>Sign in</h2>
+        <form action="/">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" required>
+          </div>
+          <div>
+            <div>
+              <label for="password">Password</label>
+              <span>forgot password</span>
+            </div>
+            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+          </div>
+          <button type="submit">LOGIN</button>
+          <a href="">I dont't have an account</a>
+        </form>
+      </div>
+    </div>
+
+    <div class="cookie-dialog active-cookie-dialog">
+      <div>
+        <h5>This website uses cookies</h5>
+        <i class="fas fa-times"></i>
+      </div>
+      <div>
+        <p>OSF uses its own and third-party cookies for statistical purposes, to know your preferences, for website
+          performance
+          and interaction with social media offering publicity tailored to your interests. If you continue browsing, we
+          consider that you accept its use.
+          You can expand this information consulting our <span>Cookies Policy Page.</span></p>
+        <button>ACCEPT</button>
+      </div>
+    </div>
 
     <div class="carousel-banner">
       <div class="carousels" dir="rtl">
@@ -98,7 +135,7 @@
 
     <div class="popular-items">
       <h1>Popular Items</h1>
-      <div class="items" dir="rtl"></div>
+      <div class="items"></div>
       <button>LOAD MORE<img src="./Images/load-more.png" /></button>
     </div>
 
@@ -122,34 +159,42 @@
     </div>
 
     <div class="benefits-content">
+
       <div class="benefits-icon">
-        <img src="./Images/Delivery-trolley.png" alt="" />
-      </div>
-      <div class="benefits-text">
-        <div>FOCUS</div>
-        <div>
-          Our unwavering focus on superior service delivery and building next
-          generation competencies
+        <div> <img src="./Images/Delivery-trolley.png" alt="" />
+        </div>
+        <div class="benefits-text">
+          <div>FOCUS</div>
+          <div>
+            Our unwavering focus on superior service delivery and building next
+            generation competencies
+          </div>
         </div>
       </div>
-      <div class="benefits-icon">
-        <img src="./Images/Triangular_Arrows.com.png" alt="" />
-      </div>
-      <div class="benefits-text">
-        <div>METHOD</div>
-        <div>
-          A standardized methodology designed to deliver measurable business
-          results and predictable costs
+
+      <div>
+        <div class="benefits-icon">
+          <img src="./Images/Triangular_Arrows.com.png" alt="" />
+        </div>
+        <div class="benefits-text">
+          <div>METHOD</div>
+          <div>
+            A standardized methodology designed to deliver measurable business
+            results and predictable costs
+          </div>
         </div>
       </div>
-      <div class="benefits-icon">
-        <img src="./Images/clipboard.png" alt="" />
-      </div>
-      <div class="benefits-text">
-        <div>KNOWLEDGE</div>
-        <div>
-          A highly skilled, proactive workforce that reliably improves each
-          client’s ROI while mitigating their business risk
+
+      <div>
+        <div class="benefits-icon">
+          <img src="./Images/clipboard.png" alt="" />
+        </div>
+        <div class="benefits-text">
+          <div>KNOWLEDGE</div>
+          <div>
+            A highly skilled, proactive workforce that reliably improves each
+            client’s ROI while mitigating their business risk
+          </div>
         </div>
       </div>
     </div>

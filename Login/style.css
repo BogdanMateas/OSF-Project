@@ -1,12 +1,6 @@
-body {
-    background-color: grey;
-}
 
-* {
-    font-family: "Lato";
-}
 
-.container {
+.login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +13,7 @@ body {
 
 }
 
-h2 {
+.login h2 {
     color: #45413e;
     font-family: "Lato";
     font-size: 30px;
@@ -30,7 +24,6 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
-
     align-items: center;
 }
 
@@ -63,25 +56,24 @@ label {
     line-height: 26px;
 }
 
-input {
+form input {
     width: 398px;
     height: 36px;
     border: 2px solid #d7d7d7;
-
     border-radius: 50px;
     padding-left: 10px;
     outline: none;
 
 }
 
-a {
+form a {
     color: #84bc22;
     font-family: Lato;
     font-size: 12px;
     letter-spacing: 0.6px;
 }
 
-button {
+form button {
     width: 181px;
     height: 36px;
     border: 2px solid #84bc22;

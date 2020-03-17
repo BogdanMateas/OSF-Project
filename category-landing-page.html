@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.typekit.net/wve4xvx.css" />
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css" />
+    <!-- // Add the new slick-theme.css if you want the default styling -->
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css" />
+    <script src="https://kit.fontawesome.com/18bcf63516.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="x-hamburger">
+                <div class="icon">
+                    <span class="line top"></span>
+                    <span class="line middle"></span>
+                    <span class="line bottom"></span>
+                </div>
+            </div>
+            <div class="logo-brand">
+                <img src="/Images/logo.png" alt="logo-brand" />
+
+                <div class="logo-title">
+                    <h1>OSF</h1>
+                    <h3>Academy</h3>
+                </div>
+            </div>
+
+            <nav>
+                <ul class="nav-currencies">
+                    <li>EN <i class="fas fa-caret-down"></i></li>
+                    <li>&dollar; US <i class="fas fa-caret-down"></i></li>
+                </ul>
+            </nav>
+
+            <div class="icons">
+                <img src="/Images/search.png" alt="search-icon" />
+                <img class="login-trigger" src="/Images/login.png" alt="login-icon" />
+                <div>
+                    <img src="/Images/heart.png" alt="heart-icon" />
+                    <span id="wish-list">1</span>
+                </div>
+                <div>
+                    <img src="/Images/bag.png" alt="bag-icon" />
+                    <span id="cart">1</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="login-box">
+            <i class="fas fa-times login-exit"></i>
+            <div class="login">
+                <h2>Sign in</h2>
+                <form action="/">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" required>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="password">Password</label>
+                            <span>forgot password</span>
+                        </div>
+                        <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            required>
+                    </div>
+                    <button type="submit">LOGIN</button>
+                    <a href="">I dont't have an account</a>
+                </form>
+            </div>
+        </div>
+
+        <div class="cookie-dialog active-cookie-dialog">
+            <div>
+                <h5>This website uses cookies</h5>
+                <i class="fas fa-times"></i>
+            </div>
+            <div>
+                <p>OSF uses its own and third-party cookies for statistical purposes, to know your preferences, for
+                    website
+                    performance
+                    and interaction with social media offering publicity tailored to your interests. If you continue
+                    browsing, we
+                    consider that you accept its use.
+                    You can expand this information consulting our <span>Cookies Policy Page.</span></p>
+                <button>ACCEPT</button>
+            </div>
+        </div>
+
+        <div class="product-box">
+            <div class="services-slider">
+                <div class="main-container">
+                    <div class="slider slider-main">
+                        <div>
+                            <img src="./Images/productLarge1.jpg" />
+                        </div>
+                        <div>
+                            <img src="./Images/productLarge2.jpg" />
+                        </div>
+                        <div>
+                            <img src="./Images/productLarge3.jpg" />
+                        </div>
+                        <div>
+                            <img src="./Images/productLarge4.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-container">
+                    <div class="slider-nav">
+                        <div>
+                            <img src="./Images/productSmall1.jpg" />
+                        </div>
+                        <div>
+                            <img src="./Images/productSmall2.jpg" />
+                        </div>
+                        <div>
+                            <img src="./Images/productSmall3.jpg" />
+                        </div>
+                        <div>
+                            <img src="./Images/productSmall4.jpg" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="products-details">
+                <div>
+                    <h1>$299.99</h1>
+                </div>
+                <div>
+                    <select name="" id="">
+                        <option value="">Dark Grey</option>
+                        <option value="">Ligth Blue</option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <div><span>-</span><input type="text"><span>+</span></div>
+                    <button>ADD TO CART</button>
+                </div>
+                <div>Sed ut perspiciatis unde omnis iste natus erros ist voluptatem accusantium doloremque
+                    laudatium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore Beatae vitae dicta sunt explicabo. Nemo
+                    enim
+                    ipsam voluptate, quia voluptas <span>Read more</span></div>
+                <div>
+                    <span>Share </span>
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><img src="/Images/g+.png" alt="" /></a>
+                    <a href=""> <i class="fab fa-twitter"></i></a>
+                    <a href=""><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div>
+                <div>Description</div>
+                <div></div>
+            </div>
+            <div>
+                <div>Aditional Information</div>
+                <div></div>
+            </div>
+            <div>
+                <div>Review (3)</div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="popular-items">
+            <h1>Popular Items</h1>
+            <div class="items"></div>
+            <button>LOAD MORE<img src="./Images/load-more.png" /></button>
+        </div>
+
+
+
+        <div class="featured-products">
+            <h1>Featured Products</h1>
+            <h2>Unde omnis iste natus error sit voluptate</h2>
+            <div class="slide-controls">
+                <div class="prev"><i class="fas fa-chevron-left"></i></div>
+                <div>///</div>
+                <div class="next"><i class="fas fa-chevron-right"></i></div>
+            </div>
+
+        </div>
+
+        <div class="benefits-content">
+
+            <div class="benefits-icon">
+                <div> <img src="./Images/Delivery-trolley.png" alt="" />
+                </div>
+                <div class="benefits-text">
+                    <div>FOCUS</div>
+                    <div>
+                        Our unwavering focus on superior service delivery and building next
+                        generation competencies
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="benefits-icon">
+                    <img src="./Images/Triangular_Arrows.com.png" alt="" />
+                </div>
+                <div class="benefits-text">
+                    <div>METHOD</div>
+                    <div>
+                        A standardized methodology designed to deliver measurable business
+                        results and predictable costs
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="benefits-icon">
+                    <img src="./Images/clipboard.png" alt="" />
+                </div>
+                <div class="benefits-text">
+                    <div>KNOWLEDGE</div>
+                    <div>
+                        A highly skilled, proactive workforce that reliably improves each
+                        client’s ROI while mitigating their business risk
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>
+                <section>
+                    <p>&copy; Copyright 2020</p>
+                    <p>All Rights Reserved</p>
+                </section>
+
+                <section>
+                    <div class="main-titles">
+                        CONTACT<i class="fas fa-caret-down"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>5600, Blvd. de Galeries, Bur 530</p>
+                        <p>Quebec, Quebec G2K 2H6</p>
+                        <p>contact@osf-global.com</p>
+                        <p>+1(888)548-4344</p>
+                    </div>
+                </section>
+            </div>
+
+            <div>
+                <ul class="categories">
+                    <li class="main-titles">
+                        CATEGORIES<i class="fas fa-caret-down"></i>
+                    </li>
+                    <ul class="categories-links">
+                        <li><a>Alcohol</a></li>
+                        <li><a>Art</a></li>
+                        <li><a>Books</a></li>
+                        <li><a>Drink</a></li>
+                        <li><a>Eletronics</a></li>
+                        <li><a>Home</a></li>
+                        <li><a>Jewelry</a></li>
+                        <li><a>Kids & Baby</a></li>
+                        <li><a>Men's Fashion</a></li>
+                        <li><a>Mobile</a></li>
+                        <li><a>Motorcycles</a></li>
+                        <li><a>Movies</a></li>
+                        <li><a>Music</a></li>
+                        <li><a>Sport</a></li>
+                        <li><a>Torys</a></li>
+                        <li><a>Travel</a></li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div>
+                <ul class="about">
+                    <li class="main-titles">ABOUT <i class="fas fa-caret-down"></i></li>
+                    <ul class="about-links">
+                        <li><a>About us</a></li>
+                        <li><a>Deliveries</a></li>
+                        <li><a>Testimonials</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="social-media">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><img src="/Images/g+.png" alt="" /></a>
+                <a href=""> <i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-pinterest"></i></a>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
+</body>
+
+</html>

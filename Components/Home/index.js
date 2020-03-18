@@ -221,12 +221,10 @@ $(document).ready(function() {
   });
 });
 
-// cart and wishlist
-
 // get data from JSON file
 
 const getData = async () => {
-  const response = await fetch("./data.json");
+  const response = await fetch("/data.json");
   const data = await response.json();
   return data;
 };
@@ -234,18 +232,12 @@ const getData = async () => {
 // injecting the items inside popular items section
 $(document).ready(async function() {
   await getData().then(data => {
-    return (
-      data.popularItems
-        // .filter(item => {
-        //   console.log(item.id <= 8);
-        //   return item.id <= 8;
-        // })
-        .map(popItem => {
-          return $(".items").append(
-            ` <div class='${popItem.class} ${
-              popItem.id > 8 ? "inactive-item" : ""
-            }' >
-          <img src='./Images/${popItem.imageURL}'/>
+    return data.popularItems.map(popItem => {
+      return $(".items").append(
+        ` <div class='${popItem.class} ${
+          popItem.id > 8 ? "inactive-item" : ""
+        }' >
+          <img src='/Images/${popItem.imageURL}'/>
           <div class="item-info">
            <div class="item-name">
             ${popItem.name}
@@ -266,7 +258,7 @@ $(document).ready(async function() {
             </div>
           </div>
           ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
-          ${popItem.icon ? `<img src="./Images/${popItem.icon}"/>` : " "}
+          ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
           ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
           ${
             popItem.greenGradient === true
@@ -278,26 +270,29 @@ $(document).ready(async function() {
           }
             </div>
            `
-          );
-        })
-    );
+      );
+    });
   });
 
-  $(window).on("resize load", function() {
-    if ($(window).width() <= 768) {
-      $(".items").attr("dir", "rtl");
-      $(".items").slick({
-        rtl: true,
-        infinite: true,
-        dots: true,
-        arrows: false,
-        speed: 500,
-        cssEase: "linear",
-        // autoplay: true,
-        autoplaySpeed: 6000
-      });
+  $(window).on("load resize", function() {
+    if ($(window).width() < 768) {
+      if (!$(".items").hasClass("slick-initialized")) {
+        $(".items").attr("dir", "rtl");
+        $(".items").slick({
+          rtl: true,
+          infinite: true,
+          dots: true,
+          arrows: false,
+          speed: 500,
+          cssEase: "linear",
+          autoplay: true,
+          autoplaySpeed: 6000
+        });
+      }
     } else {
-      $(".items").slick("unslick");
+      if ($(".items").hasClass("slick-initialized")) {
+        $(".items").slick("unslick");
+      }
       $(".items").removeAttr("dir");
     }
   });
@@ -337,7 +332,7 @@ $(document).ready(async function() {
         })
         .map(popItem => {
           return ` <div class="product">
-              <img src='./Images/${popItem.imageURL}'/>
+              <img src='/Images/${popItem.imageURL}'/>
               <div class="product-details">
                <div class="product-name">
                 ${popItem.name}

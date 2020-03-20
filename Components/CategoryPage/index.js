@@ -144,7 +144,11 @@ const menu = `<div class='nav-links'>${navItems
             child.children
               .map(childElem => {
                 return (
-                  "<div class='dropdown-level-III'>" + childElem.name + "</div>"
+                  "<a href='../404/404.html'>" +
+                  "<div class='dropdown-level-III'>" +
+                  childElem.name +
+                  "</div>" +
+                  "</a>"
                 );
               })
               .join("") +
@@ -177,7 +181,7 @@ $(document).ready(() => {
   });
   console.log($(".nav-links>div:first-child"));
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 1280px)").matches) {
+    if (window.matchMedia("(min-width: 768px)").matches) {
       event.stopPropagation();
       console.log("click");
       $(this)
@@ -202,10 +206,9 @@ $(document).ready(() => {
         .toggleClass("active-mobile-III");
     }
   });
-});
 
-// showing login  box
-$(document).ready(function() {
+  // showing login  box
+
   $(".login-trigger").click(function(e) {
     $(".login-box").addClass("active-login-box");
     console.log(e.currentTarget);
@@ -219,30 +222,24 @@ $(document).ready(function() {
       $(".login-box").removeClass("active-login-box");
     }
   });
-});
 
-// get data from JSON file
+  // get data from JSON file
 
-const getData = async () => {
-  const response = await fetch("/data.json");
-  const data = await response.json();
-  return data;
-};
+  const getData = async () => {
+    const response = await fetch("/data.json");
+    const data = await response.json();
+    return data;
+  };
 
-// injecting the items inside popular items section
-$(document).ready(async function() {
-  await getData().then(data => {
-    return (
-      data.popularItems
-        // .filter(item => {
-        //   console.log(item.id <= 8);
-        //   return item.id <= 8;
-        // })
-        .map(popItem => {
-          return $(".items").append(
-            ` <div class='${popItem.class} ${
-              popItem.id > 8 ? "inactive-item" : ""
-            }' >
+  // injecting the items inside popular items section
+
+  getData().then(data => {
+    return data.popularItems.map(popItem => {
+      return $(".items").append(
+        ` <div class='${popItem.class} ${
+          popItem.id > 8 ? "inactive-item" : ""
+        } ${popItem.button === true ? "buttoned" : " "}' >
+        
           <img src='/Images/${popItem.imageURL}'/>
           <div class="item-info">
            <div class="item-name">
@@ -274,20 +271,25 @@ $(document).ready(async function() {
               </div>`
               : " "
           }
+          
             </div>
+           
            `
-          );
-        })
-    );
+      );
+    });
   });
-  $(document).ready(function() {
-    $(window).on("resize load", function() {
-      console.log("reload");
-      if ($(window).width() <= 768) {
+
+  $(window).on("resize load", async function() {
+    console.log("reload", $(".items"));
+
+    if ($(window).width() <= 500) {
+      if (!$(".items").hasClass("slick-initialized")) {
         $(".items").attr("dir", "rtl");
-        $(".items")
+        await $(".items")
           .not(".slick-initialized")
           .slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
             rtl: true,
             infinite: true,
             dots: true,
@@ -297,38 +299,38 @@ $(document).ready(async function() {
             // autoplay: true,
             autoplaySpeed: 6000
           });
-      } else {
-        $(".items").slick("unslick");
-        $(".items").removeAttr("dir");
       }
-    });
-    $(".item").hover(function() {
-      console.log(this);
-      $(this)
-        .children(".green-gradient")
-        .toggleClass("active-gradient");
-    });
-
-    $(".buy-btn").click(function() {
-      console.log(this);
-      $("#cart").text(parseInt($("#cart").text()) + 1);
-    });
-    $(".fa-plus").click(function() {
-      console.log(this);
-      $("#cart").text(parseInt($("#cart").text()) + 1);
-    });
-
-    $(".fa-heart").click(function() {
-      console.log(this);
-      $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
-    });
-    $(".popular-items>button").one("click", function() {
-      $(".item").removeClass("inactive-item");
-    });
+    } else {
+      if ($(".items").hasClass("slick-initialized")) {
+        $(".items").slick("unslick");
+      }
+      $(".items").removeAttr("dir");
+    }
   });
-});
+  $(".item").hover(function() {
+    console.log(this);
+    $(this)
+      .children(".green-gradient")
+      .toggleClass("active-gradient");
+  });
 
-$(document).ready(function() {
+  $(".buy-btn").click(function() {
+    console.log(this);
+    $("#cart").text(parseInt($("#cart").text()) + 1);
+  });
+  $(".fa-plus").click(function() {
+    console.log(this);
+    $("#cart").text(parseInt($("#cart").text()) + 1);
+  });
+
+  $(".fa-heart").click(function() {
+    console.log(this);
+    $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
+  });
+  $(".popular-items>button").one("click", function() {
+    $(".item").removeClass("inactive-item");
+  });
+
   if (localStorage.getItem("cookieState") != "accepted") {
     setTimeout(function() {
       $(".active-cookie-dialog").removeClass("cookie-dialog");
@@ -349,6 +351,7 @@ $(document).ready(function() {
     arrows: false,
     asNavFor: ".slider-nav",
     vertical: true
+
     // verticalSwiping: true,
     // centerMode: true
   });
@@ -358,7 +361,6 @@ $(document).ready(function() {
     asNavFor: ".slider-main",
     vertical: true,
     // focusOnSelect: true,
-    autoplay: false,
     centerMode: true
   });
 
@@ -372,7 +374,8 @@ $(document).ready(function() {
         dots: true,
         arrows: false,
         focusOnSelect: true,
-        autoplay: true
+        autoplay: true,
+        autoplaySpeed: 3000
         // centerMode: true
       });
     } else {
@@ -382,7 +385,7 @@ $(document).ready(function() {
         asNavFor: ".slider-main",
         vertical: true,
         focusOnSelect: true,
-        autoplay: false,
+
         centerMode: true
       });
     }
@@ -439,4 +442,18 @@ $(document).ready(function() {
   $(".products-details .read-more").click(function() {
     console.log($(".products-details .text-detail").text());
   });
+
+  // inserting breadcrumbs
+  $(".breadcrumbs").append(
+    `
+      <div class="pages">
+      <div><a href="../Home/index.html">Home</a></div>
+      <span> / </span>
+      <div>404</div>      
+      </div>
+      <h1>Services<h1>
+      
+      
+        `
+  );
 });

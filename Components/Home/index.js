@@ -144,7 +144,11 @@ const menu = `<div class='nav-links'>${navItems
             child.children
               .map(childElem => {
                 return (
-                  "<div class='dropdown-level-III'>" + childElem.name + "</div>"
+                  "<a href='../404/404.html'>" +
+                  "<div class='dropdown-level-III'>" +
+                  childElem.name +
+                  "</div>" +
+                  "</a>"
                 );
               })
               .join("") +
@@ -237,6 +241,7 @@ $(document).ready(async function() {
         ` <div class='${popItem.class} ${
           popItem.id > 8 ? "inactive-item" : ""
         }' >
+        <a href="../CategoryPage/category.html">
           <img src='/Images/${popItem.imageURL}'/>
           <div class="item-info">
            <div class="item-name">
@@ -268,6 +273,7 @@ $(document).ready(async function() {
               </div>`
               : " "
           }
+          </a>
             </div>
            `
       );

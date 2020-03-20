@@ -1,5 +1,5 @@
 * {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   box-sizing: border-box;
 }
 
@@ -338,11 +338,34 @@ form button {
 }
 
 
-/* ----breadcrumbs------ */
+/* ----breadcrumbs----- */
 .breadcrumbs {
-  text-align: center;
-  background-color: #f2edea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: Lato;
+  background-color: rgb(241, 237, 234);
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #45413E;
+}
+
+.breadcrumbs a:hover {
+  color: #84bc22;
+}
+
+.breadcrumbs .pages {
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+}
+
+.breadcrumbs .pages>* {
+  margin: 3px;
+  color: #45413E;
 }
 
 .breadcrumbs h1 {

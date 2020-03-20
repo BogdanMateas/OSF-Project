@@ -379,4 +379,18 @@ $(document).ready(function() {
     console.log("out");
     $(".active-cookie-dialog").addClass("cookie-dialog");
   });
+
+  // inserting breadcrumbs
+  $(".breadcrumbs").append(
+    `
+      <div class="pages">
+      <div><a href="../Home/index.html">Home</a></div>
+      <span> / </span>
+      <div>404</div>      
+      </div>
+      <h1>Services<h1>
+      
+      
+        `
+  );
 });

@@ -177,7 +177,7 @@ $(document).ready(() => {
   });
   console.log($(".nav-links>div:first-child"));
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 1280px)").matches) {
+    if (window.matchMedia("(min-width: 768px)").matches) {
       event.stopPropagation();
       console.log("click");
       $(this)
@@ -202,23 +202,18 @@ $(document).ready(() => {
         .toggleClass("active-mobile-III");
     }
   });
+
+  // inserting breadcrumbs
+  $(".breadcrumbs").append(
+    `
+      <div class="pages">
+      <div><a href="../Home/index.html">Home</a></div>
+      <span> / </span>
+      <div>404</div>      
+      </div>
+      <h1>404<h1>
+      
+      
+        `
+  );
 });
-
-// showing login  box
-$(document).ready(function() {
-  $(".login-trigger").click(function(e) {
-    $(".login-box").addClass("active-login-box");
-    console.log(e.currentTarget);
-  });
-  $(".login-box").click(function(e) {
-    if (
-      $(e.target).hasClass("login-box") ||
-      $(e.target).hasClass("login-exit")
-    ) {
-      console.log($(".login-box"));
-      $(".login-box").removeClass("active-login-box");
-    }
-  });
-});
-
-

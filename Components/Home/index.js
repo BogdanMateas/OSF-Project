@@ -144,11 +144,11 @@ const menu = `<div class='nav-links'>${navItems
             child.children
               .map(childElem => {
                 return (
-                  "<a href='../404/404.html'>" +
                   "<div class='dropdown-level-III'>" +
+                  "<a href='../404/404.html'>" +
                   childElem.name +
-                  "</div>" +
-                  "</a>"
+                  "</a>" +
+                  "</div>"
                 );
               })
               .join("") +
@@ -181,7 +181,7 @@ $(document).ready(() => {
   });
   console.log($(".nav-links>div:first-child"));
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 1280px)").matches) {
+    if (window.matchMedia("(min-width: 768px)").matches) {
       event.stopPropagation();
       console.log("click");
       $(this)
@@ -205,6 +205,12 @@ $(document).ready(() => {
         .siblings()
         .toggleClass("active-mobile-III");
     }
+  });
+  // nav currencies and language dropdown
+  $(".nav-currencies>li").hover(function() {
+    $(this)
+      .children("ul")
+      .toggleClass("active-cur-lang");
   });
 });
 
@@ -234,14 +240,14 @@ const getData = async () => {
 };
 
 // injecting the items inside popular items section
+// injecting the items inside popular items section
 $(document).ready(async function() {
   await getData().then(data => {
     return data.popularItems.map(popItem => {
       return $(".items").append(
         ` <div class='${popItem.class} ${
           popItem.id > 8 ? "inactive-item" : ""
-        }' >
-        <a href="../CategoryPage/category.html">
+        } ${popItem.button === true ? "buttoned" : " "}'  >
           <img src='/Images/${popItem.imageURL}'/>
           <div class="item-info">
            <div class="item-name">
@@ -273,27 +279,32 @@ $(document).ready(async function() {
               </div>`
               : " "
           }
-          </a>
             </div>
            `
       );
     });
   });
 
-  $(window).on("load resize", function() {
-    if ($(window).width() < 768) {
+  $(window).on("resize load", function() {
+    console.log("reload", $(".items"));
+
+    if ($(window).width() <= 500) {
       if (!$(".items").hasClass("slick-initialized")) {
         $(".items").attr("dir", "rtl");
-        $(".items").slick({
-          rtl: true,
-          infinite: true,
-          dots: true,
-          arrows: false,
-          speed: 500,
-          cssEase: "linear",
-          autoplay: true,
-          autoplaySpeed: 6000
-        });
+        $(".items")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            rtl: true,
+            infinite: true,
+            dots: true,
+            arrows: false,
+            speed: 500,
+            cssEase: "linear",
+            // autoplay: true,
+            autoplaySpeed: 6000
+          });
       }
     } else {
       if ($(".items").hasClass("slick-initialized")) {
@@ -353,39 +364,43 @@ $(document).ready(async function() {
     );
   });
 
-  $(".products").slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    infinite: true,
-    arrows: true,
-    speed: 500,
-    cssEase: "linear",
-    nextArrow: $(".next"),
-    prevArrow: $(".prev"),
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
+  if ($(".products")) {
+    $(".products").slick({
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      infinite: true,
+      arrows: true,
+      speed: 500,
+      cssEase: "linear",
+      nextArrow: $(".next"),
+      prevArrow: $(".prev"),
+      responsive: [
+        {
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
         }
-      }
-    ]
-  });
+      ]
+    });
+  }
 });
 
 $(document).ready(function() {
   $(".carousels").slick({
+    slidesToShow: 1,
     rtl: true,
     infinite: true,
     dots: true,
+
     arrows: false,
     speed: 500,
     cssEase: "linear",
-    // autoplay: true,
-    autoplaySpeed: 6000
+    autoplay: false,
+    autoplaySpeed: 2000
   });
   if (localStorage.getItem("cookieState") != "accepted") {
     setTimeout(function() {
@@ -443,5 +458,3 @@ $(document).ready(function() {
     }
   });
 });
-
-// add class on hover

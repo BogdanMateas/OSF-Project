@@ -144,7 +144,11 @@ const menu = `<div class='nav-links'>${navItems
             child.children
               .map(childElem => {
                 return (
-                  "<div class='dropdown-level-III'>" + childElem.name + "</div>"
+                  "<div class='dropdown-level-III'>" +
+                  "<a href='../404/404.html'>" +
+                  childElem.name +
+                  "</a>" +
+                  "</div>"
                 );
               })
               .join("") +
@@ -203,17 +207,27 @@ $(document).ready(() => {
     }
   });
 
-  // inserting breadcrumbs
-  $(".breadcrumbs").append(
-    `
-      <div class="pages">
-      <div><a href="../Home/index.html">Home</a></div>
-      <span> / </span>
-      <div>404</div>      
-      </div>
-      <h1>404<h1>
-      
-      
-        `
-  );
+  // nav currencies and language dropdown
+  $('.nav-currencies>li').hover(function(){
+        $(this).children('ul').toggleClass('active-cur-lang')
+  })
+
+  // get year
+  $("footer #year").text(new Date().getFullYear());
+
+  // showing login  box
+
+  $(".login-trigger").click(function(e) {
+    $(".login-box").addClass("active-login-box");
+    console.log(e.currentTarget);
+  });
+  $(".login-box").click(function(e) {
+    if (
+      $(e.target).hasClass("login-box") ||
+      $(e.target).hasClass("login-exit")
+    ) {
+      console.log($(".login-box"));
+      $(".login-box").removeClass("active-login-box");
+    }
+  });
 });

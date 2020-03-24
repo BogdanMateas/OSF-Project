@@ -10,95 +10,7 @@ body {
 }
 
 
-/* ------- 404 ----- */
 
-main {
-  height: 711px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1280px;
-  margin: auto;
-  background-color: #f1edea;
-}
-
-main>div {
-  background-color: #ffffff;
-  display: grid;
-  border-radius: 5px;
-  grid-template-columns: 40% 60%;
-  width: 1170px;
-  height: 492px;
-  background-color: #ffffff;
-}
-
-/* oops div */
-
-main div div:first-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #84bc22;
-  font-family: "Lato";
-  font-size: 113px;
-  font-weight: 900;
-}
-
-main div div:nth-child(2) {
-  padding-right: 100px;
-  padding-bottom: 64px;
-}
-
-main div div:nth-child(2) h2 {
-  color: #000000;
-  font-family: "Lato";
-  font-size: 24px;
-  margin-top: 67px;
-}
-
-main p {
-  width: 546px;
-  height: 99px;
-  color: #555555;
-  font-family: Lato;
-  font-size: 16px;
-  margin-bottom: 48px;
-  line-height: 20px;
-}
-
-main a {
-  color: #84bc22;
-  font-family: Lato;
-  font-size: 16px;
-  font-weight: 400;
-  text-decoration: none;
-}
-
-main .search-bar {
-  display: flex;
-  justify-items: center;
-  justify-content: space-between;
-  width: 567px;
-  height: 36px;
-  border: 2px solid #e8e2d6;
-  border-radius: 50px;
-}
-
-main .search-bar input {
-  /* background-color: red; */
-  width: 98%;
-  /* border-color: transparent; */
-  outline: none;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-color: transparent;
-  padding-left: 2%;
-}
-
-main .search-bar img {
-  object-fit: contain;
-  margin-right: 5px;
-}
 
 
 /* the big container */
@@ -146,17 +58,17 @@ header {
   width: 100%;
   height: 30px;
   color: #011847;
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 32px;
-  letter-spacing: 6.33px;
-
+  letter-spacing: 4.33px;
+  font-weight: bolder;
   margin-bottom: 8px;
-  /* font-weight: bold; */
+
 }
 
 .logo-title h3 {
   width: 100%;
-  height: 17px;
+  height: 15px;
   color: #84bc22;
   font-family: "Lato";
   font-size: 18px;
@@ -191,20 +103,57 @@ nav:hover {
 .nav-currencies {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.nav-currencies .currencies,
+.nav-currencies .lang {
+  display: none;
+}
+
+
+.nav-currencies .active-cur-lang {
+  display: flex !important;
+  position: absolute;
+  background-color: #262A33;
+  flex-direction: column;
+  left: 0px;
+  top: 44px;
+  padding-left: 0px;
+  border-radius: 5px;
+
+}
+
+.active-cur-lang li {
+  width: inherit;
+  white-space: nowrap;
+  color: #fff !important;
+  width: 60px
 }
 
 .nav-currencies li {
+
   list-style: none;
   color: #45413e;
   font-family: Lato;
   font-size: 14px;
   text-align: center;
   height: 54px;
+  width: 52px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: 10%;
+  white-space: nowrap;
+}
+
+.nav-currencies li:hover {
+  cursor: pointer;
+  opacity: 1;
+  background-color: #262A33;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .nav-currencies {
@@ -212,10 +161,12 @@ nav:hover {
 }
 
 .nav-currencies>li {
+  position: relative;
   opacity: 0.5;
   color: #45413e;
   font-family: Lato;
   font-size: 14px;
+
 }
 
 /* nav-currencies dropdown icon */
@@ -321,24 +272,35 @@ nav:hover {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  z-index: 9;
+}
+
+.icons img:hover {
+
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .icons div {
+  display: flex;
   position: relative;
 }
 
 .icons div span {
   position: absolute;
   top: -8px;
-  right: -5px;
-  text-align: center;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   border: 2px solid #84bc22;
   background-color: #ffffff;
   color: #8dc030;
-  width: 15px;
-  height: 15px;
-  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 header a {
@@ -348,10 +310,6 @@ header a {
 
 /* ----breadcrumbs----- */
 .breadcrumbs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-family: Lato;
   background-color: rgb(241, 237, 234);
 }
@@ -366,9 +324,12 @@ header a {
 }
 
 .breadcrumbs .pages {
+
   display: flex;
+  justify-content: center;
   flex-direction: row;
   padding: 1%;
+
 }
 
 .breadcrumbs .pages>* {
@@ -377,8 +338,9 @@ header a {
 }
 
 .breadcrumbs h1 {
-  display: flex;
+  display: flex !important;
   flex-direction: row;
+
 }
 
 .breadcrumbs h1:before,
@@ -390,14 +352,232 @@ header a {
 }
 
 .breadcrumbs h1:before {
-  margin-right: 7%;
+  margin-right: 30px
 }
 
 .breadcrumbs h1:after {
-  margin-left: 7%;
+  margin-left: 30px
+}
+
+/* ------ login ----- */
+.login-box {
+  display: none;
+}
+
+.active-login-box {
+  display: block;
+  position: fixed;
+  padding: 10%;
+  z-index: 1;
+  background-color: rgba(216, 224, 219, 0.7);
+  right: 0;
+  left: 0;
+  top: 0;
+  overflow: hidden !important;
+  bottom: 0;
 }
 
 
+
+.login i {
+
+  color: #45413e;
+  right: 0;
+}
+
+.login-box .login-exit {
+  position: absolute;
+  right: 25%;
+  top: 11%;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 467px;
+  background-color: #ffffff;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.login h2 {
+  color: #45413e;
+  font-family: "Lato";
+  font-size: 30px;
+  margin-top: 58px;
+  margin-bottom: 53px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+form div:nth-child(2) div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form div:nth-child(2) div span {
+  color: #84bc22;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+}
+
+form label {
+  color: #45413e;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+form input {
+  width: 95%;
+  height: 90%;
+  border: none;
+  outline: none;
+}
+
+form .pass {
+  width: 390px;
+  height: 36px;
+  border: 2px solid #d7d7d7;
+  border-radius: 50px;
+  padding-left: 10px;
+  outline: none;
+  padding-right: 8px;
+}
+
+.pass i {
+  color: #d7d7d7;
+}
+
+form a {
+  color: #84bc22;
+  font-family: Lato;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-decoration: none
+}
+
+form button {
+  width: 181px;
+  height: 36px;
+  border: 2px solid #84bc22;
+  background-color: #84bc22;
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 53px;
+  margin-bottom: 24px;
+}
+
+
+/* ------- 404 ----- */
+
+main {
+  height: 711px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1280px;
+  margin: auto;
+  background-color: #f1edea;
+}
+
+main>div {
+  background-color: #ffffff;
+  display: grid;
+  border-radius: 5px;
+  grid-template-columns: 40% 60%;
+  width: 1170px;
+  height: 492px;
+  background-color: #ffffff;
+}
+
+/* oops div */
+
+main div div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #84bc22;
+  font-family: "Lato";
+  font-size: 113px;
+  font-weight: 900;
+}
+
+main div div:nth-child(2) {
+  padding-right: 100px;
+  padding-bottom: 64px;
+}
+
+main div div:nth-child(2) h2 {
+  color: #000000;
+  font-family: "Lato";
+  font-size: 24px;
+  margin-top: 67px;
+}
+
+main p {
+  width: 546px;
+  height: 99px;
+  color: #555555;
+  font-family: Lato;
+  font-size: 16px;
+  margin-bottom: 48px;
+  line-height: 20px;
+}
+
+main a {
+  color: #84bc22;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+main .search-bar {
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+  width: 567px;
+  height: 36px;
+  border: 2px solid #e8e2d6;
+  border-radius: 50px;
+}
+
+main .search-bar input {
+  /* background-color: red; */
+  width: 98%;
+  /* border-color: transparent; */
+  outline: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-color: transparent;
+  padding-left: 2%;
+}
+
+main .search-bar img {
+  object-fit: contain;
+  margin-right: 5px;
+}
 
 /* -----cookies dialog ----- */
 
@@ -560,6 +740,11 @@ footer div ul {
   padding-left: 0px;
 }
 
+footer a {
+  text-decoration: none;
+  color: #333333;
+}
+
 /* -----media queries----- */
 
 /* ----for mobile--- */
@@ -574,7 +759,6 @@ footer div ul {
   header .logo-brand .logo-title,
   .nav-links,
   .nav-currencies,
-  .nav-links img,
   .dropdown-level-III {
     display: none;
   }
@@ -829,6 +1013,52 @@ footer div ul {
     margin-right: 5px;
   }
 
+  /* ------ login ----- */
+
+  .active-login-box {
+    padding: 0%
+  }
+
+  .login-box .login-exit {
+    position: absolute;
+    right: 8% !important;
+    top: 10% !important;
+  }
+
+
+  .login {
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+  }
+
+  .login h2 {
+    font-size: 26px;
+    margin-top: 18px;
+    margin-bottom: 20px;
+  }
+
+  form>div {
+    margin-bottom: 5px;
+  }
+
+  form button {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 30px;
+  }
+
+
+
+  form label {
+    font-size: 13px;
+  }
+
+
+
+  form .pass {
+    width: 250px;
+  }
 
 
   /* footer */
@@ -855,6 +1085,8 @@ footer div ul {
     justify-content: space-between;
     position: relative;
   }
+
+
 
   /* for footer dropdown */
   .active-footer {
@@ -930,6 +1162,54 @@ footer div ul {
     grid-template-columns: 30% 60%;
     width: 90%;
 
+  }
+
+  /* ------ login ----- */
+
+
+  .active-login-box {
+    bottom: 50
+  }
+
+  .login-box .login-exit {
+    position: absolute;
+    right: 25%;
+    top: 8%;
+  }
+
+
+  .login {
+    width: 400px;
+    height: 350px;
+
+  }
+
+  .login h2 {
+    font-size: 28px;
+    margin-top: 38px;
+    margin-bottom: 20px;
+  }
+
+  form>div {
+    margin-bottom: 5px;
+  }
+
+  form button {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 30px;
+  }
+
+
+
+  form label {
+    font-size: 13px;
+  }
+
+
+
+  form .pass {
+    width: 300px;
   }
 
   /* oops div */

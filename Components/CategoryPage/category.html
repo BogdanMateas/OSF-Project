@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="logo-brand">
-        <img src="/Images/logo.png" alt="logo-brand" />
+        <a href="../Home/index.html"><img src="/Images/logo.png" alt="logo-brand"></img></a>
 
         <div class="logo-title">
           <h1>OSF</h1>
@@ -35,8 +35,18 @@
 
       <nav>
         <ul class="nav-currencies">
-          <li>EN <i class="fas fa-caret-down"></i></li>
-          <li>&dollar; US <i class="fas fa-caret-down"></i></li>
+          <li>EN <i class="fas fa-caret-down"></i>
+            <ul class="lang">
+              <li>RO</li>
+              <li>UKR</li>
+            </ul>
+          </li>
+          <li>&dollar; US <i class="fas fa-caret-down"></i>
+            <ul class="currencies">
+              <li>&euro; EUR</li>
+              <li>&pound; UK</li>
+            </ul>
+          </li>
         </ul>
       </nav>
 
@@ -55,25 +65,35 @@
     </header>
 
     <section class="breadcrumbs">
+      <div class="pages">
+        <div><a href="../Home/index.html">Home</a></div>
+        <span> / </span>
+        <div><a href="../404/404.html">OSF Theme</a></div>
+        <span> / </span>
+        <div>Kristina Dam Oak Table With White Marble Top</div>
+      </div>
+      <h1>Product Title</h1>
+
+
     </section>
 
 
 
     <div class="login-box">
-      <i class="fas fa-times login-exit"></i>
       <div class="login">
         <h2>Sign in</h2>
         <form action="/">
           <div>
             <label for="email">Email</label>
-            <input type="email" required />
+            <div class="pass"><input type="email" required /></div>
           </div>
           <div>
             <div>
               <label for="password">Password</label>
               <span>forgot password</span>
             </div>
-            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
+            <div class="pass"><input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                required /><i class="fas fa-eye"></i></div>
           </div>
           <button type="submit">LOGIN</button>
           <a href="">I dont't have an account</a>
@@ -299,7 +319,7 @@
     <footer>
       <div>
         <section>
-          <p>&copy; Copyright 2020</p>
+          <p>&copy; Copyright <span id="year"></span></p>
           <p>All Rights Reserved</p>
         </section>
 
@@ -310,8 +330,10 @@
           <div class="contact-details">
             <p>5600, Blvd. de Galeries, Bur 530</p>
             <p>Quebec, Quebec G2K 2H6</p>
-            <p>contact@osf-global.com</p>
-            <p>+1(888)548-4344</p>
+            </br>
+            <a href="mailto:name@email.com">contact@osf-global.com</a>
+            </br></br>
+            <a href="tel:+1(888)548-4344">+1(888)548-4344</a>
           </div>
         </section>
       </div>
@@ -322,22 +344,22 @@
             CATEGORIES<i class="fas fa-caret-down"></i>
           </li>
           <ul class="categories-links">
-            <li><a>Alcohol</a></li>
-            <li><a>Art</a></li>
-            <li><a>Books</a></li>
-            <li><a>Drink</a></li>
-            <li><a>Eletronics</a></li>
-            <li><a>Home</a></li>
-            <li><a>Jewelry</a></li>
-            <li><a>Kids & Baby</a></li>
-            <li><a>Men's Fashion</a></li>
-            <li><a>Mobile</a></li>
-            <li><a>Motorcycles</a></li>
-            <li><a>Movies</a></li>
-            <li><a>Music</a></li>
-            <li><a>Sport</a></li>
-            <li><a>Torys</a></li>
-            <li><a>Travel</a></li>
+            <li><a href="../404/404.html">Alcohol</a></li>
+            <li><a href="../404/404.html">Art</a></li>
+            <li><a href="../404/404.html">Books</a></li>
+            <li><a href="../404/404.html">Drink</a></li>
+            <li><a href="../404/404.html">Eletronics</a></li>
+            <li><a href="../404/404.html">Home</a></li>
+            <li><a href="../404/404.html">Jewelry</a></li>
+            <li><a href="../404/404.html">Kids & Baby</a></li>
+            <li><a href="../404/404.html">Men's Fashion</a></li>
+            <li><a href="../404/404.html">Mobile</a></li>
+            <li><a href="../404/404.html">Motorcycles</a></li>
+            <li><a href="../404/404.html">Movies</a></li>
+            <li><a href="../404/404.html">Music</a></li>
+            <li><a href="../404/404.html">Sport</a></li>
+            <li><a href="../404/404.html">Torys</a></li>
+            <li><a href="../404/404.html">Travel</a></li>
           </ul>
         </ul>
       </div>
@@ -346,20 +368,21 @@
         <ul class="about">
           <li class="main-titles">ABOUT <i class="fas fa-caret-down"></i></li>
           <ul class="about-links">
-            <li><a>About us</a></li>
-            <li><a>Deliveries</a></li>
-            <li><a>Testimonials</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="../404/404.html">About us</a></li>
+            <li><a href="../404/404.html">Deliveries</a></li>
+            <li><a href="../404/404.html">Testimonials</a></li>
+            <li><a href="../404/404.html">Contact</a></li>
           </ul>
         </ul>
       </div>
       <div class="social-media">
-        <a href=""><i class="fab fa-facebook-f"></i></a>
-        <a href=""><img src="/Images/g+.png" alt="" /></a>
-        <a href=""> <i class="fab fa-twitter"></i></a>
-        <a href=""><i class="fab fa-pinterest"></i></a>
+        <a href="https://www.facebook.com/OSFDigital"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://aboutme.google.com/u/0/?referer=gplus"><img src="/Images/g+.png" alt="" /></a>
+        <a href="https://twitter.com/home"> <i class="fab fa-twitter"></i></a>
+        <a href="https://www.pinterest.com/"><i class="fab fa-pinterest"></i></a>
       </div>
     </footer>
+
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -144,11 +144,11 @@ const menu = `<div class='nav-links'>${navItems
             child.children
               .map(childElem => {
                 return (
-                  "<a href='../404/404.html'>" +
                   "<div class='dropdown-level-III'>" +
+                  "<a href='../404/404.html'>" +
                   childElem.name +
-                  "</div>" +
-                  "</a>"
+                  "</a>" +
+                  "</div>"
                 );
               })
               .join("") +
@@ -163,7 +163,7 @@ const menu = `<div class='nav-links'>${navItems
   })
   .join("")}</div>`;
 
-$(document).ready(() => {
+$(document).ready(async () => {
   $("nav").prepend(menu);
   $(".main-titles").click(function() {
     console.log(this);
@@ -206,6 +206,12 @@ $(document).ready(() => {
         .toggleClass("active-mobile-III");
     }
   });
+  // nav currencies and language dropdown
+  $(".nav-currencies>li").hover(function() {
+    $(this)
+      .children("ul")
+      .toggleClass("active-cur-lang");
+  });
 
   // showing login  box
 
@@ -233,7 +239,7 @@ $(document).ready(() => {
 
   // injecting the items inside popular items section
 
-  getData().then(data => {
+  await getData().then(data => {
     return data.popularItems.map(popItem => {
       return $(".items").append(
         ` <div class='${popItem.class} ${
@@ -279,36 +285,8 @@ $(document).ready(() => {
     });
   });
 
-  $(window).on("resize load", async function() {
-    console.log("reload", $(".items"));
-
-    if ($(window).width() <= 500) {
-      if (!$(".items").hasClass("slick-initialized")) {
-        $(".items").attr("dir", "rtl");
-        await $(".items")
-          .not(".slick-initialized")
-          .slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            rtl: true,
-            infinite: true,
-            dots: true,
-            arrows: false,
-            speed: 500,
-            cssEase: "linear",
-            // autoplay: true,
-            autoplaySpeed: 6000
-          });
-      }
-    } else {
-      if ($(".items").hasClass("slick-initialized")) {
-        $(".items").slick("unslick");
-      }
-      $(".items").removeAttr("dir");
-    }
-  });
   $(".item").hover(function() {
-    console.log(this);
+    console.log($(".item"));
     $(this)
       .children(".green-gradient")
       .toggleClass("active-gradient");
@@ -342,53 +320,6 @@ $(document).ready(() => {
   $(".cookie-dialog button, .fa-times").click(function() {
     console.log("out");
     $(".active-cookie-dialog").addClass("cookie-dialog");
-  });
-
-  // slider Product detailed page
-  $(".slider-main").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    asNavFor: ".slider-nav",
-    vertical: true
-
-    // verticalSwiping: true,
-    // centerMode: true
-  });
-
-  $(".slider-nav").slick({
-    slidesToShow: 4,
-    asNavFor: ".slider-main",
-    vertical: true,
-    // focusOnSelect: true,
-    centerMode: true
-  });
-
-  $(window).on("resize orientationchange load", function() {
-    if ($(window).width() <= 768) {
-      $(".slider-nav").slick("unslick");
-      $(".slider-nav").slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: ".slider-main",
-        dots: true,
-        arrows: false,
-        focusOnSelect: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-        // centerMode: true
-      });
-    } else {
-      $(".slider-nav").slick("unslick");
-      $(".slider-nav").slick({
-        slidesToShow: 4,
-        asNavFor: ".slider-main",
-        vertical: true,
-        focusOnSelect: true,
-
-        centerMode: true
-      });
-    }
   });
 
   $("ul.tabs li").click(function() {
@@ -427,33 +358,89 @@ $(document).ready(() => {
 
   // 100 chars limit
 
-  // $(".products-details .text-detail").text(function(idx, txt) {
-  //   return txt.substr(0,100);
-  // });
-  // $(".products-details .read-more").click(function() {
-  //   $(".products-details .text-detail").text(function(idx, txt) {
-  //     return txt.substr(0);
-  //   });
-  // });
-
+  var charLimit = $(".products-details .text-detail").text();
   $(".products-details .text-detail").text(function(idx, txt) {
-    return txt.slice(0, 100);
+    if (txt.length > 10) {
+      return txt.slice(0, 100);
+    }
   });
   $(".products-details .read-more").click(function() {
-    console.log($(".products-details .text-detail").text());
+    $(".products-details .text-detail").text(charLimit);
+  });
+});
+
+$(document).ready(function() {
+  // slider Product detailed page
+  $(".slider-main").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    asNavFor: ".slider-nav",
+    vertical: true
   });
 
-  // inserting breadcrumbs
-  $(".breadcrumbs").append(
-    `
-      <div class="pages">
-      <div><a href="../Home/index.html">Home</a></div>
-      <span> / </span>
-      <div>404</div>      
-      </div>
-      <h1>Services<h1>
-      
-      
-        `
-  );
+  $(".slider-nav").slick({
+    slidesToShow: 4,
+    asNavFor: ".slider-main",
+    vertical: true,
+    focusOnSelect: true,
+    centerMode: true
+  });
+
+  $(window).on("resize orientationchange load", function() {
+    if ($(window).width() <= 768) {
+      $(".slider-nav").slick("unslick");
+      $(".slider-nav").slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: ".slider-main",
+        dots: true,
+        arrows: false,
+        focusOnSelect: true,
+        autoplay: true,
+        autoplaySpeed: 3000
+      });
+    } else {
+      $(".slider-nav").slick("unslick");
+      $(".slider-nav").slick({
+        slidesToShow: 4,
+        asNavFor: ".slider-main",
+        vertical: true,
+        focusOnSelect: true,
+
+        centerMode: true
+      });
+    }
+  });
+});
+
+$(document).ready(function() {
+  $(window).on("resize load", function() {
+    console.log("reload", $(".items"));
+
+    if ($(window).width() <= 500) {
+      if (!$(".items").hasClass("slick-initialized")) {
+        $(".items").attr("dir", "rtl");
+        $(".items")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            rtl: true,
+            infinite: true,
+            dots: true,
+            arrows: false,
+            speed: 500,
+            cssEase: "linear",
+            // autoplay: true,
+            autoplaySpeed: 6000
+          });
+      }
+    } else {
+      if ($(".items").hasClass("slick-initialized")) {
+        $(".items").slick("unslick");
+        $(".items").removeAttr("dir");
+      }
+    }
+  });
 });

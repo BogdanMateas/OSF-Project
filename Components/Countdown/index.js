@@ -144,11 +144,11 @@ const menu = `<div class='nav-links'>${navItems
             child.children
               .map(childElem => {
                 return (
-                  "<a href='../404/404.html'>" +
                   "<div class='dropdown-level-III'>" +
+                  "<a href='../404/404.html'>" +
                   childElem.name +
-                  "</div>" +
-                  "</a>"
+                  "</a>" +
+                  "</div>"
                 );
               })
               .join("") +
@@ -181,7 +181,7 @@ $(document).ready(() => {
   });
   console.log($(".nav-links>div:first-child"));
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 1280px)").matches) {
+    if (window.matchMedia("(min-width: 768px)").matches) {
       event.stopPropagation();
       console.log("click");
       $(this)
@@ -205,6 +205,12 @@ $(document).ready(() => {
         .siblings()
         .toggleClass("active-mobile-III");
     }
+  });
+  // nav currencies and language dropdown
+  $(".nav-currencies>li").hover(function() {
+    $(this)
+      .children("ul")
+      .toggleClass("active-cur-lang");
   });
 });
 
@@ -263,7 +269,10 @@ $(document).ready(function() {
             <div>Seconds</div>
         </div>
       </div>
-      <input type="email" placeholder="Enter your email to receive the latest announcements"> > </input>
+      <div class="registration">
+      <input type="email" placeholder="Enter your email "></input>
+      <img src='/Images/rightarrow.jpg'/>
+      </div>
       </div>
     `
   );

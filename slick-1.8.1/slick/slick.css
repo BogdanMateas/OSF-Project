@@ -95,7 +95,7 @@
 }
 
 .slick-initialized .slick-slide {
-/* display: block; */
+    /* display: block; */
 }
 
 .slick-loading .slick-slide {
@@ -104,7 +104,7 @@
 
 .slick-vertical .slick-slide {
     display: block;
-
+    outline: none;
     height: auto;
 
     border: 1px solid transparent;

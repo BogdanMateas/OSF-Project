@@ -101,20 +101,57 @@ nav:hover {
 .nav-currencies {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.nav-currencies .currencies,
+.nav-currencies .lang {
+  display: none;
+}
+
+
+.nav-currencies .active-cur-lang {
+  display: flex !important;
+  position: absolute;
+  background-color: #262A33;
+  flex-direction: column;
+  left: 0px;
+  top: 44px;
+  padding-left: 0px;
+  border-radius: 5px;
+
+}
+
+.active-cur-lang li {
+  width: inherit;
+  white-space: nowrap;
+  color: #fff !important;
+  width: 60px
 }
 
 .nav-currencies li {
+
   list-style: none;
   color: #45413e;
   font-family: Lato;
   font-size: 14px;
   text-align: center;
   height: 54px;
+  width: 52px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: 10%;
+  white-space: nowrap;
+}
+
+.nav-currencies li:hover {
+  cursor: pointer;
+  opacity: 1;
+  background-color: #262A33;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .nav-currencies {
@@ -122,12 +159,13 @@ nav:hover {
 }
 
 .nav-currencies>li {
+  position: relative;
   opacity: 0.5;
   color: #45413e;
   font-family: Lato;
   font-size: 14px;
-}
 
+}
 /* nav-currencies dropdown icon */
 .nav-currencies li i {
   margin-left: 5px;
@@ -234,22 +272,32 @@ nav:hover {
   z-index: 9;
 }
 
+.icons img:hover {
+
+  cursor: pointer;
+  opacity: 0.7;
+}
+
 .icons div {
+  display: flex;
   position: relative;
 }
 
 .icons div span {
   position: absolute;
   top: -8px;
-  right: -5px;
-  text-align: center;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   border: 2px solid #84bc22;
   background-color: #ffffff;
   color: #8dc030;
-  width: 15px;
-  height: 15px;
-  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 header a {
@@ -259,17 +307,15 @@ header a {
 
 /* ----breadcrumbs----- */
 .breadcrumbs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-family: Lato;
   background-color: rgb(241, 237, 234);
+  padding: 2%
 }
 
 .breadcrumbs a {
   text-decoration: none;
   color: #45413E;
+  white-space: nowrap;
 }
 
 .breadcrumbs a:hover {
@@ -277,9 +323,12 @@ header a {
 }
 
 .breadcrumbs .pages {
+  font-family: Lato;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   padding: 1%;
+
 }
 
 .breadcrumbs .pages>* {
@@ -288,8 +337,9 @@ header a {
 }
 
 .breadcrumbs h1 {
-  display: flex;
+  display: flex !important;
   flex-direction: row;
+
 }
 
 .breadcrumbs h1:before,
@@ -301,12 +351,15 @@ header a {
 }
 
 .breadcrumbs h1:before {
-  margin-right: 7%;
+  margin-right: 30px
 }
 
 .breadcrumbs h1:after {
-  margin-left: 7%;
+  margin-left: 30px
 }
+
+
+
 
 /* ------ login ----- */
 .login-box {
@@ -318,13 +371,20 @@ header a {
   position: fixed;
   padding: 10%;
   z-index: 1;
-
   background-color: rgba(216, 224, 219, 0.7);
   right: 0;
   left: 0;
   top: 0;
   overflow: hidden !important;
   bottom: 0;
+}
+
+
+
+.login i {
+
+  color: #45413e;
+  right: 0;
 }
 
 .login {
@@ -356,6 +416,7 @@ form>div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 form div:nth-child(2) div {
@@ -380,12 +441,24 @@ form label {
 }
 
 form input {
-  width: 398px;
+  width: 95%;
+  height: 90%;
+  border: none;
+  outline: none;
+}
+
+form .pass {
+  width: 390px;
   height: 36px;
   border: 2px solid #d7d7d7;
   border-radius: 50px;
   padding-left: 10px;
   outline: none;
+  padding-right: 8px;
+}
+
+.pass i {
+  color: #d7d7d7;
 }
 
 form a {
@@ -393,6 +466,7 @@ form a {
   font-family: Lato;
   font-size: 12px;
   letter-spacing: 0.6px;
+  text-decoration: none
 }
 
 form button {
@@ -432,7 +506,8 @@ form button {
 }
 
 .slider-main div img {
-
+  margin-bottom: 15px;
+  margin-top: 15px;
   width: 100%;
   height: 100%;
 }
@@ -459,7 +534,9 @@ form button {
 }
 
 .slick-list img {
-  margin-bottom: 5px;
+  margin-top: 10px;
+  outline: none;
+
 }
 
 /* ----products-details---- */
@@ -716,10 +793,11 @@ ul.tabs li.current {
   width: 70%;
   height: 40px;
   margin: auto;
+  white-space: nowrap;
 }
 
 .popular-items .items .item {
-
+  position: relative;
   background-color: white;
   border-radius: 12px;
   margin: 2%;
@@ -772,6 +850,7 @@ ul.tabs li.current {
 .items .item-gradient img:first-child {
   display: none;
 }
+
 
 /* ----gradient-different image----- */
 
@@ -853,10 +932,7 @@ ul.tabs li.current {
 
 .buttoned button {
   padding: 3%;
-  /* align-self: center; */
-
-  /* border-bottom-right-radius: 50px;
-  border-top-right-radius: 50px; */
+  white-space: nowrap;
   font-family: Lato;
   font-size: 14px;
   border: none;
@@ -872,6 +948,7 @@ ul.tabs li.current {
   font-size: 14px;
   font-weight: 400;
   padding: 2%;
+
 }
 
 .popular-items>button {
@@ -1031,6 +1108,8 @@ ul.tabs li.current {
 
 /* ------- footer ----- */
 
+/* ------- footer ----- */
+
 footer {
   overflow: overlay;
   max-width: 1280px;
@@ -1125,6 +1204,12 @@ footer .main-titles i {
 footer div ul {
   padding-left: 0px;
 }
+
+footer a {
+  text-decoration: none;
+  color: #333333;
+}
+
 
 /* -----media queries----- */
 
@@ -1306,6 +1391,10 @@ footer div ul {
     background-color: #8f9297;
   }
 
+  .icons div span {
+    background-color: #8F9297;
+  }
+
 
   .slider-nav div {
     height: 100px;
@@ -1322,13 +1411,16 @@ footer div ul {
 
   }
 
+
+
   /* popular items  */
 
 
   .popular-items .items {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: 40% 40%;
     grid-gap: 2%;
+
 
   }
 
@@ -1339,7 +1431,6 @@ footer div ul {
 
   .buttoned .item-details {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
     width: 70%;
@@ -1438,6 +1529,53 @@ footer div ul {
 
   }
 
+  /* ------ login ----- */
+
+  .active-login-box {
+    padding: 0%
+  }
+
+  .login-box .login-exit {
+    position: absolute;
+    right: 8% !important;
+    top: 10% !important;
+  }
+
+
+  .login {
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+  }
+
+  .login h2 {
+    font-size: 26px;
+    margin-top: 18px;
+    margin-bottom: 20px;
+  }
+
+  form>div {
+    margin-bottom: 5px;
+  }
+
+  form button {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 30px;
+  }
+
+
+
+  form label {
+    font-size: 13px;
+  }
+
+
+
+  form .pass {
+    width: 250px;
+  }
+
   /* slider */
   .services-slider {
     display: grid;
@@ -1512,6 +1650,29 @@ footer div ul {
     grid-template-columns: 20% 70%;
   }
 
+  .active-level-I {
+    display: grid;
+    grid-template-columns: 40% 25% 30%;
+
+  }
+
+  .nav-links .dropdown-level-II>div:first-child {
+    grid-area: product;
+
+  }
+
+
+
+  .nav-links .active-level-I .dropdown-level-II:first-child {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "product product";
+    /* justify-content: space-between; */
+  }
+
+
+
+
   /* nav-icons */
 
   .icons {
@@ -1520,6 +1681,10 @@ footer div ul {
     width: 100%;
     height: 50px;
     background-color: #8f9297;
+  }
+
+  .icons div span {
+    background-color: #8F9297;
   }
 
   ul.tabs li {
@@ -1537,6 +1702,57 @@ footer div ul {
   }
 
 
+  /* ------ login ----- */
+
+
+  .active-login-box {
+    bottom: 50
+  }
+
+  .login-box .login-exit {
+    position: absolute;
+    right: 25%;
+    top: 8%;
+  }
+
+
+  .login {
+    width: 400px;
+    height: 350px;
+
+  }
+
+  .login h2 {
+    font-size: 28px;
+    margin-top: 38px;
+    margin-bottom: 20px;
+  }
+
+  form>div {
+    margin-bottom: 5px;
+  }
+
+  form button {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 30px;
+  }
+
+
+
+  form label {
+    font-size: 13px;
+  }
+
+
+
+  form .pass {
+    width: 300px;
+  }
+
+
+
+  /* popular items */
 
   .popular-items .items {
     display: grid;
@@ -1557,7 +1773,7 @@ footer div ul {
 
   .popular-items .items {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 48% 48%;
 
     grid-gap: 2%;
   }
@@ -1573,6 +1789,11 @@ footer div ul {
     grid-template-columns: 90%;
     max-height: 450px;
     grid-gap: 2%;
+  }
+
+  .buttoned .item-details {
+    display: flex;
+    flex-direction: row-reverse;
   }
 
 }
@@ -1603,18 +1824,32 @@ footer div ul {
     justify-content: center;
     width: 50%;
   }
-}
 
-/* @media screen and (min-width: 769px) and (max-width: 1300px) {
   .products-details .actions button {
     border-radius: 20px;
     font-size: 16px;
-    padding: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
-    outline: none;
-    border: none;
-
-
+    white-space: nowrap;
   }
-} */
+
+  .choose-color span {
+    width: 20px;
+    height: 20px;
+  }
+
+  .products-details .actions>div {
+    padding: 1%;
+  }
+
+  .products-details .choose-color>div {
+    font-size: 14px;
+    padding: 1%
+  }
+}
+
+@media screen and (max-width: 926px) {
+  .login-box .login-exit {
+    position: absolute;
+    right: 20%;
+    top: 8%;
+  }
+}

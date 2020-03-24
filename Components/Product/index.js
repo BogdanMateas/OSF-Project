@@ -144,7 +144,11 @@ const menu = `<div class='nav-links'>${navItems
             child.children
               .map(childElem => {
                 return (
-                  "<div class='dropdown-level-III'>" + childElem.name + "</div>"
+                  "<div class='dropdown-level-III'>" +
+                  "<a href='../404/404.html'>" +
+                  childElem.name +
+                  "</a>" +
+                  "</div>"
                 );
               })
               .join("") +
@@ -177,7 +181,7 @@ $(document).ready(() => {
   });
   console.log($(".nav-links>div:first-child"));
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 1280px)").matches) {
+    if (window.matchMedia("(min-width: 768px)").matches) {
       event.stopPropagation();
       console.log("click");
       $(this)
@@ -201,6 +205,12 @@ $(document).ready(() => {
         .siblings()
         .toggleClass("active-mobile-III");
     }
+  });
+  // nav currencies and language dropdown
+  $(".nav-currencies>li").hover(function() {
+    $(this)
+      .children("ul")
+      .toggleClass("active-cur-lang");
   });
 });
 
@@ -236,7 +246,7 @@ $(document).ready(async function() {
       return $(".items").append(
         ` <div class='${popItem.class} ${
           popItem.id > 8 ? "inactive-item" : ""
-        }' >
+        } ${popItem.button === true ? "buttoned" : " "}'  >
           <img src='/Images/${popItem.imageURL}'/>
           <div class="item-info">
            <div class="item-name">
@@ -275,20 +285,30 @@ $(document).ready(async function() {
   });
 
   $(window).on("resize load", function() {
-    if ($(window).width() <= 768) {
-      $(".items").attr("dir", "rtl");
-      $(".items").slick({
-        rtl: true,
-        infinite: true,
-        dots: true,
-        arrows: false,
-        speed: 500,
-        cssEase: "linear",
-        // autoplay: true,
-        autoplaySpeed: 6000
-      });
+    console.log("reload", $(".items"));
+
+    if ($(window).width() <= 500) {
+      if (!$(".items").hasClass("slick-initialized")) {
+        $(".items").attr("dir", "rtl");
+        $(".items")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            rtl: true,
+            infinite: true,
+            dots: true,
+            arrows: false,
+            speed: 500,
+            cssEase: "linear",
+            // autoplay: true,
+            autoplaySpeed: 6000
+          });
+      }
     } else {
-      $(".items").slick("unslick");
+      if ($(".items").hasClass("slick-initialized")) {
+        $(".items").slick("unslick");
+      }
       $(".items").removeAttr("dir");
     }
   });
@@ -379,18 +399,4 @@ $(document).ready(function() {
     console.log("out");
     $(".active-cookie-dialog").addClass("cookie-dialog");
   });
-
-  // inserting breadcrumbs
-  $(".breadcrumbs").append(
-    `
-      <div class="pages">
-      <div><a href="../Home/index.html">Home</a></div>
-      <span> / </span>
-      <div>404</div>      
-      </div>
-      <h1>Services<h1>
-      
-      
-        `
-  );
 });

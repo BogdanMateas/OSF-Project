@@ -221,13 +221,30 @@ $(document).ready(function() {
     console.log(e.currentTarget);
   });
   $(".login-box").click(function(e) {
-    if (
-      $(e.target).hasClass("login-box") ||
-      $(e.target).hasClass("login-exit")
-    ) {
-      console.log($(".login-box"));
+    if ($(e.target).hasClass("login-box")) {
       $(".login-box").removeClass("active-login-box");
     }
+  });
+  $(document).on("keyup", function(e) {
+    if (e.key === "Escape") {
+      $(".login-box").removeClass("active-login-box");
+    }
+  });
+  // toggle password
+  $(".login .pass i").click(function() {
+    var input = $(".login .pass input");
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    if (input.attr("type") === "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+
+  // button to facebook
+  $(".advertising button").click(function() {
+    console.log("clicked");
+    window.location.href = "https://www.facebook.com/OSFDigital";
   });
 });
 
@@ -239,7 +256,6 @@ const getData = async () => {
   return data;
 };
 
-// injecting the items inside popular items section
 // injecting the items inside popular items section
 $(document).ready(async function() {
   await getData().then(data => {
@@ -336,6 +352,13 @@ $(document).ready(async function() {
   $(".popular-items>button").one("click", function() {
     $(".item").removeClass("inactive-item");
   });
+  // redirect to product detailed page
+  $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+    function() {
+      console.log("clicked");
+      window.location.href = "../ProductPage/product-detailed-page.html";
+    }
+  );
 });
 
 // injecting the popular items inside featured products section
@@ -391,11 +414,9 @@ $(document).ready(async function() {
 
 $(document).ready(function() {
   $(".carousels").slick({
-    slidesToShow: 1,
     rtl: true,
     infinite: true,
     dots: true,
-
     arrows: false,
     speed: 500,
     cssEase: "linear",

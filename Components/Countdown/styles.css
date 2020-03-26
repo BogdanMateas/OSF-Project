@@ -163,6 +163,7 @@ nav:hover {
   font-size: 14px;
 
 }
+
 /* nav-currencies dropdown icon */
 .nav-currencies li i {
   margin-left: 5px;
@@ -841,6 +842,10 @@ footer a {
     background-color: #8f9297;
   }
 
+  .icons div span {
+    background-color: #8F9297;
+  }
+
   /* ------ login ----- */
 
   .active-login-box {
@@ -1021,6 +1026,10 @@ footer a {
     width: 100%;
     height: 50px;
     background-color: #8f9297;
+  }
+
+  .icons div span {
+    background-color: #8F9297;
   }
 
   /* ------ login ----- */

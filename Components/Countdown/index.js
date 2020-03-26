@@ -216,17 +216,30 @@ $(document).ready(() => {
 
 // showing login  box
 $(document).ready(function() {
+  // showing login  box
+
   $(".login-trigger").click(function(e) {
     $(".login-box").addClass("active-login-box");
     console.log(e.currentTarget);
   });
   $(".login-box").click(function(e) {
-    if (
-      $(e.target).hasClass("login-box") ||
-      $(e.target).hasClass("login-exit")
-    ) {
-      console.log($(".login-box"));
+    if ($(e.target).hasClass("login-box")) {
       $(".login-box").removeClass("active-login-box");
+    }
+  });
+  $(document).on("keyup", function(e) {
+    if (e.key === "Escape") {
+      $(".login-box").removeClass("active-login-box");
+    }
+  });
+  // toggle password
+  $(".login .pass i").click(function() {
+    var input = $(".login .pass input");
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    if (input.attr("type") === "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
     }
   });
 });

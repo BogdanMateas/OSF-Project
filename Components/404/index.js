@@ -208,9 +208,11 @@ $(document).ready(() => {
   });
 
   // nav currencies and language dropdown
-  $('.nav-currencies>li').hover(function(){
-        $(this).children('ul').toggleClass('active-cur-lang')
-  })
+  $(".nav-currencies>li").hover(function() {
+    $(this)
+      .children("ul")
+      .toggleClass("active-cur-lang");
+  });
 
   // get year
   $("footer #year").text(new Date().getFullYear());
@@ -228,6 +230,31 @@ $(document).ready(() => {
     ) {
       console.log($(".login-box"));
       $(".login-box").removeClass("active-login-box");
+    }
+  }); // showing login  box
+
+  $(".login-trigger").click(function(e) {
+    $(".login-box").addClass("active-login-box");
+    console.log(e.currentTarget);
+  });
+  $(".login-box").click(function(e) {
+    if ($(e.target).hasClass("login-box")) {
+      $(".login-box").removeClass("active-login-box");
+    }
+  });
+  $(document).on("keyup", function(e) {
+    if (e.key === "Escape") {
+      $(".login-box").removeClass("active-login-box");
+    }
+  });
+  // toggle password
+  $(".login .pass i").click(function() {
+    var input = $(".login .pass input");
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    if (input.attr("type") === "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
     }
   });
 });

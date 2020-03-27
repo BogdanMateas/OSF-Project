@@ -1,6 +1,6 @@
 * {
-  /* border: 1px solid black; */
   box-sizing: border-box;
+  font-family: Lato;
 }
 
 body {
@@ -20,15 +20,12 @@ body {
 
 /* header */
 header {
-  max-width: 1280px;
   width: auto;
   height: 78px;
   margin: auto;
   display: grid;
   align-items: center;
-  background-color: red;
-
-
+  background-color: #fff;
   grid-template-columns: 2fr 6fr 3fr;
   border-bottom: 2px #f3f0e9 solid;
 }
@@ -40,7 +37,6 @@ header {
   justify-content: center;
   align-items: center;
   height: 78px;
-  overflow: hidden;
 }
 
 .logo-brand img {
@@ -49,12 +45,10 @@ header {
 }
 
 
-
 .logo-title h1 {
   width: 100%;
   height: 30px;
   color: #011847;
-  font-family: 'Lato';
   font-size: 32px;
   letter-spacing: 4.33px;
   font-weight: bolder;
@@ -66,7 +60,6 @@ header {
   width: 100%;
   height: 15px;
   color: #84bc22;
-  font-family: "Lato";
   font-size: 18px;
   font-weight: 400;
   text-align: center;
@@ -158,9 +151,7 @@ nav:hover {
   position: relative;
   opacity: 0.5;
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
-
 }
 
 /* nav-currencies dropdown icon */
@@ -177,7 +168,6 @@ nav:hover {
 
 .nav-links>div {
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   height: 54px;
   width: 25%;
@@ -213,7 +203,6 @@ nav:hover {
 
 .nav-links .dropdown-level-II>div:first-child {
   grid-area: product;
-
 }
 
 
@@ -222,7 +211,6 @@ nav:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "product product product";
-  /* justify-content: space-between; */
 }
 
 
@@ -257,7 +245,6 @@ nav:hover {
 .dropdown-level-II:nth-child(2) {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 /* header social icons */
@@ -317,7 +304,6 @@ header a {
 
 
 .login i {
-
   color: #45413e;
   right: 0;
 }
@@ -341,7 +327,6 @@ header a {
 
 .login h2 {
   color: #45413e;
-  font-family: "Lato";
   font-size: 30px;
   margin-top: 58px;
   margin-bottom: 53px;
@@ -375,7 +360,6 @@ form div:nth-child(2) div span {
 
 form label {
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;
@@ -404,7 +388,6 @@ form .pass {
 
 form a {
   color: #84bc22;
-  font-family: Lato;
   font-size: 12px;
   letter-spacing: 0.6px;
   text-decoration: none
@@ -417,7 +400,6 @@ form button {
   background-color: #84bc22;
   border-radius: 50px;
   color: #ffffff;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -433,7 +415,6 @@ form button {
   display: grid;
   grid-template-columns: 70% 30%;
   grid-gap: 1%;
-  /* max-width: 1280px; */
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -465,8 +446,6 @@ form button {
   height: 500px;
   border-radius: 5px;
   color: #ffffff;
-  /* padding-left: 1%;
-  padding-right: 1%; */
 }
 
 .carousels .carousel>* {
@@ -518,12 +497,9 @@ form button {
   background-color: transparent;
   opacity: 0.5;
   color: #ffffff;
-  font-family: Lato;
   font-size: 14px;
   outline: none;
 }
-
-
 
 .carousel button:hover {
   cursor: pointer;
@@ -544,13 +520,12 @@ form button {
 }
 
 .slick-dots li.slick-active button:before {
-  opacity: .75;
   color: #8799A2 !important;
 }
 
 .slick-dots li button:before {
   font-size: 14px !important;
-  line-height: 22px !important;
+  line-height: 24px !important;
 
 }
 
@@ -571,7 +546,6 @@ form button {
 }
 
 .sales-box h1 {
-  font-family: Lato;
   font-weight: 700;
   font-style: normal;
   font-size: 68px;
@@ -609,7 +583,6 @@ form button {
 
 .advertising>button {
   display: flex;
-
   justify-content: space-evenly;
   padding-left: 13%;
   padding-right: 13%;
@@ -622,7 +595,6 @@ form button {
   margin-left: auto;
   margin-right: auto;
   color: #3b5b96;
-  font-family: Lato;
   font-size: 18px;
 }
 
@@ -654,14 +626,12 @@ form button {
   height: auto;
   padding: 1%;
   padding-bottom: 4%;
-  /* height: auto !important; */
 }
 
 .popular-items h1 {
   display: flex;
   flex-direction: row;
   color: #fff;
-  font-family: Lato;
 }
 
 .popular-items h1:before,
@@ -682,11 +652,9 @@ form button {
 }
 
 .popular-items .items {
-  /* overflow: overlay; */
   display: grid;
   justify-content: center;
   grid-template-columns: 23% 23% 23% 23%;
-  /* grid-gap: 2%; */
   height: auto;
   margin-bottom: 5%;
   padding-bottom: 50px;
@@ -741,6 +709,7 @@ form button {
 }
 
 /* green gradient */
+
 .green-gradient {
   display: none;
 }
@@ -751,8 +720,6 @@ form button {
   justify-content: space-evenly;
   background-image: linear-gradient(rgba(3, 199, 134, 0.932),
       rgba(0, 255, 98, 0.925));
-  /* opacity: 0.9; */
-
   position: absolute;
   height: auto;
   bottom: 0;
@@ -807,7 +774,6 @@ form button {
   max-width: 60%;
   max-height: 100px;
   color: #ffffff;
-  font-family: Lato;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -815,7 +781,6 @@ form button {
 
 .item-gradient span {
   color: #ffffff;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
 }
@@ -841,7 +806,6 @@ form button {
 
 .items .item-name {
   color: #45413e;
-  font-family: Lato;
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
@@ -863,16 +827,10 @@ form button {
   color: #24c36c;
   border: 1px solid #7f7f7f;
   padding: 3%;
-  /* align-self: center; */
 }
 
 .buttoned button {
   padding: 3%;
-  /* align-self: center; */
-
-  /* border-bottom-right-radius: 50px;
-  border-top-right-radius: 50px; */
-  font-family: Lato;
   font-size: 14px;
   border: none;
   font-weight: 400;
@@ -883,7 +841,6 @@ form button {
 
 .items .item-price {
   color: #011847;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
 
@@ -907,8 +864,6 @@ form button {
   margin-left: 20px;
 }
 
-
-
 /* -----banner osf------ */
 
 .banner-osf {
@@ -923,12 +878,10 @@ form button {
 
 .banner-osf h1 {
   color: #ffffff;
-  font-family: "Lato";
   font-size: 48px;
 }
 
 .banner-osf div {
-  font-family: Lato;
   font-size: 14px;
   width: 25%;
   text-align: center;
@@ -946,7 +899,6 @@ form button {
 }
 
 .featured-products h1 {
-  font-family: "Lato";
   font-size: 36px;
   font-weight: 700;
 }
@@ -981,9 +933,6 @@ form button {
 
 .products {
   display: grid !important;
-  /* max-width: 1280px; */
-  /* grid-gap: 2%; */
-  /* padding: 4%; */
   justify-content: center;
 }
 
@@ -1013,16 +962,13 @@ form button {
 
 .product-name {
   color: #45413e;
-  font-family: Lato;
   font-size: 16px;
   font-weight: 400;
-  /* line-height: 18px; */
   padding: 3%;
 }
 
 .products .description {
   color: #84bc22;
-  font-family: "Lato";
   font-size: 14px;
   font-weight: 400;
   padding: 3%;
@@ -1031,11 +977,9 @@ form button {
 /* ----benefits content----- */
 
 .benefits-content {
-  /* height: 198px; */
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* justify-content: center; */
-  /* align-items: center; */
   background-color: #45413e;
   padding: 3%;
 }
@@ -1064,7 +1008,6 @@ form button {
 }
 
 .benefits-text>div:first-child {
-  font-family: Lato;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
@@ -1105,7 +1048,6 @@ form button {
 }
 
 .active-cookie-dialog h5 {
-  font-family: "Lato";
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -1113,7 +1055,6 @@ form button {
 }
 
 .active-cookie-dialog button {
-  font-family: Lato;
   border-radius: 20px;
   background-color: #84bc22;
   color: #fff;
@@ -1158,9 +1099,7 @@ footer {
 
 footer section {
   color: #45413e;
-  font-family: "Lato";
   font-size: 13px;
-  /* font-weight: 400; */
   line-height: 18px;
 }
 
@@ -1216,7 +1155,6 @@ footer ul {
 footer li a {
   opacity: 0.7;
   color: #45413e;
-  font-family: Lato;
   font-size: 13px;
   font-weight: 400;
   line-height: 31px;
@@ -1224,7 +1162,6 @@ footer li a {
 
 footer .main-titles {
   color: #333333;
-  font-family: Lato;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1252,7 +1189,6 @@ footer a {
     margin: 0px;
   }
 
-  /* non-displaying the elements */
   header .logo-brand .logo-title,
   .nav-links,
   .nav-currencies,
@@ -1282,8 +1218,6 @@ footer a {
     margin-left: 40%;
     margin-right: 40%;
   }
-
-
 
   /* dropdown icon */
   .x-hamburger {
@@ -1333,6 +1267,7 @@ footer a {
   }
 
   /* dropdown nav - level one */
+
   .nav-mobile-links {
     display: flex;
     flex-direction: column;
@@ -1457,13 +1392,9 @@ footer a {
     height: 30px;
   }
 
-
-
   form label {
     font-size: 13px;
   }
-
-
 
   form .pass {
     width: 250px;
@@ -1481,7 +1412,6 @@ footer a {
 
   .carousel {
     width: 80vw;
-
     text-align: center !important;
     display: flex;
     justify-content: space-evenly;
@@ -1537,9 +1467,6 @@ footer a {
   .popular-items>button {
     margin-top: 20px;
   }
-
-
-
 
   .items .slick-dots {
     bottom: 5px;
@@ -1640,16 +1567,12 @@ footer a {
 
   .nav-links .dropdown-level-II>div:first-child {
     grid-area: product;
-
   }
-
-
 
   .nav-links .active-level-I .dropdown-level-II:first-child {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "product product";
-    /* justify-content: space-between; */
   }
 
 
@@ -1749,7 +1672,6 @@ footer a {
   .popular-items .items {
     display: grid;
     grid-template-columns: 48% 48%;
-
     grid-gap: 2%;
   }
 

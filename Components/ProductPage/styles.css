@@ -1,15 +1,11 @@
 * {
-  /* border: 1px solid black; */
   box-sizing: border-box;
 }
 
 body {
   margin-top: 0px;
   padding: 0px;
-  overflow: scroll;
 }
-
-
 
 /* the big container */
 
@@ -23,7 +19,6 @@ body {
 
 /* header */
 header {
-  max-width: 1280px;
   width: auto;
   height: 78px;
   margin: auto;
@@ -50,25 +45,20 @@ header {
   height: 58px;
 }
 
-
-
 .logo-title h1 {
   width: 100%;
   height: 30px;
   color: #011847;
-  font-family: 'Lato';
   font-size: 32px;
   letter-spacing: 4.33px;
   font-weight: bolder;
   margin-bottom: 8px;
-
 }
 
 .logo-title h3 {
   width: 100%;
   height: 15px;
   color: #84bc22;
-  font-family: "Lato";
   font-size: 18px;
   font-weight: 400;
   text-align: center;
@@ -117,7 +107,6 @@ nav:hover {
   top: 44px;
   padding-left: 0px;
   border-radius: 5px;
-
 }
 
 .active-cur-lang li {
@@ -128,10 +117,8 @@ nav:hover {
 }
 
 .nav-currencies li {
-
   list-style: none;
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   text-align: center;
   height: 54px;
@@ -160,9 +147,7 @@ nav:hover {
   position: relative;
   opacity: 0.5;
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
-
 }
 
 /* nav-currencies dropdown icon */
@@ -179,7 +164,6 @@ nav:hover {
 
 .nav-links>div {
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   height: 54px;
   width: 25%;
@@ -215,18 +199,13 @@ nav:hover {
 
 .nav-links .dropdown-level-II>div:first-child {
   grid-area: product;
-
 }
-
-
 
 .nav-links .active-level-I .dropdown-level-II:first-child {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "product product product";
-  /* justify-content: space-between; */
 }
-
 
 .nav-links i {
   display: none;
@@ -236,8 +215,6 @@ nav:hover {
   display: inline;
   margin-left: 10px
 }
-
-
 
 .nav-links>div:first-child:hover {
   background-color: #262a33;
@@ -259,7 +236,6 @@ nav:hover {
 .dropdown-level-II:nth-child(2) {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 /* header social icons */
@@ -272,7 +248,6 @@ nav:hover {
 }
 
 .icons img:hover {
-
   cursor: pointer;
   opacity: 0.7;
 }
@@ -306,7 +281,6 @@ header a {
 
 /* ----breadcrumbs----- */
 .breadcrumbs {
-  font-family: Lato;
   background-color: rgb(241, 237, 234);
   padding: 2%
 }
@@ -322,12 +296,10 @@ header a {
 }
 
 .breadcrumbs .pages {
-  font-family: Lato;
   display: flex;
   justify-content: center;
   flex-direction: row;
   padding: 1%;
-
 }
 
 .breadcrumbs .pages>* {
@@ -338,7 +310,6 @@ header a {
 .breadcrumbs h1 {
   display: flex !important;
   flex-direction: row;
-
 }
 
 .breadcrumbs h1:before,
@@ -356,9 +327,6 @@ header a {
 .breadcrumbs h1:after {
   margin-left: 30px
 }
-
-
-
 
 /* ------ login ----- */
 .login-box {
@@ -378,10 +346,7 @@ header a {
   bottom: 0;
 }
 
-
-
 .login i {
-
   color: #45413e;
   right: 0;
 }
@@ -399,7 +364,6 @@ header a {
 
 .login h2 {
   color: #45413e;
-  font-family: "Lato";
   font-size: 30px;
   margin-top: 58px;
   margin-bottom: 53px;
@@ -433,7 +397,6 @@ form div:nth-child(2) div span {
 
 form label {
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;
@@ -462,7 +425,6 @@ form .pass {
 
 form a {
   color: #84bc22;
-  font-family: Lato;
   font-size: 12px;
   letter-spacing: 0.6px;
   text-decoration: none
@@ -475,7 +437,6 @@ form button {
   background-color: #84bc22;
   border-radius: 50px;
   color: #ffffff;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -500,7 +461,6 @@ form button {
 }
 
 .slider-main {
-  /* position: relative; */
   display: grid;
   grid-gap: 2%;
 }
@@ -541,7 +501,6 @@ form button {
 }
 
 .slider-main div img {
-
   margin-bottom: 15px;
   margin-top: 15px;
   width: 100%;
@@ -572,7 +531,6 @@ form button {
 .slick-list img {
   margin-top: 10px;
   outline: none;
-
 }
 
 /* ----products-details---- */
@@ -581,10 +539,8 @@ form button {
   flex-direction: column;
   justify-content: space-evenly;
   padding: 2%;
-  font-family: Lato;
   text-align: left;
 }
-
 
 .products-details .choose-color>div {
   border-radius: 30px;
@@ -610,7 +566,6 @@ form button {
 
 .products-details .actions {
   display: flex;
-  /* padding: 3%; */
   flex-direction: row;
 }
 
@@ -682,7 +637,6 @@ form button {
   display: flex;
   flex-direction: row;
   align-items: center;
-
   padding: 4%;
 }
 
@@ -707,7 +661,6 @@ form button {
 /* ------tabs------ */
 .tabs-container {
   margin: 0% 3% 0% 3%;
-
 }
 
 ul.tabs {
@@ -717,7 +670,6 @@ ul.tabs {
   margin: 0px;
   padding: 0px;
   list-style: none;
-  font-family: Lato;
 }
 
 ul.tabs li {
@@ -733,7 +685,6 @@ ul.tabs li {
 
 ul.tabs li.current {
   background: #262a33;
-
   color: #fff;
 }
 
@@ -743,7 +694,6 @@ ul.tabs li.current {
 
 .tab-content.current {
   display: grid;
-  font-family: Lato;
   grid-template-columns: 40% 40%;
   justify-content: space-evenly;
   padding: 5%;
@@ -764,20 +714,17 @@ ul.tabs li.current {
   height: auto;
   padding: 1%;
   padding-bottom: 4%;
-  /* height: auto !important; */
 }
 
 .popular-items h1 {
   display: flex;
   flex-direction: row;
   color: rgb(75, 71, 68);
-  font-family: Lato;
 }
 
 .popular-items h1:before,
 .popular-items h1:after {
   content: "";
-
   flex: 1 1;
   border-bottom: 2px solid #fff;
   margin: auto;
@@ -792,11 +739,9 @@ ul.tabs li.current {
 }
 
 .popular-items .items {
-  /* overflow: overlay; */
   display: grid;
   justify-content: center;
   grid-template-columns: 23% 23% 23% 23%;
-  /* grid-gap: 2%; */
   height: auto;
   margin-bottom: 5%;
   padding-bottom: 50px;
@@ -811,7 +756,6 @@ ul.tabs li.current {
 }
 
 .buttoned .item-price {
-
   color: #24c36c !important;
   border: 1px solid #7f7f7f;
   height: 100%;
@@ -834,12 +778,10 @@ ul.tabs li.current {
   height: 40px;
   margin: auto;
   white-space: nowrap;
-
 }
 
 .popular-items .items .item {
   position: relative;
-
   border-radius: 12px;
   margin: 2%;
   height: auto;
@@ -859,8 +801,6 @@ ul.tabs li.current {
   justify-content: space-evenly;
   background-image: linear-gradient(rgba(3, 199, 134, 0.932),
       rgba(0, 255, 98, 0.925));
-  /* opacity: 0.9; */
-
   position: absolute;
   height: auto;
   bottom: 0;
@@ -917,7 +857,6 @@ ul.tabs li.current {
   max-width: 60%;
   max-height: 100px;
   color: #ffffff;
-  font-family: Lato;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -925,7 +864,6 @@ ul.tabs li.current {
 
 .item-gradient span {
   color: #ffffff;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
 }
@@ -951,7 +889,6 @@ ul.tabs li.current {
 
 .items .item-name {
   color: #45413e;
-  font-family: Lato;
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
@@ -963,7 +900,6 @@ ul.tabs li.current {
   justify-content: center;
   width: 100%;
   margin: auto;
-
 }
 
 .buttoned button .item-price {
@@ -973,13 +909,11 @@ ul.tabs li.current {
   color: #24c36c;
   border: 1px solid #7f7f7f;
   padding: 3%;
-  /* align-self: center; */
 }
 
 .buttoned button {
   padding: 3%;
   white-space: nowrap;
-  font-family: Lato;
   font-size: 14px;
   border: none;
   font-weight: 400;
@@ -990,7 +924,6 @@ ul.tabs li.current {
 
 .items .item-price {
   color: #011847;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
 
@@ -1011,7 +944,6 @@ ul.tabs li.current {
   outline: none;
 }
 
-
 /* -----banner osf------ */
 
 .banner-osf {
@@ -1026,12 +958,10 @@ ul.tabs li.current {
 
 .banner-osf h1 {
   color: #ffffff;
-  font-family: "Lato";
   font-size: 48px;
 }
 
 .banner-osf div {
-  font-family: Lato;
   font-size: 14px;
   width: 25%;
   text-align: center;
@@ -1040,11 +970,8 @@ ul.tabs li.current {
 /* ----benefits content----- */
 
 .benefits-content {
-  /* height: 198px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* justify-content: center; */
-  /* align-items: center; */
   background-color: #45413e;
   padding: 3%;
 }
@@ -1073,7 +1000,6 @@ ul.tabs li.current {
 }
 
 .benefits-text>div:first-child {
-  font-family: Lato;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
@@ -1085,7 +1011,6 @@ ul.tabs li.current {
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-  /* width: 100%; */
 }
 
 /* -----cookies dialog ----- */
@@ -1115,7 +1040,6 @@ ul.tabs li.current {
 }
 
 .active-cookie-dialog h5 {
-  font-family: "Lato";
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -1123,7 +1047,6 @@ ul.tabs li.current {
 }
 
 .active-cookie-dialog button {
-  font-family: Lato;
   border-radius: 20px;
   background-color: #84bc22;
   color: #fff;
@@ -1139,7 +1062,6 @@ ul.tabs li.current {
 
 .active-cookie-dialog p {
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 300;
   line-height: 24px;
@@ -1154,8 +1076,6 @@ ul.tabs li.current {
 .active-cookie-dialog i {
   font-size: 28px;
 }
-
-
 
 /* ------- footer ----- */
 
@@ -1174,9 +1094,7 @@ footer {
 
 footer section {
   color: #45413e;
-  font-family: "Lato";
   font-size: 13px;
-  /* font-weight: 400; */
   line-height: 18px;
 }
 
@@ -1232,7 +1150,6 @@ footer ul {
 footer li a {
   opacity: 0.7;
   color: #45413e;
-  font-family: Lato;
   font-size: 13px;
   font-weight: 400;
   line-height: 31px;
@@ -1240,7 +1157,6 @@ footer li a {
 
 footer .main-titles {
   color: #333333;
-  font-family: Lato;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1267,11 +1183,9 @@ footer a {
 @media screen and (max-width: 768px) and (min-width: 320px) {
   body {
     margin: 0px;
-
     overflow: auto;
   }
 
-  /* non-displaying the elements */
   header .logo-brand .logo-title,
   .nav-links,
   .nav-currencies,
@@ -1417,7 +1331,6 @@ footer a {
   .dropdown-level-II div:first-child {
     height: 20px;
     font-size: 14px;
-
   }
 
   /* dropdown - level three */
@@ -1444,8 +1357,6 @@ footer a {
 
   .slider-nav div {
     height: 100px;
-
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1454,7 +1365,6 @@ footer a {
   /* tabs */
   .tabs-container {
     display: none;
-
   }
 
   /* -----cookies dialog ----- */
@@ -1465,16 +1375,12 @@ footer a {
     margin-right: 5%;
   }
 
-
   /* popular items  */
-
 
   .popular-items .items {
     display: grid;
     grid-template-columns: 40% 40%;
     grid-gap: 2%;
-
-
   }
 
   .popular-items .items .item {
@@ -1491,16 +1397,12 @@ footer a {
     margin: auto;
   }
 
-
-
   .buttoned button {
     align-self: center;
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
     padding: 2%;
   }
-
-
 
   .popular-items .items .item-gradient {
     max-height: 389px !important;
@@ -1510,9 +1412,6 @@ footer a {
   .popular-items>button {
     margin-top: 20px;
   }
-
-
-
 
   .items .slick-dots {
     bottom: 5px;
@@ -1556,19 +1455,15 @@ footer a {
     width: 60%;
   }
 
-
-
   .product-box .actions button {
     font-size: 13px;
     padding: 4%;
     margin-top: 20px;
     width: 70%;
-
   }
 
   .product-box .text-detail {
     font-size: 16px;
-
   }
 
   .product-box .read-more {
@@ -1579,7 +1474,6 @@ footer a {
     color: #b2b2b2;
     margin-right: 4%;
     font-size: 16px;
-
   }
 
   /* ------ login ----- */
@@ -1593,7 +1487,6 @@ footer a {
     right: 8% !important;
     top: 10% !important;
   }
-
 
   .login {
     width: 300px;
@@ -1617,13 +1510,9 @@ footer a {
     height: 30px;
   }
 
-
-
   form label {
     font-size: 13px;
   }
-
-
 
   form .pass {
     width: 250px;
@@ -1653,8 +1542,6 @@ footer a {
     justify-content: center;
   }
 
-
-
   /* footer */
 
   footer {
@@ -1680,7 +1567,7 @@ footer a {
     position: relative;
   }
 
-  /* for footer dropdown */
+  /*footer dropdown */
   .active-footer {
     display: grid !important;
     padding-bottom: 5%;
@@ -1706,25 +1593,17 @@ footer a {
   .active-level-I {
     display: grid;
     grid-template-columns: 40% 25% 30%;
-
   }
 
   .nav-links .dropdown-level-II>div:first-child {
     grid-area: product;
-
   }
-
-
 
   .nav-links .active-level-I .dropdown-level-II:first-child {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "product product";
-    /* justify-content: space-between; */
   }
-
-
-
 
   /* nav-icons */
 
@@ -1754,9 +1633,7 @@ footer a {
     line-height: 1.4;
   }
 
-
   /* ------ login ----- */
-
 
   .active-login-box {
     bottom: 50
@@ -1768,11 +1645,9 @@ footer a {
     top: 8%;
   }
 
-
   .login {
     width: 400px;
     height: 350px;
-
   }
 
   .login h2 {
@@ -1791,19 +1666,13 @@ footer a {
     height: 30px;
   }
 
-
-
   form label {
     font-size: 13px;
   }
 
-
-
   form .pass {
     width: 300px;
   }
-
-
 
   /* popular items */
 
@@ -1827,7 +1696,6 @@ footer a {
   .popular-items .items {
     display: grid;
     grid-template-columns: 48% 48%;
-
     grid-gap: 2%;
   }
 
@@ -1842,7 +1710,6 @@ footer a {
     grid-template-columns: 90%;
     max-height: 450px;
     grid-gap: 2%;
-
   }
 
   .popular-items .item {
@@ -1854,7 +1721,6 @@ footer a {
     display: flex;
     flex-direction: row-reverse;
   }
-
 }
 
 @media screen and (min-width: 501px) and (max-width: 1280px) {

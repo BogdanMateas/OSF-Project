@@ -1,5 +1,4 @@
 * {
-  /* border: 1px solid black; */
   box-sizing: border-box;
 }
 
@@ -7,10 +6,8 @@ body {
   margin-top: 0px;
   padding: 0px;
   overflow: scroll;
+  font-family: Lato;
 }
-
-
-
 
 
 /* the big container */
@@ -25,7 +22,6 @@ body {
 
 /* header */
 header {
-  max-width: 1280px;
   width: auto;
   height: 78px;
   margin: auto;
@@ -58,7 +54,6 @@ header {
   width: 100%;
   height: 30px;
   color: #011847;
-  font-family: 'Lato';
   font-size: 32px;
   letter-spacing: 4.33px;
   font-weight: bolder;
@@ -70,11 +65,9 @@ header {
   width: 100%;
   height: 15px;
   color: #84bc22;
-  font-family: "Lato";
   font-size: 18px;
   font-weight: 400;
   text-align: center;
-
   line-height: 1px;
 }
 
@@ -131,10 +124,8 @@ nav:hover {
 }
 
 .nav-currencies li {
-
   list-style: none;
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   text-align: center;
   height: 54px;
@@ -163,7 +154,6 @@ nav:hover {
   position: relative;
   opacity: 0.5;
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
 
 }
@@ -182,7 +172,6 @@ nav:hover {
 
 .nav-links>div {
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   height: 54px;
   width: 25%;
@@ -218,16 +207,12 @@ nav:hover {
 
 .nav-links .dropdown-level-II>div:first-child {
   grid-area: product;
-
 }
-
-
 
 .nav-links .active-level-I .dropdown-level-II:first-child {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "product product product";
-  /* justify-content: space-between; */
 }
 
 
@@ -239,8 +224,6 @@ nav:hover {
   display: inline;
   margin-left: 10px
 }
-
-
 
 .nav-links>div:first-child:hover {
   background-color: #262a33;
@@ -262,7 +245,6 @@ nav:hover {
 .dropdown-level-II:nth-child(2) {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 /* header social icons */
@@ -275,7 +257,6 @@ nav:hover {
 }
 
 .icons img:hover {
-
   cursor: pointer;
   opacity: 0.7;
 }
@@ -309,7 +290,6 @@ header a {
 
 /* ----breadcrumbs----- */
 .breadcrumbs {
-  font-family: Lato;
   background-color: rgb(241, 237, 234);
 }
 
@@ -376,10 +356,7 @@ header a {
   bottom: 0;
 }
 
-
-
 .login i {
-
   color: #45413e;
   right: 0;
 }
@@ -403,7 +380,6 @@ header a {
 
 .login h2 {
   color: #45413e;
-  font-family: "Lato";
   font-size: 30px;
   margin-top: 58px;
   margin-bottom: 53px;
@@ -437,7 +413,6 @@ form div:nth-child(2) div span {
 
 form label {
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;
@@ -466,7 +441,6 @@ form .pass {
 
 form a {
   color: #84bc22;
-  font-family: Lato;
   font-size: 12px;
   letter-spacing: 0.6px;
   text-decoration: none
@@ -479,7 +453,6 @@ form button {
   background-color: #84bc22;
   border-radius: 50px;
   color: #ffffff;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -517,7 +490,6 @@ main div div:first-child {
   justify-content: center;
   align-items: center;
   color: #84bc22;
-  font-family: "Lato";
   font-size: 113px;
   font-weight: 900;
 }
@@ -529,7 +501,6 @@ main div div:nth-child(2) {
 
 main div div:nth-child(2) h2 {
   color: #000000;
-  font-family: "Lato";
   font-size: 24px;
   margin-top: 67px;
 }
@@ -538,7 +509,6 @@ main p {
   width: 546px;
   height: 99px;
   color: #555555;
-  font-family: Lato;
   font-size: 16px;
   margin-bottom: 48px;
   line-height: 20px;
@@ -546,7 +516,6 @@ main p {
 
 main a {
   color: #84bc22;
-  font-family: Lato;
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
@@ -563,9 +532,7 @@ main .search-bar {
 }
 
 main .search-bar input {
-  /* background-color: red; */
   width: 98%;
-  /* border-color: transparent; */
   outline: none;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
@@ -604,7 +571,6 @@ main .search-bar img {
 }
 
 .active-cookie-dialog h5 {
-  font-family: "Lato";
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -612,7 +578,6 @@ main .search-bar img {
 }
 
 .active-cookie-dialog button {
-  font-family: Lato;
   border-radius: 20px;
   background-color: #84bc22;
   color: #fff;
@@ -626,7 +591,6 @@ main .search-bar img {
 
 .active-cookie-dialog p {
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 300;
   line-height: 24px;
@@ -659,9 +623,7 @@ footer {
 
 footer section {
   color: #45413e;
-  font-family: "Lato";
   font-size: 13px;
-  /* font-weight: 400; */
   line-height: 18px;
 }
 
@@ -717,7 +679,6 @@ footer ul {
 footer li a {
   opacity: 0.7;
   color: #45413e;
-  font-family: Lato;
   font-size: 13px;
   font-weight: 400;
   line-height: 31px;
@@ -725,7 +686,6 @@ footer li a {
 
 footer .main-titles {
   color: #333333;
-  font-family: Lato;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -754,7 +714,6 @@ footer a {
     overflow: auto
   }
 
-  /* non-displaying the elements */
   header .logo-brand .logo-title,
   .nav-links,
   .nav-currencies,
@@ -928,7 +887,6 @@ footer a {
   main {
     width: 100vw !important;
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -945,10 +903,8 @@ footer a {
   }
 
   /* oops div */
-
   main div div:first-child {
     color: #84bc22;
-    font-family: "Lato";
     font-size: 48px;
   }
 
@@ -962,25 +918,19 @@ footer a {
 
   main div div:nth-child(2) h2 {
     color: #000000;
-    font-family: "Lato";
     font-size: 20px;
     margin-top: 10px;
   }
 
   main p {
     width: 100%;
-
     height: auto;
     color: green;
-    font-family: Lato;
     font-size: 14px;
-
-    /* line-height: 20px; */
   }
 
   main a {
     color: #84bc22;
-    font-family: Lato;
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
@@ -997,9 +947,7 @@ footer a {
   }
 
   main .search-bar input {
-    /* background-color: red; */
     width: 98%;
-    /* border-color: transparent; */
     outline: none;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
@@ -1048,13 +996,9 @@ footer a {
     height: 30px;
   }
 
-
-
   form label {
     font-size: 13px;
   }
-
-
 
   form .pass {
     width: 250px;
@@ -1085,8 +1029,6 @@ footer a {
     justify-content: space-between;
     position: relative;
   }
-
-
 
   /* for footer dropdown */
   .active-footer {
@@ -1131,7 +1073,6 @@ footer a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "product product";
-    /* justify-content: space-between; */
   }
 
 
@@ -1162,17 +1103,15 @@ footer a {
   }
 
   main>div {
-
     grid-template-columns: 30% 60%;
     width: 90%;
-
   }
 
   /* ------ login ----- */
 
 
   .active-login-box {
-    bottom: 50
+    bottom: 50;
   }
 
   .login-box .login-exit {
@@ -1204,13 +1143,9 @@ footer a {
     height: 30px;
   }
 
-
-
   form label {
     font-size: 13px;
   }
-
-
 
   form .pass {
     width: 300px;
@@ -1238,9 +1173,7 @@ footer a {
 
 
   main .search-bar {
-
     width: auto;
-
   }
 
   footer {
@@ -1253,7 +1186,6 @@ footer a {
   .popular-items .items {
     display: grid;
     grid-template-columns: 45% 45%;
-
     grid-gap: 2%;
   }
 }
@@ -1265,5 +1197,4 @@ footer a {
     max-height: 450px;
     grid-gap: 2%;
   }
-
 }

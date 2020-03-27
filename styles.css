@@ -26,8 +26,9 @@ header {
   margin: auto;
   display: grid;
   align-items: center;
-  background-color: #fff;
-  grid-template-rows: 1;
+  background-color: red;
+
+
   grid-template-columns: 2fr 6fr 3fr;
   border-bottom: 2px #f3f0e9 solid;
 }
@@ -1271,7 +1272,6 @@ footer a {
 
   header {
     display: flex;
-    background-color: #fff;
     border: none;
   }
 

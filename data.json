@@ -4,7 +4,7 @@
             "price": "$ 659.55",
             "imageURL": "item1.png",
             "description": "Awesome",
-            "class": "item",
+            "class": "item ",
             "button": false,
             "greenGradient": true,
             "id": "1"
@@ -30,13 +30,13 @@
             "id": "3"
         },
         {
-            "name": "Cocktail Table Walnut |Yes",
+            "name": "Countdown",
             "price": "$ 799.55",
             "imageURL": "item4.png",
             "description": "Marketing",
-            "class": "item",
+            "class": "item countdown",
             "button": false,
-            "greenGradient": true,
+            "greenGradient": false,
             "id": "4"
         },
         {

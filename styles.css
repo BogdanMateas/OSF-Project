@@ -53,24 +53,22 @@ header {
   width: 100%;
   height: 30px;
   color: #011847;
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 32px;
-  letter-spacing: 6.33px;
-
+  letter-spacing: 4.33px;
+  font-weight: bolder;
   margin-bottom: 8px;
-  /* font-weight: bold; */
+
 }
 
 .logo-title h3 {
   width: 100%;
-  height: 17px;
+  height: 15px;
   color: #84bc22;
   font-family: "Lato";
   font-size: 18px;
   font-weight: 400;
-  margin-top: 0px;
   text-align: center;
-
   line-height: 1px;
 }
 
@@ -550,8 +548,8 @@ form button {
 }
 
 .slick-dots li button:before {
-  font-size: 15px !important;
-  line-height: 24px !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
 
 }
 
@@ -732,7 +730,7 @@ form button {
 
 .popular-items .items .item {
   position: relative;
-  background-color: white;
+  background-color: #fff;
   border-radius: 12px;
   margin: 2%;
   height: auto;
@@ -892,8 +890,8 @@ form button {
 
 .popular-items>button {
   display: flex;
-  border: 2px solid rgb(75, 71, 68);
-  color: rgb(75, 71, 68);
+  border: 2px solid #fff;
+  color: #fff;
   align-items: center;
   padding: 1%;
   padding-left: 7%;
@@ -902,6 +900,10 @@ form button {
   background-color: transparent;
   margin: auto;
   outline: none;
+}
+
+.popular-items>button img {
+  margin-left: 20px;
 }
 
 
@@ -1503,7 +1505,7 @@ footer a {
   }
 
   .popular-items .items .item {
-    max-height: 389px !important;
+    height: 389px !important;
     margin: 0;
   }
 

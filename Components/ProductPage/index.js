@@ -296,8 +296,18 @@ $(document).ready(async () => {
     });
   });
 
+  // redirect to product detailed page
+  $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+    function() {
+      window.location.href = "../ProductPage/product-detailed-page.html";
+    }
+  );
+  // redirect to countdown page
+  $(".countdown").click(function() {
+    window.location.href = "../Countdown/countdown.html";
+  });
+
   $(".item").hover(function() {
-    console.log($(".item"));
     $(this)
       .children(".green-gradient")
       .toggleClass("active-gradient");

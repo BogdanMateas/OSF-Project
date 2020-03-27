@@ -306,6 +306,16 @@ $(document).ready(async function() {
       );
     });
   });
+  // redirect to product detailed page
+  $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+    function() {
+      window.location.href = "../ProductPage/product-detailed-page.html";
+    }
+  );
+  // redirect to countdown page
+  $(".countdown").click(function() {
+    window.location.href = "../Countdown/countdown.html";
+  });
 
   $(window).on("resize load", function() {
     console.log("reload", $(".items"));

@@ -145,7 +145,7 @@ const menu = `<div class='nav-links'>${navItems
               .map(childElem => {
                 return (
                   "<div class='dropdown-level-III'>" +
-                  "<a href='../404/404.html'>" +
+                  "<a href='Components/404/404.html'>" +
                   childElem.name +
                   "</a>" +
                   "</div>"
@@ -355,10 +355,14 @@ $(document).ready(async function() {
   // redirect to product detailed page
   $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
     function() {
-      console.log("clicked");
-      window.location.href = "../ProductPage/product-detailed-page.html";
+      window.location.href =
+        "Components/ProductPage/product-detailed-page.html";
     }
   );
+  // redirect to countdown page
+  $(".countdown").click(function() {
+    window.location.href = "Components/Countdown/countdown.html";
+  });
 });
 
 // injecting the popular items inside featured products section

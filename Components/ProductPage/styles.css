@@ -810,6 +810,7 @@ ul.tabs li.current {
   top: 0;
   left: 0;
   right: 0;
+  border-radius: 5px;
 }
 
 .item .active-gradient div {
@@ -1548,7 +1549,7 @@ footer a {
   /* footer */
 
   footer {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     padding-left: 3%;
     padding-right: 3%;
@@ -1598,6 +1599,11 @@ footer a {
     grid-template-columns: 40% 25% 30%;
   }
 
+  .nav-mobile-links {
+    top: 78px;
+  }
+
+
   .nav-links .dropdown-level-II>div:first-child {
     grid-area: product;
   }
@@ -1607,6 +1613,9 @@ footer a {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "product product";
   }
+
+
+
 
   /* nav-icons */
 
@@ -1708,6 +1717,10 @@ footer a {
 }
 
 @media screen and (max-width: 500px) {
+  #lightbox img {
+    max-width: 90%;
+  }
+
   .popular-items .items {
     display: grid;
     grid-template-columns: 90%;
@@ -1770,7 +1783,9 @@ footer a {
 
   .products-details .choose-color>div {
     font-size: 14px;
-    padding: 1%
+    padding: 1%;
+    margin-bottom: 5px;
+
   }
 }
 

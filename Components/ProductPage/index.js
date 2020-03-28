@@ -123,7 +123,7 @@ let navItems = [
     children: []
   }
 ];
-
+// header-menu / nav-bar
 const menu = `<div class='nav-links'>${navItems
   .map(navItem => {
     return (
@@ -166,7 +166,6 @@ const menu = `<div class='nav-links'>${navItems
 $(document).ready(async () => {
   $("nav").prepend(menu);
   $(".main-titles").click(function() {
-    console.log(this);
     $(this)
       .next(".contact-details, .categories-links , .about-links")
       .toggleClass("active-footer");
@@ -179,11 +178,9 @@ $(document).ready(async () => {
     $(".icon").toggleClass("close");
     $(".nav-links").toggleClass("nav-mobile-links");
   });
-  console.log($(".nav-links>div:first-child"));
-  $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 768px)").matches) {
+  $(".nav-links .dropdown-level-I:first-child").on("hover", function() {
+    if (window.matchMedia("(min-width: 769px)").matches) {
       event.stopPropagation();
-      console.log("click");
       $(this)
         .children(".nav-links-l-II")
         .toggleClass("active-level-I");
@@ -199,13 +196,13 @@ $(document).ready(async () => {
   });
   $(".dropdown-level-II>div").click(function() {
     if (window.matchMedia("(max-width: 768px)").matches) {
-      console.log("click");
       event.stopPropagation();
       $(this)
         .siblings()
         .toggleClass("active-mobile-III");
     }
   });
+
   // nav currencies and language dropdown
   $(".nav-currencies>li").hover(function() {
     $(this)
@@ -214,11 +211,10 @@ $(document).ready(async () => {
   });
 
   // showing login  box
-
   $(".login-trigger").click(function(e) {
     $(".login-box").addClass("active-login-box");
-    console.log(e.currentTarget);
   });
+  // removing login box
   $(".login-box").click(function(e) {
     if ($(e.target).hasClass("login-box")) {
       $(".login-box").removeClass("active-login-box");
@@ -231,7 +227,7 @@ $(document).ready(async () => {
   });
   // toggle password
   $(".login .pass i").click(function() {
-    var input = $(".login .pass input");
+    var input = $(".login .pass #psw");
     $(this).toggleClass("fa-eye fa-eye-slash");
     if (input.attr("type") === "password") {
       input.attr("type", "text");
@@ -287,10 +283,8 @@ $(document).ready(async () => {
                 <div><i class="fas fa-heart"></i></div>
               </div>`
               : " "
-          }
-          
-            </div>
-           
+          }          
+            </div>           
            `
       );
     });
@@ -302,46 +296,52 @@ $(document).ready(async () => {
       window.location.href = "../ProductPage/product-detailed-page.html";
     }
   );
+
   // redirect to countdown page
   $(".countdown").click(function() {
     window.location.href = "../Countdown/countdown.html";
   });
 
+  // showing green gradient on hover
   $(".item").hover(function() {
     $(this)
       .children(".green-gradient")
       .toggleClass("active-gradient");
   });
-
+  // increase cart value
   $(".buy-btn").click(function() {
     console.log(this);
     $("#cart").text(parseInt($("#cart").text()) + 1);
   });
+  // increase cart value
   $(".fa-plus").click(function() {
     console.log(this);
     $("#cart").text(parseInt($("#cart").text()) + 1);
   });
-
+  // increase wishlist value
   $(".fa-heart").click(function() {
     console.log(this);
     $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
   });
+  // show more products when
   $(".popular-items>button").one("click", function() {
     $(".item").removeClass("inactive-item");
   });
 
+  // showing cookies
   if (localStorage.getItem("cookieState") != "accepted") {
     setTimeout(function() {
       $(".active-cookie-dialog").removeClass("cookie-dialog");
     }, 3000);
   }
   $(".cookie-dialog button").click(function() {
-    localStorage.setItem("cookieState", "accepted"), console.log("clicked");
+    localStorage.setItem("cookieState", "accepted");
   });
   $(".cookie-dialog button, .fa-times").click(function() {
-    console.log("out");
     $(".active-cookie-dialog").addClass("cookie-dialog");
   });
+
+  // tabs
 
   $("ul.tabs li").click(function() {
     var tab_id = $(this).attr("data-tab");
@@ -352,46 +352,48 @@ $(document).ready(async () => {
     $(this).addClass("current");
     $("#" + tab_id).addClass("current");
   });
-  // input numberic only validation
+
+  // input numeric only validation
   $(".actions input").keypress(function(e) {
     if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
   });
+
+  // decrease input value
   $(".actions .decrease").click(function() {
     if ($(".actions input").val() > 0) {
       $(".actions input").val(parseInt($(".actions input").val()) - 1);
     }
   });
+
+  // increase input value
   $(".actions .increase").click(function() {
     if ($(".actions input").val() < 100) {
       $(".actions input").val(parseInt($(".actions input").val()) + 1);
     }
   });
 
-  // Add button event
-
+  // add input value to cart value
   $(".actions button").click(function() {
-    console.log(parseInt($("#cart").text()));
-    console.log(parseInt($(".actions input").val()));
     $("#cart").text(
       parseInt($("#cart").text()) + parseInt($(".actions input").val())
     );
   });
 
   // 100 chars limit
-
   var charLimit = $(".products-details .text-detail").text();
   $(".products-details .text-detail").text(function(idx, txt) {
     if (txt.length > 10) {
       return txt.slice(0, 100);
     }
   });
+  // removing chars limit
   $(".products-details .read-more").click(function() {
     $(".products-details .text-detail").text(charLimit);
   });
 });
 
+// slider Product detailed page
 $(document).ready(function() {
-  // slider Product detailed page
   $(".slider-main").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -428,13 +430,12 @@ $(document).ready(function() {
         asNavFor: ".slider-main",
         vertical: true,
         focusOnSelect: true,
-
         centerMode: true
       });
     }
   });
-  // full screen image
 
+  // full screen image
   const lightbox = document.createElement("div");
   lightbox.id = "lightbox";
   document.body.appendChild(lightbox);
@@ -451,17 +452,15 @@ $(document).ready(function() {
       lightbox.appendChild(img);
     });
   });
-
   lightbox.addEventListener("click", e => {
     if (e.target !== e.currentTarget) return;
     lightbox.classList.remove("active");
   });
 });
 
+// when width <= 500, products become slider
 $(document).ready(function() {
   $(window).on("resize load", function() {
-    console.log("reload", $(".items"));
-
     if ($(window).width() <= 500) {
       if (!$(".items").hasClass("slick-initialized")) {
         $(".items").attr("dir", "rtl");

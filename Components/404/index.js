@@ -178,7 +178,7 @@ $(document).ready(() => {
     $(".nav-links").toggleClass("nav-mobile-links");
   });
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 768px)").matches) {
+    if (window.matchMedia("(min-width: 769px)").matches) {
       event.stopPropagation();
       $(this)
         .children(".nav-links-l-II")
@@ -214,18 +214,7 @@ $(document).ready(() => {
   $(".login-trigger").click(function(e) {
     $(".login-box").addClass("active-login-box");
   });
-  $(".login-box").click(function(e) {
-    if (
-      $(e.target).hasClass("login-box") ||
-      $(e.target).hasClass("login-exit")
-    ) {
-      $(".login-box").removeClass("active-login-box");
-    }
-  }); // showing login  box
-
-  $(".login-trigger").click(function(e) {
-    $(".login-box").addClass("active-login-box");
-  });
+  // removing login box
   $(".login-box").click(function(e) {
     if ($(e.target).hasClass("login-box")) {
       $(".login-box").removeClass("active-login-box");
@@ -236,9 +225,10 @@ $(document).ready(() => {
       $(".login-box").removeClass("active-login-box");
     }
   });
+
   // toggle password
   $(".login .pass i").click(function() {
-    var input = $(".login .pass input");
+    var input = $(".login .pass #psw");
     $(this).toggleClass("fa-eye fa-eye-slash");
     if (input.attr("type") === "password") {
       input.attr("type", "text");

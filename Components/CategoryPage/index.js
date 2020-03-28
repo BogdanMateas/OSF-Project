@@ -164,10 +164,9 @@ const menu = `<div class='nav-links'>${navItems
   })
   .join("")}</div>`;
 
-$(document).ready(() => {
+$(document).ready(async () => {
   $("nav").prepend(menu);
   $(".main-titles").click(function() {
-    console.log(this);
     $(this)
       .next(".contact-details, .categories-links , .about-links")
       .toggleClass("active-footer");
@@ -180,11 +179,9 @@ $(document).ready(() => {
     $(".icon").toggleClass("close");
     $(".nav-links").toggleClass("nav-mobile-links");
   });
-  console.log($(".nav-links>div:first-child"));
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 768px)").matches) {
+    if (window.matchMedia("(min-width: 769px)").matches) {
       event.stopPropagation();
-      console.log("click");
       $(this)
         .children(".nav-links-l-II")
         .toggleClass("active-level-I");
@@ -200,7 +197,6 @@ $(document).ready(() => {
   });
   $(".dropdown-level-II>div").click(function() {
     if (window.matchMedia("(max-width: 768px)").matches) {
-      console.log("click");
       event.stopPropagation();
       $(this)
         .siblings()
@@ -214,17 +210,15 @@ $(document).ready(() => {
       .children("ul")
       .toggleClass("active-cur-lang");
   });
-});
 
-// showing login  box
-$(document).ready(function() {
+  // showing login  box
   $(".login-trigger").click(function(e) {
     $(".login-box").addClass("active-login-box");
-    console.log(e.currentTarget);
   });
+
+  // removing login box
   $(".login-box").click(function(e) {
     if ($(e.target).hasClass("login-box")) {
-      console.log($(".login-box"));
       $(".login-box").removeClass("active-login-box");
     }
   });
@@ -236,7 +230,7 @@ $(document).ready(function() {
 
   // toggle password
   $(".login .pass i").click(function() {
-    var input = $(".login .pass input");
+    var input = $(".login .pass #psw");
     $(this).toggleClass("fa-eye fa-eye-slash");
     if (input.attr("type") === "password") {
       input.attr("type", "text");
@@ -244,28 +238,28 @@ $(document).ready(function() {
       input.attr("type", "password");
     }
   });
-  // toggle password
-  $(".login .pass i").click(function() {
-    var input = $(".login .pass input");
-    $(this).toggleClass("fa-eye fa-eye-slash");
-    if (input.attr("type") === "password") {
-      input.attr("type", "text");
-    } else {
-      input.attr("type", "password");
-    }
+
+  // show cookies
+  if (localStorage.getItem("cookieState") != "accepted") {
+    setTimeout(function() {
+      $(".active-cookie-dialog").removeClass("cookie-dialog");
+    }, 3000);
+  }
+  $(".cookie-dialog button").click(function() {
+    localStorage.setItem("cookieState", "accepted"), console.log("clicked");
   });
-});
+  $(".cookie-dialog button, .fa-times").click(function() {
+    $(".active-cookie-dialog").addClass("cookie-dialog");
+  });
 
-// get data from JSON file
+  // get data from JSON file
+  const getData = async () => {
+    const response = await fetch("/data.json");
+    const data = await response.json();
+    return data;
+  };
 
-const getData = async () => {
-  const response = await fetch("/data.json");
-  const data = await response.json();
-  return data;
-};
-
-// injecting the items inside popular items section
-$(document).ready(async function() {
+  // injecting the items inside popular items section
   await getData().then(data => {
     return data.popularItems.map(popItem => {
       return $(".items").append(
@@ -308,20 +302,21 @@ $(document).ready(async function() {
       );
     });
   });
+
   // redirect to product detailed page
   $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
     function() {
       window.location.href = "../ProductPage/product-detailed-page.html";
     }
   );
+
   // redirect to countdown page
   $(".countdown").click(function() {
     window.location.href = "../Countdown/countdown.html";
   });
 
+  // showing slider when window <=500
   $(window).on("resize load", function() {
-    console.log("reload", $(".items"));
-
     if ($(window).width() <= 500) {
       if (!$(".items").hasClass("slick-initialized")) {
         $(".items").attr("dir", "rtl");
@@ -336,7 +331,6 @@ $(document).ready(async function() {
             arrows: false,
             speed: 500,
             cssEase: "linear",
-            // autoplay: true,
             autoplaySpeed: 6000
           });
       }
@@ -347,38 +341,37 @@ $(document).ready(async function() {
       $(".items").removeAttr("dir");
     }
   });
+
+  // showing product's green gradient
   $(".item").hover(function() {
-    console.log(this);
     $(this)
       .children(".green-gradient")
       .toggleClass("active-gradient");
   });
 
+  // increase cart
   $(".buy-btn").click(function() {
-    console.log(this);
     $("#cart").text(parseInt($("#cart").text()) + 1);
   });
+  // increase cart
   $(".fa-plus").click(function() {
-    console.log(this);
     $("#cart").text(parseInt($("#cart").text()) + 1);
   });
-
+  // increase wishlist
   $(".fa-heart").click(function() {
-    console.log(this);
     $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
   });
+  // show more products when view more clicked
   $(".popular-items>button").one("click", function() {
     $(".item").removeClass("inactive-item");
   });
-});
 
-// injecting the popular items inside featured products section
-$(document).ready(async function() {
+  // injecting the popular items inside featured products section
+
   await getData().then(data => {
     return $(".featured-products").append(
       `<div class="products">${data.popularItems
         .filter(item => {
-          console.log(item.id <= 8);
           return item.id <= 12;
         })
         .map(popItem => {
@@ -418,20 +411,5 @@ $(document).ready(async function() {
         }
       }
     ]
-  });
-});
-
-$(document).ready(function() {
-  if (localStorage.getItem("cookieState") != "accepted") {
-    setTimeout(function() {
-      $(".active-cookie-dialog").removeClass("cookie-dialog");
-    }, 3000);
-  }
-  $(".cookie-dialog button").click(function() {
-    localStorage.setItem("cookieState", "accepted"), console.log("clicked");
-  });
-  $(".cookie-dialog button, .fa-times").click(function() {
-    console.log("out");
-    $(".active-cookie-dialog").addClass("cookie-dialog");
   });
 });

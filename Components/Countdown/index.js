@@ -123,7 +123,7 @@ let navItems = [
     children: []
   }
 ];
-
+// header-menu / nav-bar
 const menu = `<div class='nav-links'>${navItems
   .map(navItem => {
     return (
@@ -163,10 +163,9 @@ const menu = `<div class='nav-links'>${navItems
   })
   .join("")}</div>`;
 
-$(document).ready(() => {
+$(document).ready(function() {
   $("nav").prepend(menu);
   $(".main-titles").click(function() {
-    console.log(this);
     $(this)
       .next(".contact-details, .categories-links , .about-links")
       .toggleClass("active-footer");
@@ -179,11 +178,9 @@ $(document).ready(() => {
     $(".icon").toggleClass("close");
     $(".nav-links").toggleClass("nav-mobile-links");
   });
-  console.log($(".nav-links>div:first-child"));
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
-    if (window.matchMedia("(min-width: 768px)").matches) {
+    if (window.matchMedia("(min-width: 769px)").matches) {
       event.stopPropagation();
-      console.log("click");
       $(this)
         .children(".nav-links-l-II")
         .toggleClass("active-level-I");
@@ -199,7 +196,6 @@ $(document).ready(() => {
   });
   $(".dropdown-level-II>div").click(function() {
     if (window.matchMedia("(max-width: 768px)").matches) {
-      console.log("click");
       event.stopPropagation();
       $(this)
         .siblings()
@@ -212,16 +208,12 @@ $(document).ready(() => {
       .children("ul")
       .toggleClass("active-cur-lang");
   });
-});
 
-// showing login  box
-$(document).ready(function() {
   // showing login  box
-
   $(".login-trigger").click(function(e) {
     $(".login-box").addClass("active-login-box");
-    console.log(e.currentTarget);
   });
+  // removing login box
   $(".login-box").click(function(e) {
     if ($(e.target).hasClass("login-box")) {
       $(".login-box").removeClass("active-login-box");
@@ -232,9 +224,10 @@ $(document).ready(function() {
       $(".login-box").removeClass("active-login-box");
     }
   });
+
   // toggle password
   $(".login .pass i").click(function() {
-    var input = $(".login .pass input");
+    var input = $(".login .pass #psw");
     $(this).toggleClass("fa-eye fa-eye-slash");
     if (input.attr("type") === "password") {
       input.attr("type", "text");
@@ -242,19 +235,9 @@ $(document).ready(function() {
       input.attr("type", "password");
     }
   });
-});
 
-// get data from JSON file
+  // add countdown
 
-const getData = async () => {
-  const response = await fetch("/data.json");
-  const data = await response.json();
-  return data;
-};
-
-// add countdown
-
-$(document).ready(function() {
   $(".countdown-container").append(
     ` <div class="countdown">
       <h1>We Will Release OSF Academy</h1>
@@ -290,8 +273,8 @@ $(document).ready(function() {
     `
   );
 
-  // initializing the lets
-  var myDate = {
+  // initializing the let
+  let myDate = {
     months: 0,
     days: 0,
     hours: 0,
@@ -301,14 +284,7 @@ $(document).ready(function() {
 
   setInterval(function countDown() {
     let currentDate = new Date();
-    let futureDate = new Date(2020, 02, 30, 00, 00, 00, 0);
-    console.log(Object.values(myDate)[4], $(".months"));
-    // console.log(
-    //   Object.entries(myDate).map(date => {
-    //     return date;
-    //   })
-    // );
-    // get total seconds between the times
+    let futureDate = new Date(2020, 02, 30, 24, 00, 00, 0);
     let delta = Math.abs(futureDate - currentDate) / 1000;
 
     // calculate (and subtract) whole days
@@ -326,8 +302,8 @@ $(document).ready(function() {
     delta -= minutes * 60;
     myDate.minutes = minutes;
 
-    // what's left is seconds
-    let seconds = Math.floor(delta % 60); // in theory the modulus is not required
+    // seconds
+    let seconds = Math.floor(delta % 60);
     myDate.seconds = seconds;
 
     $(".months").text(Object.values(myDate)[0]);
@@ -335,7 +311,5 @@ $(document).ready(function() {
     $(".hours").text(Object.values(myDate)[2]);
     $(".minutes").text(Object.values(myDate)[3]);
     $(".seconds").text(Object.values(myDate)[4]);
-
-    // countDown.innerHTML = Object.values(myDate).join(" ");
   }, 1000);
 });

@@ -651,6 +651,7 @@ form button {
   top: 0;
   left: 0;
   right: 0;
+  border-radius: 5px;
 }
 
 .item .active-gradient div {
@@ -1323,11 +1324,12 @@ footer a {
   /* footer */
 
   footer {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     padding-left: 3%;
     padding-right: 3%;
   }
+
 
   footer .contact-details,
   footer .categories .categories-links,
@@ -1380,6 +1382,10 @@ footer a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "product product";
+  }
+
+  .nav-mobile-links {
+    top: 78px;
   }
 
   /* nav-icons */

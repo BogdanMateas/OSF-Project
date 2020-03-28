@@ -893,11 +893,12 @@ footer a {
   /* footer */
 
   footer {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     padding-left: 3%;
     padding-right: 3%;
   }
+
 
   footer .contact-details,
   footer .categories .categories-links,
@@ -950,6 +951,10 @@ footer a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "product product";
+  }
+
+  .nav-mobile-links {
+    top: 78px;
   }
 
 

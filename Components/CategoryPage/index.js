@@ -124,6 +124,7 @@ let navItems = [
   }
 ];
 
+// header-menu / nav-bar
 const menu = `<div class='nav-links'>${navItems
   .map(navItem => {
     return (
@@ -206,6 +207,7 @@ $(document).ready(() => {
         .toggleClass("active-mobile-III");
     }
   });
+
   // nav currencies and language dropdown
   $(".nav-currencies>li").hover(function() {
     $(this)

@@ -5,6 +5,7 @@
 body {
   margin-top: 0px;
   padding: 0px;
+  font-family: Lato;
 }
 
 /* the big container */
@@ -107,6 +108,7 @@ nav:hover {
   top: 44px;
   padding-left: 0px;
   border-radius: 5px;
+
 }
 
 .active-cur-lang li {
@@ -148,6 +150,7 @@ nav:hover {
   opacity: 0.5;
   color: #45413e;
   font-size: 14px;
+
 }
 
 /* nav-currencies dropdown icon */

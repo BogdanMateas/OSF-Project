@@ -109,6 +109,7 @@ nav:hover {
   top: 44px;
   padding-left: 0px;
   border-radius: 5px;
+
 }
 
 .active-cur-lang li {
@@ -150,6 +151,7 @@ nav:hover {
   opacity: 0.5;
   color: #45413e;
   font-size: 14px;
+
 }
 
 /* nav-currencies dropdown icon */
@@ -908,6 +910,7 @@ form button {
   padding: 1% 4%;
   margin-right: 0px;
   margin-bottom: 0px;
+  border: transparent
 }
 
 .active-cookie-dialog p {

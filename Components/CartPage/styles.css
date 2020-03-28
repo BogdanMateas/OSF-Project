@@ -131,10 +131,8 @@ nav:hover {
 }
 
 .nav-currencies li {
-
   list-style: none;
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
   text-align: center;
   height: 54px;
@@ -163,10 +161,10 @@ nav:hover {
   position: relative;
   opacity: 0.5;
   color: #45413e;
-  font-family: Lato;
   font-size: 14px;
 
 }
+
 
 /* nav-currencies dropdown icon */
 .nav-currencies li i {
@@ -276,7 +274,6 @@ nav:hover {
 }
 
 .icons img:hover {
-
   cursor: pointer;
   opacity: 0.7;
 }
@@ -744,6 +741,7 @@ form button {
   padding: 1% 4%;
   margin-right: 0px;
   margin-bottom: 0px;
+  border: transparent
 }
 
 .active-cookie-dialog p {

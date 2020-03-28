@@ -123,7 +123,7 @@ let navItems = [
     children: []
   }
 ];
-
+// header-menu / nav-bar
 const menu = `<div class='nav-links'>${navItems
   .map(navItem => {
     return (
@@ -166,11 +166,9 @@ const menu = `<div class='nav-links'>${navItems
 $(document).ready(() => {
   $("nav").prepend(menu);
   $(".main-titles").click(function() {
-    console.log(this);
     $(this)
       .next(".contact-details, .categories-links , .about-links")
       .toggleClass("active-footer");
-
     $(this)
       .children("i")
       .toggleClass("rotate");
@@ -179,11 +177,9 @@ $(document).ready(() => {
     $(".icon").toggleClass("close");
     $(".nav-links").toggleClass("nav-mobile-links");
   });
-  console.log($(".nav-links>div:first-child"));
   $(".nav-links .dropdown-level-I:first-child").hover(function() {
     if (window.matchMedia("(min-width: 768px)").matches) {
       event.stopPropagation();
-      console.log("click");
       $(this)
         .children(".nav-links-l-II")
         .toggleClass("active-level-I");
@@ -199,7 +195,6 @@ $(document).ready(() => {
   });
   $(".dropdown-level-II>div").click(function() {
     if (window.matchMedia("(max-width: 768px)").matches) {
-      console.log("click");
       event.stopPropagation();
       $(this)
         .siblings()
@@ -214,28 +209,22 @@ $(document).ready(() => {
       .toggleClass("active-cur-lang");
   });
 
-  // get year
-  $("footer #year").text(new Date().getFullYear());
-
   // showing login  box
 
   $(".login-trigger").click(function(e) {
     $(".login-box").addClass("active-login-box");
-    console.log(e.currentTarget);
   });
   $(".login-box").click(function(e) {
     if (
       $(e.target).hasClass("login-box") ||
       $(e.target).hasClass("login-exit")
     ) {
-      console.log($(".login-box"));
       $(".login-box").removeClass("active-login-box");
     }
   }); // showing login  box
 
   $(".login-trigger").click(function(e) {
     $(".login-box").addClass("active-login-box");
-    console.log(e.currentTarget);
   });
   $(".login-box").click(function(e) {
     if ($(e.target).hasClass("login-box")) {
@@ -257,4 +246,6 @@ $(document).ready(() => {
       input.attr("type", "password");
     }
   });
+  // get year
+  $("footer #year").text(new Date().getFullYear());
 });

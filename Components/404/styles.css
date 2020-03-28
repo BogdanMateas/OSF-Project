@@ -587,6 +587,7 @@ main .search-bar img {
   padding: 1% 4%;
   margin-right: 0px;
   margin-bottom: 0px;
+  border: transparent
 }
 
 .active-cookie-dialog p {

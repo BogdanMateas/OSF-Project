@@ -124,6 +124,7 @@ let navItems = [
   }
 ];
 
+// header-menu / nav-bar
 const menu = `<div class='nav-links'>${navItems
   .map(navItem => {
     return (
@@ -214,9 +215,6 @@ $(document).ready(() => {
       .toggleClass("active-cur-lang");
   });
 
-  // get year
-  $("footer #year").text(new Date().getFullYear());
-
   // showing login  box
 
   $(".login-trigger").click(function(e) {
@@ -244,7 +242,7 @@ $(document).ready(() => {
     }
   });
 
-  // input numberic only validation
+  // input numeric only validation
   $(".item-number input").keypress(function(e) {
     if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
   });
@@ -258,4 +256,7 @@ $(document).ready(() => {
       $(".item-number input").val(parseInt($(".item-number input").val()) + 1);
     }
   });
+
+  // get year
+  $("footer #year").text(new Date().getFullYear());
 });

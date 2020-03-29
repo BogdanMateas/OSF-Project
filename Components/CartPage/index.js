@@ -255,6 +255,11 @@ $(document).ready(() => {
     }
   });
 
+  // redirect to cart page
+  $(".cart-link").click(function() {
+    window.location.href = "Components/CartPage/cart-page.html";
+  });
+
   // get year
   $("footer #year").text(new Date().getFullYear());
 });

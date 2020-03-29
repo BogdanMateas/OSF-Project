@@ -315,6 +315,11 @@ $(document).ready(async () => {
     window.location.href = "../Countdown/countdown.html";
   });
 
+  // redirect to cart page
+  $(".cart-link").click(function() {
+    window.location.href = "Components/CartPage/cart-page.html";
+  });
+
   // showing slider when window <=500
   $(window).on("resize load", function() {
     if ($(window).width() <= 500) {

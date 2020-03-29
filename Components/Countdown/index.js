@@ -312,4 +312,9 @@ $(document).ready(function() {
     $(".minutes").text(Object.values(myDate)[3]);
     $(".seconds").text(Object.values(myDate)[4]);
   }, 1000);
+
+  // redirect to cart page
+  $(".cart-link").click(function() {
+    window.location.href = "Components/CartPage/cart-page.html";
+  });
 });

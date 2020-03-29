@@ -224,7 +224,7 @@ nav:hover {
   background-color: #262a33;
   top: 66px;
   padding: 55px;
-  z-index: 1;
+  z-index: 7;
   color: white;
   left: 0;
   right: 0;
@@ -528,26 +528,29 @@ form button {
 /* ------- 404 ----- */
 
 main {
-  height: 711px;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center;
-  width: 1280px;
-  margin: auto;
+  margin: 10%;
+  /* margin-left: 10%;
+  margin-right: 10%; */
   background-color: #f1edea;
+  position: relative;
+  overflow: hidden;
 }
+
+
 
 main>div {
   background-color: #ffffff;
   display: grid;
   border-radius: 5px;
   grid-template-columns: 40% 60%;
-  width: 1170px;
-  height: 492px;
   background-color: #ffffff;
+  width: 100%
 }
 
 /* oops div */
@@ -562,6 +565,14 @@ main div div:first-child {
   color: #84bc22;
   font-size: 113px;
   font-weight: 900;
+  z-index: 2;
+}
+
+main #exclamation {
+  opacity: 0.3;
+  margin-right: auto;
+  position: absolute;
+  left: -90px;
 }
 
 main div div:nth-child(2) {
@@ -991,7 +1002,7 @@ footer a {
   /* ------- 404 ----- */
 
   main {
-    width: 100vw !important;
+
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
@@ -1006,10 +1017,9 @@ footer a {
     display: grid;
     border-radius: 5px;
     grid-template-columns: 100%;
-    width: 90%;
-
-
   }
+
+
 
   /* oops div */
   main div div:first-child {
@@ -1217,21 +1227,17 @@ footer a {
   /* ------- 404 ----- */
 
   main {
-    height: 711px;
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    width: 100vw;
-    margin: auto;
     background-color: #f1edea;
   }
 
   main>div {
     grid-template-columns: 30% 60%;
-    width: 90%;
   }
 
   /* ------ login ----- */
@@ -1310,19 +1316,10 @@ footer a {
   }
 }
 
-@media screen and (max-width: 700px) and (max-width: 1280px) {
-  .popular-items .items {
-    display: grid;
-    grid-template-columns: 45% 45%;
-    grid-gap: 2%;
-  }
-}
 
-@media screen and (max-width: 500px) and (max-width: 1280px) {
-  .popular-items .items {
-    display: grid;
-    grid-template-columns: 90%;
-    max-height: 450px;
-    grid-gap: 2%;
+
+@media screen and (max-width: 500px) {
+  main #elementary {
+    display: none;
   }
 }

@@ -224,7 +224,7 @@ nav:hover {
   background-color: #262a33;
   top: 66px;
   padding: 55px;
-  z-index: 7;
+  z-index: 7 !important;
   color: white;
   left: 0;
   right: 0;
@@ -573,11 +573,13 @@ main #exclamation {
   margin-right: auto;
   position: absolute;
   left: -90px;
+
 }
 
 main div div:nth-child(2) {
   padding-right: 100px;
   padding-bottom: 64px;
+  z-index: 2;
 }
 
 main div div:nth-child(2) h2 {
@@ -643,15 +645,6 @@ main .search-bar img {
 
 .cookie-dialog {
   visibility: hidden;
-}
-
-.active-cookie-dialog>div {
-  background-color: #fff;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 400px;
-  padding: 10px;
-  border-radius: 5px;
 }
 
 .active-cookie-dialog>div>div {
@@ -918,7 +911,7 @@ footer a {
     background-color: #262a33;
     top: 40px;
     padding: 4%;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     right: 0;
     margin-left: 0;
@@ -1011,11 +1004,6 @@ footer a {
     background-color: #8F9297;
   }
 
-  /* cookies */
-  .active-cookie-dialog>div {
-    margin-bottom: 20% !important;
-    margin-top: 35%;
-  }
 
   /* ------- 404 ----- */
 
@@ -1205,6 +1193,7 @@ footer a {
     width: auto;
     display: grid;
     grid-template-columns: 20% 70%;
+
   }
 
   .active-level-I {
@@ -1221,6 +1210,7 @@ footer a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "product product";
+
   }
 
   .nav-mobile-links {

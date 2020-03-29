@@ -797,7 +797,7 @@ form button {
   background-color: #fff;
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 400px;
+  margin-top: 10%;
   padding: 10px;
   border-radius: 5px;
 }
@@ -1149,11 +1149,6 @@ footer a {
     padding-left: 4%;
   }
 
-  /* cookies */
-  .active-cookie-dialog>div {
-    margin-bottom: 20% !important;
-    margin-top: 35%;
-  }
 
   /* nav-icons */
 
@@ -1353,10 +1348,6 @@ footer a {
     background-color: #8F9297;
   }
 
-  /* cookies */
-  .active-cookie-dialog>div {
-    margin-top: 32% !important;
-  }
 
   /* cart */
 

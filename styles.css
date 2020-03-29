@@ -1178,7 +1178,7 @@ form button {
   background-color: #fff;
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 400px;
+  margin-top: 10%;
   padding: 10px;
   border-radius: 5px;
 }
@@ -1655,11 +1655,7 @@ footer a {
     grid-template-columns: 100%;
   }
 
-  /* cookies */
-  .active-cookie-dialog>div {
-    margin-bottom: 20% !important;
-    margin-top: 35%;
-  }
+
 
   /* ----banner osf---- */
 
@@ -1865,14 +1861,7 @@ footer a {
     font-size: 14px;
   }
 
-  .active-cookie-dialog>div {
-    margin-top: 100%;
-  }
 
-  /* cookies */
-  .active-cookie-dialog>div {
-    margin-top: 32% !important;
-  }
 
   footer {
     display: grid;

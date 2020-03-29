@@ -236,58 +236,83 @@ $(document).ready(async () => {
     }
   });
 
-  // get data from JSON file
-
   const getData = async () => {
     const response = await fetch("/data.json");
     const data = await response.json();
     return data;
   };
 
-  // injecting the items inside popular items section
+  // get data from JSON file
 
+  // injecting the items inside popular items section
   await getData().then(data => {
     return data.popularItems.map(popItem => {
       return $(".items").append(
         ` <div class='${popItem.class} ${
           popItem.id > 8 ? "inactive-item" : ""
-        } ${popItem.button === true ? "buttoned" : " "}' >
-        
-          <img src='/Images/${popItem.imageURL}'/>
-          <div class="item-info">
-           <div class="item-name">
-            ${popItem.name}
-            </div>
-            <div class="item-details">
-            ${
-              popItem.price
-                ? `<div class="item-price">
-            ${popItem.price} 
-             </div>`
-                : " "
-            }
-            ${
-              popItem.button === true
-                ? `<button class="buy-btn">BUY NOW</button>`
-                : " "
-            }
-            </div>
+        } ${popItem.button === true ? "buttoned" : " "}'  >
+        <img src='/Images/${popItem.imageURL}'/>
+        <div class="item-info">
+         <div class="item-name">
+          ${popItem.name}
           </div>
-          ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
-          ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
-          ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
+          <div class="item-details">
           ${
-            popItem.greenGradient === true
-              ? `<div class="green-gradient">
-                <div><i class="fas fa-plus"></i></div>
-                <div><i class="fas fa-heart"></i></div>
-              </div>`
+            popItem.price
+              ? `<div class="item-price">
+          ${popItem.price} 
+           </div>`
               : " "
-          }          
-            </div>           
-           `
+          }
+          ${
+            popItem.button === true
+              ? `<button class="buy-btn">BUY NOW</button>`
+              : " "
+          }
+          </div>
+        </div>
+        ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
+        ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
+        ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
+        ${
+          popItem.greenGradient === true
+            ? `<div class="green-gradient">
+              <div><i class="fas fa-plus"></i></div>
+              <div><i class="fas fa-heart"></i></div>
+            </div>`
+            : " "
+        }
+          </div>
+         `
       );
     });
+  });
+
+  // when width <= 500, products become slider
+  $(window).on("load resize", async function() {
+    if ($(window).width() <= 500) {
+      if (!$(".items").hasClass("slick-initialized")) {
+        $(".items").attr("dir", "rtl");
+        await $(".items")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            rtl: true,
+            infinite: true,
+            dots: true,
+            arrows: false,
+            speed: 500,
+            cssEase: "linear",
+            autoplaySpeed: 6000
+          });
+      }
+    } else {
+      if ($(".items").hasClass("slick-initialized")) {
+        $(".items").slick("unslick");
+      }
+      $(".items").removeAttr("dir");
+    }
   });
 
   // redirect to product detailed page
@@ -465,31 +490,4 @@ $(document).ready(function() {
 });
 
 // when width <= 500, products become slider
-$(document).ready(function() {
-  $(window).on("resize load", function() {
-    if ($(window).width() <= 500) {
-      if (!$(".items").hasClass("slick-initialized")) {
-        $(".items").attr("dir", "rtl");
-        $(".items")
-          .not(".slick-initialized")
-          .slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            rtl: true,
-            infinite: true,
-            dots: true,
-            arrows: false,
-            speed: 500,
-            cssEase: "linear",
-            // autoplay: true,
-            autoplaySpeed: 6000
-          });
-      }
-    } else {
-      if ($(".items").hasClass("slick-initialized")) {
-        $(".items").slick("unslick");
-        $(".items").removeAttr("dir");
-      }
-    }
-  });
-});
+$(document).ready(function() {});

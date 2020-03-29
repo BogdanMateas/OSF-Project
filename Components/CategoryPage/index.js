@@ -259,6 +259,174 @@ $(document).ready(async () => {
     return data;
   };
 
+  // // injecting the items inside popular items section
+  // await getData().then(data => {
+  //   return data.popularItems.map(popItem => {
+  //     return $(".items").append(
+  //       ` <div class='${popItem.class} ${
+  //         popItem.id > 8 ? "inactive-item" : ""
+  //       } ${popItem.button === true ? "buttoned" : " "}'  >
+  //         <img src='/Images/${popItem.imageURL}'/>
+  //         <div class="item-info">
+  //          <div class="item-name">
+  //           ${popItem.name}
+  //           </div>
+  //           <div class="item-details">
+  //           ${
+  //             popItem.price
+  //               ? `<div class="item-price">
+  //           ${popItem.price}
+  //            </div>`
+  //               : " "
+  //           }
+  //           ${
+  //             popItem.button === true
+  //               ? `<button class="buy-btn">BUY NOW</button>`
+  //               : " "
+  //           }
+  //           </div>
+  //         </div>
+  //         ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
+  //         ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
+  //         ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
+  //         ${
+  //           popItem.greenGradient === true
+  //             ? `<div class="green-gradient">
+  //               <div><i class="fas fa-plus"></i></div>
+  //               <div><i class="fas fa-heart"></i></div>
+  //             </div>`
+  //             : " "
+  //         }
+  //           </div>
+  //          `
+  //     );
+  //   });
+  // });
+
+  // // redirect to product detailed page
+  // $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+  //   function() {
+  //     window.location.href = "../ProductPage/product-detailed-page.html";
+  //   }
+  // );
+
+  // // redirect to countdown page
+  // $(".countdown").click(function() {
+  //   window.location.href = "../Countdown/countdown.html";
+  // });
+
+  // // redirect to cart page
+  // $(".cart-link").click(function() {
+  //   window.location.href = "../CartPage/cart-page.html";
+  // });
+
+  // // showing slider when window <=500
+  // $(window).on("load resize", function() {
+  //   if ($(window).width() <= 500) {
+  //     if (!$(".items").hasClass("slick-initialized")) {
+  //       $(".items").attr("dir", "rtl");
+  //       $(".items")
+  //         .not(".slick-initialized")
+  //         .slick({
+  //           slidesToShow: 1,
+  //           slidesToScroll: 1,
+  //           rtl: true,
+  //           infinite: true,
+  //           dots: true,
+  //           arrows: false,
+  //           speed: 500,
+  //           cssEase: "linear",
+  //           autoplaySpeed: 6000
+  //         });
+  //     }
+  //   } else {
+  //     if ($(".items").hasClass("slick-initialized")) {
+  //       $(".items").slick("unslick");
+  //     }
+  //     $(".items").removeAttr("dir");
+  //   }
+  // });
+
+  // // showing product's green gradient
+  // $(".item").hover(function() {
+  //   $(this)
+  //     .children(".green-gradient")
+  //     .toggleClass("active-gradient");
+  // });
+
+  // // increase cart
+  // $(".buy-btn").click(function() {
+  //   $("#cart").text(parseInt($("#cart").text()) + 1);
+  // });
+  // // increase cart
+  // $(".fa-plus").click(function() {
+  //   $("#cart").text(parseInt($("#cart").text()) + 1);
+  // });
+  // // increase wishlist
+  // $(".fa-heart").click(function() {
+  //   $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
+  // });
+  // // show more products when view more clicked
+  // $(".popular-items>button").one("click", function() {
+  //   $(".item").removeClass("inactive-item");
+  // });
+
+  // injecting the popular items inside featured products section
+
+  await getData().then(data => {
+    return $(".featured-products").append(
+      `<div class="products">${data.popularItems
+        .filter(item => {
+          return item.id <= 12;
+        })
+        .map(popItem => {
+          return ` <div class="product">
+              <img src='/Images/${popItem.imageURL}'/>
+              <div class="product-details">
+               <div class="product-name">
+                ${popItem.name}
+                </div>
+                <div class="description">
+               ${popItem.description}
+                </div>
+                </div> 
+                </div> `;
+        })
+        .join("")}</div>`
+    );
+  });
+
+  $(".products").slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    infinite: true,
+    arrows: true,
+    speed: 500,
+    cssEase: "linear",
+    nextArrow: $(".next"),
+    prevArrow: $(".prev"),
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      }
+    ]
+  });
+});
+
+$(document).ready(async function() {
+  // get data from JSON file
+  const getData = async () => {
+    const response = await fetch("/data.json");
+    const data = await response.json();
+    return data;
+  };
+
   // injecting the items inside popular items section
   await getData().then(data => {
     return data.popularItems.map(popItem => {
@@ -321,7 +489,8 @@ $(document).ready(async () => {
   });
 
   // showing slider when window <=500
-  $(window).on("resize load", function() {
+  $(window).on("load resize orientationchange", function() {
+    console.log("resize");
     if ($(window).width() <= 500) {
       if (!$(".items").hasClass("slick-initialized")) {
         $(".items").attr("dir", "rtl");
@@ -369,52 +538,5 @@ $(document).ready(async () => {
   // show more products when view more clicked
   $(".popular-items>button").one("click", function() {
     $(".item").removeClass("inactive-item");
-  });
-
-  // injecting the popular items inside featured products section
-
-  await getData().then(data => {
-    return $(".featured-products").append(
-      `<div class="products">${data.popularItems
-        .filter(item => {
-          return item.id <= 12;
-        })
-        .map(popItem => {
-          return ` <div class="product">
-              <img src='/Images/${popItem.imageURL}'/>
-              <div class="product-details">
-               <div class="product-name">
-                ${popItem.name}
-                </div>
-                <div class="description">
-               ${popItem.description}
-                </div>
-                </div> 
-                </div> `;
-        })
-        .join("")}</div>`
-    );
-  });
-
-  $(".products").slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    infinite: true,
-    arrows: true,
-    speed: 500,
-    cssEase: "linear",
-    nextArrow: $(".next"),
-    prevArrow: $(".prev"),
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      }
-    ]
   });
 });

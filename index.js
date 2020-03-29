@@ -123,6 +123,13 @@ let navItems = [
     children: []
   }
 ];
+
+// get data from JSON file
+const getData = async () => {
+  const response = await fetch("/data.json");
+  const data = await response.json();
+  return data;
+};
 // header-menu / nav-bar
 const menu = `<div class='nav-links'>${navItems
   .map(navItem => {
@@ -253,13 +260,6 @@ $(document).ready(async () => {
     window.location.href = "https://www.facebook.com/OSFDigital";
   });
 
-  // get data from JSON file
-  const getData = async () => {
-    const response = await fetch("/data.json");
-    const data = await response.json();
-    return data;
-  };
-
   // injecting the items inside popular items section
   await getData().then(data => {
     return data.popularItems.map(popItem => {
@@ -267,45 +267,45 @@ $(document).ready(async () => {
         ` <div class='${popItem.class} ${
           popItem.id > 8 ? "inactive-item" : ""
         } ${popItem.button === true ? "buttoned" : " "}'  >
-          <img src='/Images/${popItem.imageURL}'/>
-          <div class="item-info">
-           <div class="item-name">
-            ${popItem.name}
-            </div>
-            <div class="item-details">
-            ${
-              popItem.price
-                ? `<div class="item-price">
-            ${popItem.price} 
-             </div>`
-                : " "
-            }
-            ${
-              popItem.button === true
-                ? `<button class="buy-btn">BUY NOW</button>`
-                : " "
-            }
-            </div>
+        <img src='/Images/${popItem.imageURL}'/>
+        <div class="item-info">
+         <div class="item-name">
+          ${popItem.name}
           </div>
-          ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
-          ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
-          ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
+          <div class="item-details">
           ${
-            popItem.greenGradient === true
-              ? `<div class="green-gradient">
-                <div><i class="fas fa-plus"></i></div>
-                <div><i class="fas fa-heart"></i></div>
-              </div>`
+            popItem.price
+              ? `<div class="item-price">
+          ${popItem.price} 
+           </div>`
               : " "
           }
-            </div>
-           `
+          ${
+            popItem.button === true
+              ? `<button class="buy-btn">BUY NOW</button>`
+              : " "
+          }
+          </div>
+        </div>
+        ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
+        ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
+        ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
+        ${
+          popItem.greenGradient === true
+            ? `<div class="green-gradient">
+              <div><i class="fas fa-plus"></i></div>
+              <div><i class="fas fa-heart"></i></div>
+            </div>`
+            : " "
+        }
+          </div>
+         `
       );
     });
   });
 
   // when width <= 500, products become slider
-  $(window).on("resize load", function() {
+  $(window).on("load resize ", async function() {
     if ($(window).width() <= 500) {
       if (!$(".items").hasClass("slick-initialized")) {
         $(".items").attr("dir", "rtl");
@@ -330,7 +330,6 @@ $(document).ready(async () => {
       $(".items").removeAttr("dir");
     }
   });
-
   // showing green gradient on hover
   $(".item").hover(function() {
     $(this)
@@ -372,55 +371,6 @@ $(document).ready(async () => {
     window.location.href = "Components/CartPage/cart-page.html";
   });
 
-  // injecting the popular items inside featured products section
-
-  await getData().then(data => {
-    return $(".featured-products").append(
-      `<div class="products">${data.popularItems
-        .filter(item => {
-          return item.id <= 12;
-        })
-        .map(popItem => {
-          return ` <div class="product">
-              <img src='/Images/${popItem.imageURL}'/>
-              <div class="product-details">
-               <div class="product-name">
-                ${popItem.name}
-                </div>
-                <div class="description">
-               ${popItem.description}
-                </div>
-                </div> 
-                </div> `;
-        })
-        .join("")}</div>`
-    );
-  });
-
-  // featured products slider
-
-  $(".products").slick({
-    slidesToShow: 3,
-    slidesToScroll: 4,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    infinite: true,
-    arrows: true,
-    speed: 500,
-    cssEase: "linear",
-    nextArrow: $(".next"),
-    prevArrow: $(".prev"),
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      }
-    ]
-  });
-
   // showing cookies
   if (localStorage.getItem("cookieState") != "accepted") {
     setTimeout(function() {
@@ -433,4 +383,58 @@ $(document).ready(async () => {
   $(".cookie-dialog button, .fa-times").click(function() {
     $(".active-cookie-dialog").addClass("cookie-dialog");
   });
+});
+
+// injecting the popular items inside featured products section
+
+getData().then(data => {
+  return $(".featured-products").append(
+    `<div class="products">${data.popularItems
+      .filter(item => {
+        return item.id <= 12;
+      })
+      .map(popItem => {
+        return ` <div class="product">
+            <img src='/Images/${popItem.imageURL}'/>
+            <div class="product-details">
+             <div class="product-name">
+              ${popItem.name}
+              </div>
+              <div class="description">
+             ${popItem.description}
+              </div>
+              </div> 
+              </div> `;
+      })
+      .join("")}</div>`
+  );
+});
+
+$(window).on("load resize", async () => {
+  console.log($(".products"));
+  if ($(".products")) {
+    await $(".products")
+      .not(".slick-initialized")
+      .slick({
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
+        arrows: true,
+        speed: 500,
+        cssEase: "linear",
+        nextArrow: $(".next"),
+        prevArrow: $(".prev"),
+        responsive: [
+          {
+            breakpoint: 769,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3
+            }
+          }
+        ]
+      });
+  }
 });

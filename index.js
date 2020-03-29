@@ -367,6 +367,9 @@ $(document).ready(async () => {
   $(".countdown").click(function() {
     window.location.href = "Components/Countdown/countdown.html";
   });
+  $(".countdown").click(function() {
+    window.location.href = "Components/Countdown/countdown.html";
+  });
 
   // injecting the popular items inside featured products section
 

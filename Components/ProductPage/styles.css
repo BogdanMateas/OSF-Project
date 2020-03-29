@@ -470,7 +470,7 @@ form label {
 
 form input {
   width: 95%;
-  height: 90%;
+  height: 80%;
   border: none;
   outline: none;
 }
@@ -483,6 +483,8 @@ form .pass {
   padding-left: 10px;
   outline: none;
   padding-right: 8px;
+  display: flex;
+  align-items: center;
 }
 
 .pass i {

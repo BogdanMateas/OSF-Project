@@ -446,15 +446,17 @@ $(document).ready(function() {
 
   const images = document.querySelectorAll(".slider-main img");
   images.forEach(image => {
-    $(".slider-main i").on("click", e => {
-      lightbox.classList.add("active");
-      const img = document.createElement("img");
-      img.src = image.src;
-      while (lightbox.firstChild) {
-        lightbox.removeChild(lightbox.firstChild);
-      }
-      lightbox.appendChild(img);
-    });
+    $(image)
+      .siblings("i")
+      .on("click", e => {
+        lightbox.classList.add("active");
+        const img = document.createElement("img");
+        img.src = image.src;
+        while (lightbox.firstChild) {
+          lightbox.removeChild(lightbox.firstChild);
+        }
+        lightbox.appendChild(img);
+      });
   });
   lightbox.addEventListener("click", e => {
     if (e.target !== e.currentTarget) return;

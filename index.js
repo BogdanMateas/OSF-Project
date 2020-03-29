@@ -399,29 +399,27 @@ $(document).ready(async () => {
 
   // featured products slider
 
-  if ($(".products")) {
-    $(".products").slick({
-      slidesToShow: 3,
-      slidesToScroll: 4,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      infinite: true,
-      arrows: true,
-      speed: 500,
-      cssEase: "linear",
-      nextArrow: $(".next"),
-      prevArrow: $(".prev"),
-      responsive: [
-        {
-          breakpoint: 1280,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
-          }
+  $(".products").slick({
+    slidesToShow: 3,
+    slidesToScroll: 4,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    infinite: true,
+    arrows: true,
+    speed: 500,
+    cssEase: "linear",
+    nextArrow: $(".next"),
+    prevArrow: $(".prev"),
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
         }
-      ]
-    });
-  }
+      }
+    ]
+  });
 
   // showing cookies
   if (localStorage.getItem("cookieState") != "accepted") {

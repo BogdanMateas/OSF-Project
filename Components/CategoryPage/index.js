@@ -317,7 +317,7 @@ $(document).ready(async () => {
 
   // redirect to cart page
   $(".cart-link").click(function() {
-    window.location.href = "Components/CartPage/cart-page.html";
+    window.location.href = "../CartPage/cart-page.html";
   });
 
   // showing slider when window <=500

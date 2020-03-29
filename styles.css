@@ -1066,10 +1066,11 @@ form button {
   justify-content: space-between;
   text-align: center;
   border-radius: 5px;
+  height: 300px;
 }
 
 .product img {
-  max-height: 200px;
+  height: 200px;
   width: 100%;
 }
 

@@ -25,7 +25,7 @@ header {
   margin: auto;
   display: grid;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   background-color: #fff;
   grid-template-rows: 1;
   grid-template-columns: 2fr 6fr 3fr;
@@ -38,9 +38,9 @@ header {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   height: 78px;
   overflow: hidden;
 }
@@ -82,9 +82,9 @@ nav {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   width: 590px;
   max-height: 54px;
   margin-left: auto;
@@ -100,9 +100,9 @@ nav:hover {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .nav-currencies .currencies,
@@ -118,7 +118,7 @@ nav:hover {
   background-color: #262A33;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   left: 0px;
   top: 44px;
   padding-left: 0px;
@@ -144,11 +144,11 @@ nav:hover {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   padding: 10%;
   white-space: nowrap;
 }
@@ -185,7 +185,7 @@ nav:hover {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .nav-links>div {
@@ -197,12 +197,12 @@ nav:hover {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   padding: 2%;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 /* dropdown */
@@ -270,7 +270,7 @@ nav:hover {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 /* header social icons */
@@ -278,13 +278,14 @@ nav:hover {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-content: space-evenly;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   z-index: 9;
 }
 
-.icons img:hover {
+.icons img:hover,
+.icons div:hover {
   cursor: pointer;
   opacity: 0.7;
 }
@@ -302,9 +303,9 @@ nav:hover {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   border-radius: 50%;
   border: 2px solid #84bc22;
   background-color: #ffffff;
@@ -356,9 +357,9 @@ header a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   width: 500px;
   height: 467px;
   background-color: #ffffff;
@@ -378,9 +379,9 @@ form {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 form>div {
@@ -388,9 +389,9 @@ form>div {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
@@ -399,11 +400,11 @@ form div:nth-child(2) div {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 form div:nth-child(2) div span {
@@ -481,10 +482,10 @@ form button {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   padding: 1%;
 
 }
@@ -499,14 +500,14 @@ form button {
   display: flex !important;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .breadcrumbs h1:before,
 .breadcrumbs h1:after {
   content: "";
   -webkit-box-flex: 1;
-          flex: 1 1;
+  flex: 1 1;
   border-bottom: 2px solid #fff;
   margin: auto;
 }
@@ -529,7 +530,7 @@ form button {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding: 1%;
   background-color: #ffffff;
   border-radius: 5px;
@@ -540,10 +541,10 @@ form button {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   margin: 2%;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   padding: 2%;
 }
 
@@ -567,7 +568,7 @@ form button {
   width: 60%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .filters .radio {
@@ -575,9 +576,9 @@ form button {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .filters .radio input[type="radio"] {
@@ -633,7 +634,7 @@ form button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   height: auto;
   padding: 1%;
   padding-bottom: 4%;
@@ -644,7 +645,7 @@ form button {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   color: rgb(75, 71, 68);
 }
 
@@ -652,7 +653,7 @@ form button {
 .popular-items h1:after {
   content: "";
   -webkit-box-flex: 1;
-          flex: 1 1;
+  flex: 1 1;
   border-bottom: 2px solid #fff;
   margin: auto;
 }
@@ -668,7 +669,7 @@ form button {
 .popular-items .items {
   display: grid;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   grid-template-columns: 23% 23% 23% 23%;
   height: auto;
   margin-bottom: 5%;
@@ -686,7 +687,7 @@ form button {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   padding: 5px;
   border-left: none;
   border-top: none;
@@ -698,11 +699,11 @@ form button {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   border: 1px solid #7f7f7f;
   border-radius: 20px;
   width: 70%;
@@ -731,9 +732,9 @@ form button {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-content: space-evenly;
   background-image: -webkit-gradient(linear,
       left top, left bottom,
       from(rgba(3, 199, 134, 0.932)),
@@ -828,9 +829,9 @@ form button {
   grid-template-rows: 50% 50%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .items .item-name {
@@ -845,7 +846,7 @@ form button {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   width: 100%;
   margin: auto;
 }
@@ -879,7 +880,7 @@ form button {
   border: 2px solid rgb(75, 71, 68);
   color: rgb(75, 71, 68);
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   padding: 1%;
   padding-left: 7%;
   padding-right: 7%;
@@ -896,9 +897,9 @@ form button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   color: #fff;
   background-color: #262a33;
   padding: 3%;
@@ -927,9 +928,9 @@ form button {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .featured-products .slide-controls {
@@ -937,16 +938,16 @@ form button {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   width: 50%;
 }
 
 .products {
   display: grid !important;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .products .product {
@@ -957,9 +958,9 @@ form button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   text-align: center;
   border-radius: 5px;
 }
@@ -976,9 +977,9 @@ form button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   height: 100px;
 }
 
@@ -1020,7 +1021,7 @@ form button {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .active-cookie-dialog h5 {
@@ -1108,7 +1109,7 @@ footer .categories {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 footer .categories ul {
@@ -1128,7 +1129,7 @@ footer .social-media {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 footer ul {
@@ -1215,9 +1216,9 @@ footer a {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: center;
-            justify-content: center;
+    justify-content: center;
     -webkit-box-align: center;
-            align-items: center;
+    align-items: center;
     height: 40px;
     width: 50px;
     position: relative;
@@ -1247,14 +1248,14 @@ footer a {
 
   .icon.close .top {
     -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+    transform: rotate(45deg);
     top: 48%;
   }
 
   .icon.close .middle,
   .icon.close .bottom {
     -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+    transform: rotate(-45deg);
     top: 48%;
   }
 
@@ -1264,7 +1265,7 @@ footer a {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
     min-height: 190px;
     height: auto;
     position: absolute;
@@ -1284,9 +1285,9 @@ footer a {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: stretch;
-            align-items: stretch;
+    align-items: stretch;
     min-height: 40px;
     height: auto;
     width: auto;
@@ -1296,7 +1297,7 @@ footer a {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
 
   .nav-links.nav-mobile-links * {
@@ -1314,7 +1315,7 @@ footer a {
     display: flex !important;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
     max-width: 60vw;
     height: auto;
     margin-top: 15px;
@@ -1326,7 +1327,7 @@ footer a {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
     padding-left: 4%;
   }
 
@@ -1334,7 +1335,7 @@ footer a {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
 
   .dropdown-level-II div:first-child {
@@ -1427,9 +1428,9 @@ footer a {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: center;
-            justify-content: center;
+    justify-content: center;
     -webkit-box-align: center;
-            align-items: center;
+    align-items: center;
     width: 70%;
     height: 40px;
     margin: auto;
@@ -1482,7 +1483,7 @@ footer a {
   .benefits-content>div:nth-child(even) {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 
   /* footer */
@@ -1492,7 +1493,7 @@ footer a {
     display: flex !important;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
     padding-left: 3%;
     padding-right: 3%;
   }
@@ -1512,7 +1513,7 @@ footer a {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     position: relative;
   }
 
@@ -1526,7 +1527,7 @@ footer a {
 
   .rotate {
     -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+    transform: rotate(180deg);
   }
 }
 
@@ -1652,7 +1653,7 @@ footer a {
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 }
 

@@ -284,7 +284,8 @@ nav:hover {
   z-index: 9;
 }
 
-.icons img:hover {
+.icons img:hover,
+.icons div:hover {
   cursor: pointer;
   opacity: 0.7;
 }

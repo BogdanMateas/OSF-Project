@@ -1175,9 +1175,9 @@ form button {
 
 .active-cookie-dialog>div {
   background-color: #fff;
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-top: 30%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 40%;
   padding: 10px;
   border-radius: 5px;
 }
@@ -1657,7 +1657,7 @@ footer a {
   /* cookies */
   .active-cookie-dialog>div {
     margin-bottom: 20% !important;
-    margin-top: 10%;
+    margin-top: 35%;
   }
 
   /* ----banner osf---- */
@@ -1870,7 +1870,7 @@ footer a {
 
   /* cookies */
   .active-cookie-dialog>div {
-    margin-top: 80% !important;
+    margin-top: 32% !important;
   }
 
   footer {

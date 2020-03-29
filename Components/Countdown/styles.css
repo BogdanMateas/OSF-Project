@@ -461,14 +461,11 @@ form button {
   display: block;
   position: fixed;
   z-index: 9;
-  border-radius: 5px;
-  padding: 1%;
-  background-color: #fff;
-  bottom: 7%;
   left: 0;
   right: 0;
-  margin-left: 15%;
-  margin-right: 15%;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(216, 224, 219, 0.7);
 }
 
 .cookie-dialog {
@@ -476,6 +473,15 @@ form button {
 }
 
 .active-cookie-dialog>div {
+  background-color: #fff;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 40%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.active-cookie-dialog>div>div {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
@@ -499,11 +505,17 @@ form button {
   padding: 1% 4%;
   margin-right: 0px;
   margin-bottom: 0px;
-  border: transparent
+  border: transparent;
+}
+
+.active-cookie-dialog button:hover,
+.active-cookie-dialog i:hover {
+  cursor: pointer;
 }
 
 .active-cookie-dialog p {
   color: #45413e;
+  font-family: Lato;
   font-size: 14px;
   font-weight: 300;
   line-height: 24px;
@@ -517,7 +529,6 @@ form button {
 
 .active-cookie-dialog i {
   font-size: 28px;
-
 }
 
 /* Countdown */

@@ -600,8 +600,13 @@ section .countdown {
   border: 2px solid #F1F1F1;
   border-radius: 20px;
   align-items: center;
-  padding-left: 91px;
+  padding-left: 9px;
+  padding-right: 11px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
+
+
 
 .countdown input {
   width: 90%;

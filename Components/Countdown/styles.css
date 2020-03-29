@@ -599,6 +599,8 @@ section .countdown {
   width: 40%;
   border: 2px solid #F1F1F1;
   border-radius: 20px;
+  align-items: center;
+  padding-left: 91px;
 }
 
 .countdown input {

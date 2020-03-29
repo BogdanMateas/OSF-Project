@@ -398,9 +398,10 @@ $(document).ready(async () => {
   });
 
   // featured products slider
+
   if ($(".products")) {
     $(".products").slick({
-      slidesToShow: 4,
+      slidesToShow: 3,
       slidesToScroll: 4,
       autoplay: true,
       autoplaySpeed: 5000,

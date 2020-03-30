@@ -267,7 +267,7 @@ $(document).ready(async () => {
     }, 3000);
   }
   $(".cookie-dialog button").click(function() {
-    localStorage.setItem("cookieState", "accepted"), console.log("clicked");
+    localStorage.setItem("cookieState", "accepted");
   });
   $(".cookie-dialog button, .fa-times").click(function() {
     $(".active-cookie-dialog").addClass("cookie-dialog");
@@ -325,7 +325,6 @@ getData()
   .then(
     // when width <= 500, products become slider
     $(window).on("load resize", async function() {
-      console.log("loaded and resize");
       if ($(window).width() <= 500) {
         if (!$(".items").hasClass("slick-initialized")) {
           await $(".items").attr("dir", "rtl");
@@ -352,7 +351,6 @@ getData()
 
       // showing green gradient on hover
       $(".item").hover(function() {
-        console.log($(".item"));
         $(this)
           .children(".green-gradient")
           .toggleClass("active-gradient");
@@ -421,7 +419,6 @@ getData()
   })
   .then(
     $(window).on("load resize", async () => {
-      console.log("loaded produc featured");
       await $(".products")
         .not(".slick-initialized")
         .slick({

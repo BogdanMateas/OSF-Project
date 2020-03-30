@@ -452,7 +452,6 @@ getData()
 
       // showing green gradient on hover
       $(".item").hover(function() {
-        console.log($(".item"));
         $(this)
           .children(".green-gradient")
           .toggleClass("active-gradient");

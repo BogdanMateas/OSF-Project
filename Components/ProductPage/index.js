@@ -421,7 +421,6 @@ getData().then(data => {
 
 // when width <= 500, products become slider
 $(window).on("load resize ", async function() {
-  console.log("loaded and resize");
   if ($(window).width() <= 500) {
     if (!$(".items").hasClass("slick-initialized")) {
       $(".items").attr("dir", "rtl");

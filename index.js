@@ -275,6 +275,7 @@ $(document).ready(async () => {
 });
 
 // injecting the items inside popular items section
+
 getData().then(data => {
   return data.popularItems.map(popItem => {
     return $(".items").append(
@@ -319,7 +320,7 @@ getData().then(data => {
 });
 
 // when width <= 500, products become slider
-$(window).on("load resize ", async function() {
+$(window).on("load resize ", function() {
   console.log("loaded and resize");
   if ($(window).width() <= 500) {
     if (!$(".items").hasClass("slick-initialized")) {

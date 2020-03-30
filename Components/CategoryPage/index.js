@@ -265,13 +265,12 @@ $(document).ready(async () => {
 
 // injecting the items inside popular items section
 
-getData()
-  .then(data => {
-    return data.popularItems.map(popItem => {
-      return $(".items").append(
-        ` <div class='${popItem.class} ${
-          popItem.id > 8 ? "inactive-item" : ""
-        } ${popItem.button === true ? "buttoned" : " "}'  >
+getData().then(data => {
+  return data.popularItems.map(popItem => {
+    return $(".items").append(
+      ` <div class='${popItem.class} ${popItem.id > 8 ? "inactive-item" : ""} ${
+        popItem.button === true ? "buttoned" : " "
+      }'  >
       <img src='/Images/${popItem.imageURL}'/>
       <div class="item-info">
        <div class="item-name">
@@ -305,88 +304,89 @@ getData()
       }
         </div>
        `
-      );
-    });
-  })
-  .then(
-    // when width <= 500, products become slider
-    $(window).on("load resize", async function() {
-      if ($(window).width() <= 500) {
-        if (!$(".items").hasClass("slick-initialized")) {
-          await $(".items").attr("dir", "rtl");
-          await $(".items")
-            .not(".slick-initialized")
-            .slick({
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              rtl: true,
-              infinite: true,
-              dots: true,
-              arrows: false,
-              speed: 500,
-              cssEase: "linear",
-              autoplaySpeed: 6000
-            });
-        }
-      } else {
-        if ($(".items").hasClass("slick-initialized")) {
-          $(".items").slick("unslick");
-        }
-        $(".items").removeAttr("dir");
-      }
+    );
+  });
+});
 
-      // showing green gradient on hover
-      $(".item").hover(function() {
-        $(this)
-          .children(".green-gradient")
-          .toggleClass("active-gradient");
-      });
-      // increase cart value
-      $(".buy-btn").click(function() {
-        $("#cart").text(parseInt($("#cart").text()) + 1);
-      });
-      // increase vart value
-      $(".fa-plus").click(function() {
-        $("#cart").text(parseInt($("#cart").text()) + 1);
-      });
-      //  increase wishlist value
-      $(".fa-heart").click(function() {
-        $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
-      });
+// when width <= 500, products become slider
 
-      // show more products on "view more"
-      $(".popular-items>button").one("click", function() {
-        $(".item").removeClass("inactive-item");
-      });
+$(window).on("load resize", async function() {
+  if ($(window).width() <= 500) {
+    if (!$(".items").hasClass("slick-initialized")) {
+      await $(".items").attr("dir", "rtl");
+      await $(".items")
+        .not(".slick-initialized")
+        .slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rtl: true,
+          infinite: true,
+          dots: true,
+          arrows: false,
+          speed: 500,
+          cssEase: "linear",
+          autoplaySpeed: 6000
+        });
+    }
+  } else {
+    if ($(".items").hasClass("slick-initialized")) {
+      $(".items").slick("unslick");
+    }
+    $(".items").removeAttr("dir");
+  }
 
-      // redirect to product detailed page
-      $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
-        function() {
-          window.location.href = "../ProductPage/product-detailed-page.html";
-        }
-      );
+  // showing green gradient on hover
+  $(".item").hover(function() {
+    $(this)
+      .children(".green-gradient")
+      .toggleClass("active-gradient");
+  });
+  // increase cart value
+  $(".buy-btn").click(function() {
+    $("#cart").text(parseInt($("#cart").text()) + 1);
+  });
+  // increase vart value
+  $(".fa-plus").click(function() {
+    $("#cart").text(parseInt($("#cart").text()) + 1);
+  });
+  //  increase wishlist value
+  $(".fa-heart").click(function() {
+    $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
+  });
 
-      // redirect to countdown page
-      $(".countdown").click(function() {
-        window.location.href = "../Countdown/countdown.html";
-      });
-      // redirect to cart page
-      $(".cart-link").click(function() {
-        window.location.href = "../CartPage/cart-page.html";
-      });
-    })
+  // show more products on "view more"
+  $(".popular-items>button").one("click", function() {
+    $(".item").removeClass("inactive-item");
+  });
+
+  // redirect to product detailed page
+  $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+    function() {
+      window.location.href = "../ProductPage/product-detailed-page.html";
+    }
   );
+
+  // redirect to countdown page
+  $(".countdown").click(function() {
+    window.location.href = "../Countdown/countdown.html";
+  });
+  // redirect to cart page
+  $(".cart-link").click(function() {
+    window.location.href = "../CartPage/cart-page.html";
+  });
+});
 
 // injecting the popular items inside featured products section
 
-getData().then(data => {
-  return $(".featured-products").append(
-    `<div class="products">${data.popularItems
-      .filter(item => {
-        return item.id <= 12;
-      })
-      .map(popItem => {
-        return ` <div class="product">
+$(document).ready(async function() {
+  await getData().then(data => {
+    return $(".featured-products").append(
+      `<div class="products">${data.popularItems
+        .filter(item => {
+          return item.id <= 12;
+        })
+        .map(popItem => {
+          return ` <div class="product">
             <img src='/Images/${popItem.imageURL}'/>
             <div class="product-details">
              <div class="product-name">
@@ -397,9 +397,10 @@ getData().then(data => {
               </div>
               </div> 
               </div> `;
-      })
-      .join("")}</div>`
-  );
+        })
+        .join("")}</div>`
+    );
+  });
 });
 
 $(window).on("load resize", async () => {

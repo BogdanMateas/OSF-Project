@@ -393,15 +393,15 @@ getData()
   );
 
 // injecting the popular items inside featured products section
-
-getData().then(data => {
-  return $(".featured-products").append(
-    `<div class="products">${data.popularItems
-      .filter(item => {
-        return item.id <= 12;
-      })
-      .map(popItem => {
-        return ` <div class="product">
+$(document).ready(async function() {
+  await getData().then(data => {
+    return $(".featured-products").append(
+      `<div class="products">${data.popularItems
+        .filter(item => {
+          return item.id <= 12;
+        })
+        .map(popItem => {
+          return ` <div class="product">
             <img src='/Images/${popItem.imageURL}'/>
             <div class="product-details">
              <div class="product-name">
@@ -412,9 +412,10 @@ getData().then(data => {
               </div>
               </div> 
               </div> `;
-      })
-      .join("")}</div>`
-  );
+        })
+        .join("")}</div>`
+    );
+  });
 });
 
 $(window).on("load resize", async () => {

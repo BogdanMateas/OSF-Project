@@ -1544,6 +1544,11 @@ footer a {
   }
 
 
+  .nav-container .slider-nav {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
   .slider-nav div {
     height: 100px;
     display: -webkit-box;
@@ -1554,6 +1559,8 @@ footer a {
     -webkit-box-pack: justify;
     justify-content: space-between;
   }
+
+
 
   /* tabs */
   .tabs-container {

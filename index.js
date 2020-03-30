@@ -414,31 +414,29 @@ getData().then(data => {
   );
 });
 
-$(window).on("load resize", async () => {
-  console.log($(".products"));
-  if ($(".products")) {
-    await $(".products")
-      .not(".slick-initialized")
-      .slick({
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        infinite: true,
-        arrows: true,
-        speed: 500,
-        cssEase: "linear",
-        nextArrow: $(".next"),
-        prevArrow: $(".prev"),
-        responsive: [
-          {
-            breakpoint: 769,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3
-            }
+$(window).on("load resize", () => {
+  console.log("loaded produc featured");
+  $(".products")
+    .not(".slick-initialized")
+    .slick({
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      infinite: true,
+      arrows: true,
+      speed: 500,
+      cssEase: "linear",
+      nextArrow: $(".next"),
+      prevArrow: $(".prev"),
+      responsive: [
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
           }
-        ]
-      });
-  }
+        }
+      ]
+    });
 });

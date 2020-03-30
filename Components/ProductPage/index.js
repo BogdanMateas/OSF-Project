@@ -332,6 +332,7 @@ $(document).ready(function() {
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: ".slider-main",
+        horizontal: true,
         dots: true,
         arrows: false,
         focusOnSelect: true,

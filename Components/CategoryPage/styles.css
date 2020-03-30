@@ -680,6 +680,10 @@ form button {
   display: none !important;
 }
 
+.items .item .item-info {
+  background-color: #fff;
+}
+
 .buttoned .item-price {
   color: #24c36c !important;
   border: 1px solid #7f7f7f;
@@ -714,13 +718,13 @@ form button {
 
 .popular-items .items .item {
   position: relative;
-  background-color: white;
   border-radius: 12px;
   margin: 2%;
   height: auto;
   text-align: center;
   display: grid;
   grid-template-rows: 70% 30%;
+
 }
 
 /* green gradient */
@@ -768,6 +772,7 @@ form button {
   color: #e73c68;
 }
 
+
 .item .active-gradient div:hover {
   cursor: pointer;
 }
@@ -776,6 +781,7 @@ form button {
 .items .item-gradient img:first-child {
   display: none;
 }
+
 
 /* ----gradient-different image----- */
 
@@ -793,10 +799,11 @@ form button {
   padding-left: 10%;
   padding-bottom: 10%;
   margin: 2%;
+  max-height: 390px
 }
 
 .item-gradient div {
-  margin-top: 90%;
+  margin-top: 70%;
   margin-bottom: 10%;
   max-width: 60%;
   max-height: 100px;
@@ -857,21 +864,26 @@ form button {
   border-right: none;
   color: #24c36c;
   border: 1px solid #7f7f7f;
+  padding: 3%;
 }
 
 .buttoned button {
+  padding: 3%;
+  white-space: nowrap;
   font-size: 14px;
   border: none;
   font-weight: 400;
   background-color: transparent;
   outline: none;
+
 }
 
 .items .item-price {
   color: #011847;
   font-size: 14px;
   font-weight: 400;
-  padding: 5px;
+
+
 }
 
 .popular-items>button {

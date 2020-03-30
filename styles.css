@@ -851,10 +851,11 @@ form button {
   padding-left: 10%;
   padding-bottom: 10%;
   margin: 2%;
+  max-height: 390px;
 }
 
 .item-gradient div {
-  margin-top: 90%;
+  margin-top: 70%;
   margin-bottom: 10%;
   max-width: 60%;
   max-height: 100px;

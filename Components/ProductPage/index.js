@@ -123,6 +123,13 @@ let navItems = [
     children: []
   }
 ];
+
+// get data from JSON file
+const getData = async () => {
+  const response = await fetch("/data.json");
+  const data = await response.json();
+  return data;
+};
 // header-menu / nav-bar
 const menu = `<div class='nav-links'>${navItems
   .map(navItem => {
@@ -234,127 +241,6 @@ $(document).ready(async () => {
     } else {
       input.attr("type", "password");
     }
-  });
-
-  const getData = async () => {
-    const response = await fetch("/data.json");
-    const data = await response.json();
-    return data;
-  };
-
-  // get data from JSON file
-
-  // injecting the items inside popular items section
-  await getData().then(data => {
-    return data.popularItems.map(popItem => {
-      return $(".items").append(
-        ` <div class='${popItem.class} ${
-          popItem.id > 8 ? "inactive-item" : ""
-        } ${popItem.button === true ? "buttoned" : " "}'  >
-        <img src='/Images/${popItem.imageURL}'/>
-        <div class="item-info">
-         <div class="item-name">
-          ${popItem.name}
-          </div>
-          <div class="item-details">
-          ${
-            popItem.price
-              ? `<div class="item-price">
-          ${popItem.price} 
-           </div>`
-              : " "
-          }
-          ${
-            popItem.button === true
-              ? `<button class="buy-btn">BUY NOW</button>`
-              : " "
-          }
-          </div>
-        </div>
-        ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
-        ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
-        ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
-        ${
-          popItem.greenGradient === true
-            ? `<div class="green-gradient">
-              <div><i class="fas fa-plus"></i></div>
-              <div><i class="fas fa-heart"></i></div>
-            </div>`
-            : " "
-        }
-          </div>
-         `
-      );
-    });
-  });
-
-  // when width <= 500, products become slider
-  $(window).on("load resize", async function() {
-    if ($(window).width() <= 500) {
-      if (!$(".items").hasClass("slick-initialized")) {
-        $(".items").attr("dir", "rtl");
-        await $(".items")
-          .not(".slick-initialized")
-          .slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            rtl: true,
-            infinite: true,
-            dots: true,
-            arrows: false,
-            speed: 500,
-            cssEase: "linear",
-            autoplaySpeed: 6000
-          });
-      }
-    } else {
-      if ($(".items").hasClass("slick-initialized")) {
-        $(".items").slick("unslick");
-      }
-      $(".items").removeAttr("dir");
-    }
-  });
-
-  // redirect to product detailed page
-  $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
-    function() {
-      window.location.href = "../ProductPage/product-detailed-page.html";
-    }
-  );
-  // redirect to cart page
-  $(".cart-link").click(function() {
-    window.location.href = "../CartPage/cart-page.html";
-  });
-
-  // redirect to countdown page
-  $(".countdown").click(function() {
-    window.location.href = "../Countdown/countdown.html";
-  });
-
-  // showing green gradient on hover
-  $(".item").hover(function() {
-    $(this)
-      .children(".green-gradient")
-      .toggleClass("active-gradient");
-  });
-  // increase cart value
-  $(".buy-btn").click(function() {
-    console.log(this);
-    $("#cart").text(parseInt($("#cart").text()) + 1);
-  });
-  // increase cart value
-  $(".fa-plus").click(function() {
-    console.log(this);
-    $("#cart").text(parseInt($("#cart").text()) + 1);
-  });
-  // increase wishlist value
-  $(".fa-heart").click(function() {
-    console.log(this);
-    $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
-  });
-  // show more products when
-  $(".popular-items>button").one("click", function() {
-    $(".item").removeClass("inactive-item");
   });
 
   // showing cookies
@@ -489,5 +375,115 @@ $(document).ready(function() {
   });
 });
 
+// injecting the items inside popular items section
+getData().then(data => {
+  return data.popularItems.map(popItem => {
+    return $(".items").append(
+      ` <div class='${popItem.class} ${popItem.id > 8 ? "inactive-item" : ""} ${
+        popItem.button === true ? "buttoned" : " "
+      }'  >
+      <img src='../../Images/${popItem.imageURL}'/>
+      <div class="item-info">
+       <div class="item-name">
+        ${popItem.name}
+        </div>
+        <div class="item-details">
+        ${
+          popItem.price
+            ? `<div class="item-price">
+        ${popItem.price} 
+         </div>`
+            : " "
+        }
+        ${
+          popItem.button === true
+            ? `<button class="buy-btn">BUY NOW</button>`
+            : " "
+        }
+        </div>
+      </div>
+      ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
+      ${popItem.icon ? `<img src="../../Images/${popItem.icon}"/>` : " "}
+      ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
+      ${
+        popItem.greenGradient === true
+          ? `<div class="green-gradient">
+            <div><i class="fas fa-plus"></i></div>
+            <div><i class="fas fa-heart"></i></div>
+          </div>`
+          : " "
+      }
+        </div>
+       `
+    );
+  });
+});
+
 // when width <= 500, products become slider
-$(document).ready(function() {});
+$(window).on("load resize ", async function() {
+  console.log("loaded and resize");
+  if ($(window).width() <= 500) {
+    if (!$(".items").hasClass("slick-initialized")) {
+      $(".items").attr("dir", "rtl");
+      $(".items")
+        .not(".slick-initialized")
+        .slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rtl: true,
+          infinite: true,
+          dots: true,
+          arrows: false,
+          speed: 500,
+          cssEase: "linear",
+          autoplaySpeed: 6000
+        });
+    }
+  } else {
+    if ($(".items").hasClass("slick-initialized")) {
+      $(".items").slick("unslick");
+    }
+    $(".items").removeAttr("dir");
+  }
+
+  // showing green gradient on hover
+  $(".item").hover(function() {
+    console.log($(".item"));
+    $(this)
+      .children(".green-gradient")
+      .toggleClass("active-gradient");
+  });
+  // increase cart value
+  $(".buy-btn").click(function() {
+    $("#cart").text(parseInt($("#cart").text()) + 1);
+  });
+  // increase vart value
+  $(".fa-plus").click(function() {
+    $("#cart").text(parseInt($("#cart").text()) + 1);
+  });
+  //  increase wishlist value
+  $(".fa-heart").click(function() {
+    $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
+  });
+
+  // show more products on "view more"
+  $(".popular-items>button").one("click", function() {
+    $(".item").removeClass("inactive-item");
+  });
+
+  // redirect to product detailed page
+  $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+    function() {
+      window.location.href = "../ProductPage/product-detailed-page.html";
+    }
+  );
+
+  // redirect to countdown page
+  $(".countdown").click(function() {
+    window.location.href = "../Countdown/countdown.html";
+  });
+  // redirect to cart page
+  $(".cart-link").click(function() {
+    window.location.href = "../CartPage/cart-page.html";
+  });
+});

@@ -260,78 +260,94 @@ $(document).ready(async () => {
     window.location.href = "https://www.facebook.com/OSFDigital";
   });
 
-  // injecting the items inside popular items section
-  await getData().then(data => {
-    return data.popularItems.map(popItem => {
-      return $(".items").append(
-        ` <div class='${popItem.class} ${
-          popItem.id > 8 ? "inactive-item" : ""
-        } ${popItem.button === true ? "buttoned" : " "}'  >
-        <img src='/Images/${popItem.imageURL}'/>
-        <div class="item-info">
-         <div class="item-name">
-          ${popItem.name}
-          </div>
-          <div class="item-details">
-          ${
-            popItem.price
-              ? `<div class="item-price">
-          ${popItem.price} 
-           </div>`
-              : " "
-          }
-          ${
-            popItem.button === true
-              ? `<button class="buy-btn">BUY NOW</button>`
-              : " "
-          }
-          </div>
+  // showing cookies
+  if (localStorage.getItem("cookieState") != "accepted") {
+    setTimeout(function() {
+      $(".active-cookie-dialog").removeClass("cookie-dialog");
+    }, 3000);
+  }
+  $(".cookie-dialog button").click(function() {
+    localStorage.setItem("cookieState", "accepted"), console.log("clicked");
+  });
+  $(".cookie-dialog button, .fa-times").click(function() {
+    $(".active-cookie-dialog").addClass("cookie-dialog");
+  });
+});
+
+// injecting the items inside popular items section
+getData().then(data => {
+  return data.popularItems.map(popItem => {
+    return $(".items").append(
+      ` <div class='${popItem.class} ${popItem.id > 8 ? "inactive-item" : ""} ${
+        popItem.button === true ? "buttoned" : " "
+      }'  >
+      <img src='/Images/${popItem.imageURL}'/>
+      <div class="item-info">
+       <div class="item-name">
+        ${popItem.name}
         </div>
-        ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
-        ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
-        ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
+        <div class="item-details">
         ${
-          popItem.greenGradient === true
-            ? `<div class="green-gradient">
-              <div><i class="fas fa-plus"></i></div>
-              <div><i class="fas fa-heart"></i></div>
-            </div>`
+          popItem.price
+            ? `<div class="item-price">
+        ${popItem.price} 
+         </div>`
             : " "
         }
-          </div>
-         `
-      );
-    });
+        ${
+          popItem.button === true
+            ? `<button class="buy-btn">BUY NOW</button>`
+            : " "
+        }
+        </div>
+      </div>
+      ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
+      ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
+      ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
+      ${
+        popItem.greenGradient === true
+          ? `<div class="green-gradient">
+            <div><i class="fas fa-plus"></i></div>
+            <div><i class="fas fa-heart"></i></div>
+          </div>`
+          : " "
+      }
+        </div>
+       `
+    );
   });
+});
 
-  // when width <= 500, products become slider
-  $(window).on("load resize ", async function() {
-    if ($(window).width() <= 500) {
-      if (!$(".items").hasClass("slick-initialized")) {
-        $(".items").attr("dir", "rtl");
-        $(".items")
-          .not(".slick-initialized")
-          .slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            rtl: true,
-            infinite: true,
-            dots: true,
-            arrows: false,
-            speed: 500,
-            cssEase: "linear",
-            autoplaySpeed: 6000
-          });
-      }
-    } else {
-      if ($(".items").hasClass("slick-initialized")) {
-        $(".items").slick("unslick");
-      }
-      $(".items").removeAttr("dir");
+// when width <= 500, products become slider
+$(window).on("load resize ", async function() {
+  console.log("loaded and resize");
+  if ($(window).width() <= 500) {
+    if (!$(".items").hasClass("slick-initialized")) {
+      $(".items").attr("dir", "rtl");
+      $(".items")
+        .not(".slick-initialized")
+        .slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rtl: true,
+          infinite: true,
+          dots: true,
+          arrows: false,
+          speed: 500,
+          cssEase: "linear",
+          autoplaySpeed: 6000
+        });
     }
-  });
+  } else {
+    if ($(".items").hasClass("slick-initialized")) {
+      $(".items").slick("unslick");
+    }
+    $(".items").removeAttr("dir");
+  }
+
   // showing green gradient on hover
   $(".item").hover(function() {
+    console.log($(".item"));
     $(this)
       .children(".green-gradient")
       .toggleClass("active-gradient");
@@ -369,19 +385,6 @@ $(document).ready(async () => {
   // redirect to cart page
   $(".cart-link").click(function() {
     window.location.href = "Components/CartPage/cart-page.html";
-  });
-
-  // showing cookies
-  if (localStorage.getItem("cookieState") != "accepted") {
-    setTimeout(function() {
-      $(".active-cookie-dialog").removeClass("cookie-dialog");
-    }, 3000);
-  }
-  $(".cookie-dialog button").click(function() {
-    localStorage.setItem("cookieState", "accepted"), console.log("clicked");
-  });
-  $(".cookie-dialog button, .fa-times").click(function() {
-    $(".active-cookie-dialog").addClass("cookie-dialog");
   });
 });
 

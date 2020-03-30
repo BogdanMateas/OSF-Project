@@ -1892,7 +1892,6 @@ footer a {
     grid-template-columns: 90%;
     max-height: 450px;
     grid-gap: 2%;
-    overflow: auto;
   }
 
   .popular-items .items .item {

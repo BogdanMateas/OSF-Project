@@ -1575,7 +1575,7 @@ footer a {
   }
 
   .popular-items .items .item {
-    max-height: 389px !important;
+    height: 389px !important;
     margin: 0;
   }
 

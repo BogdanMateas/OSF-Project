@@ -259,6 +259,19 @@ $(document).ready(() => {
   $(".cart-link").click(function() {
     window.location.href = "../CartPage/cart-page.html";
   });
+
+  // showing cookies
+  if (localStorage.getItem("cookieState") != "accepted") {
+    setTimeout(function() {
+      $(".active-cookie-dialog").removeClass("cookie-dialog");
+    }, 3000);
+  }
+  $(".cookie-dialog button").click(function() {
+    localStorage.setItem("cookieState", "accepted");
+  });
+  $(".cookie-dialog button, .fa-times").click(function() {
+    $(".active-cookie-dialog").addClass("cookie-dialog");
+  });
   // get year
   $("footer #year").text(new Date().getFullYear());
 });

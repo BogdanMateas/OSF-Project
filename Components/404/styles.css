@@ -630,72 +630,6 @@ main .search-bar img {
   margin-right: 5px;
 }
 
-/* -----cookies dialog ----- */
-
-.active-cookie-dialog {
-  display: block;
-  position: fixed;
-  z-index: 9;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(216, 224, 219, 0.7);
-}
-
-.cookie-dialog {
-  visibility: hidden;
-}
-
-.active-cookie-dialog>div>div {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-}
-
-.active-cookie-dialog h5 {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  color: #84bc22;
-}
-
-.active-cookie-dialog button {
-  border-radius: 20px;
-  background-color: #84bc22;
-  color: #fff;
-  font-size: 14px;
-  margin: auto;
-  font-weight: 400;
-  padding: 1% 4%;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  border: transparent;
-}
-
-.active-cookie-dialog button:hover,
-.active-cookie-dialog i:hover {
-  cursor: pointer;
-}
-
-.active-cookie-dialog p {
-  color: #45413e;
-  font-family: Lato;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 24px;
-  max-width: 75%;
-  margin-bottom: 0px;
-}
-
-.active-cookie-dialog p span {
-  color: #84bc22;
-}
-
-.active-cookie-dialog i {
-  font-size: 28px;
-}
 
 /* ------- footer ----- */
 
@@ -1232,10 +1166,7 @@ footer a {
     background-color: #8F9297;
   }
 
-  /* cookies */
-  .active-cookie-dialog>div {
-    margin-top: 32% !important;
-  }
+
 
   /* ------- 404 ----- */
 

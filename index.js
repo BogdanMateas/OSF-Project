@@ -419,6 +419,7 @@ getData()
   })
   .then(
     $(window).on("load resize", async () => {
+      console.log("load featured");
       await $(".products")
         .not(".slick-initialized")
         .slick({

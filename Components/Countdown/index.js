@@ -330,4 +330,7 @@ $(document).ready(function() {
   $(".cookie-dialog button, .fa-times").click(function() {
     $(".active-cookie-dialog").addClass("cookie-dialog");
   });
+
+  // get year
+  $("footer #year").text(new Date().getFullYear());
 });

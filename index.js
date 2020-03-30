@@ -272,6 +272,9 @@ $(document).ready(async () => {
   $(".cookie-dialog button, .fa-times").click(function() {
     $(".active-cookie-dialog").addClass("cookie-dialog");
   });
+
+  // get year
+  $("footer #year").text(new Date().getFullYear());
 });
 
 // injecting the items inside popular items section

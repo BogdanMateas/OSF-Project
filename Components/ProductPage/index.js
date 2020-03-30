@@ -374,6 +374,9 @@ $(document).ready(function() {
     if (e.target !== e.currentTarget) return;
     lightbox.classList.remove("active");
   });
+
+  // get year
+  $("footer #year").text(new Date().getFullYear());
 });
 
 // injecting the items inside popular items section

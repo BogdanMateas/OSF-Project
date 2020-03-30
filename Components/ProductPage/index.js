@@ -382,7 +382,7 @@ getData().then(data => {
       ` <div class='${popItem.class} ${popItem.id > 8 ? "inactive-item" : ""} ${
         popItem.button === true ? "buttoned" : " "
       }'  >
-      <img src='../../Images/${popItem.imageURL}'/>
+      <img src='/Images/${popItem.imageURL}'/>
       <div class="item-info">
        <div class="item-name">
         ${popItem.name}
@@ -403,7 +403,7 @@ getData().then(data => {
         </div>
       </div>
       ${popItem.moreInfo ? `<div>${popItem.moreInfo}</div>` : " "}
-      ${popItem.icon ? `<img src="../../Images/${popItem.icon}"/>` : " "}
+      ${popItem.icon ? `<img src="/Images/${popItem.icon}"/>` : " "}
       ${popItem.time ? `<span>${popItem.time} Ago</span>` : " "}
       ${
         popItem.greenGradient === true
@@ -471,12 +471,12 @@ $(window).on("load resize ", async function() {
     $(".item").removeClass("inactive-item");
   });
 
-  // redirect to product detailed page
-  $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
-    function() {
-      window.location.href = "../ProductPage/product-detailed-page.html";
-    }
-  );
+  // // redirect to product detailed page
+  // $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+  //   function() {
+  //     window.location.href = "../ProductPage/product-detailed-page.html";
+  //   }
+  // );
 
   // redirect to countdown page
   $(".countdown").click(function() {

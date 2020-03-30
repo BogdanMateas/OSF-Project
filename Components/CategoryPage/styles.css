@@ -1016,11 +1016,13 @@ form button {
 
 .active-cookie-dialog>div {
   background-color: #fff;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 10%;
   padding: 10px;
   border-radius: 5px;
+  max-width: 1200px;
+
 }
 
 .active-cookie-dialog>div>div {
@@ -1072,6 +1074,7 @@ form button {
 .active-cookie-dialog i {
   font-size: 28px;
 }
+
 
 /* ------- footer ----- */
 

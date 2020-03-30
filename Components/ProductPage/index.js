@@ -471,13 +471,6 @@ $(window).on("load resize ", async function() {
     $(".item").removeClass("inactive-item");
   });
 
-  // // redirect to product detailed page
-  // $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
-  //   function() {
-  //     window.location.href = "../ProductPage/product-detailed-page.html";
-  //   }
-  // );
-
   // redirect to countdown page
   $(".countdown").click(function() {
     window.location.href = "../Countdown/countdown.html";

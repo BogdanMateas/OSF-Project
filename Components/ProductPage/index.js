@@ -377,12 +377,13 @@ $(document).ready(function() {
 });
 
 // injecting the items inside popular items section
-getData().then(data => {
-  return data.popularItems.map(popItem => {
-    return $(".items").append(
-      ` <div class='${popItem.class} ${popItem.id > 8 ? "inactive-item" : ""} ${
-        popItem.button === true ? "buttoned" : " "
-      }'  >
+getData()
+  .then(data => {
+    return data.popularItems.map(popItem => {
+      return $(".items").append(
+        ` <div class='${popItem.class} ${
+          popItem.id > 8 ? "inactive-item" : ""
+        } ${popItem.button === true ? "buttoned" : " "}'  >
       <img src='/Images/${popItem.imageURL}'/>
       <div class="item-info">
        <div class="item-name">
@@ -416,67 +417,68 @@ getData().then(data => {
       }
         </div>
        `
-    );
-  });
-});
+      );
+    });
+  })
+  .then(
+    // when width <= 500, products become slider
+    $(window).on("load resize ", async function() {
+      if ($(window).width() <= 500) {
+        if (!$(".items").hasClass("slick-initialized")) {
+          $(".items").attr("dir", "rtl");
+          $(".items")
+            .not(".slick-initialized")
+            .slick({
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              rtl: true,
+              infinite: true,
+              dots: true,
+              arrows: false,
+              speed: 500,
+              cssEase: "linear",
+              autoplaySpeed: 6000
+            });
+        }
+      } else {
+        if ($(".items").hasClass("slick-initialized")) {
+          $(".items").slick("unslick");
+        }
+        $(".items").removeAttr("dir");
+      }
 
-// when width <= 500, products become slider
-$(window).on("load resize ", async function() {
-  if ($(window).width() <= 500) {
-    if (!$(".items").hasClass("slick-initialized")) {
-      $(".items").attr("dir", "rtl");
-      $(".items")
-        .not(".slick-initialized")
-        .slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          rtl: true,
-          infinite: true,
-          dots: true,
-          arrows: false,
-          speed: 500,
-          cssEase: "linear",
-          autoplaySpeed: 6000
-        });
-    }
-  } else {
-    if ($(".items").hasClass("slick-initialized")) {
-      $(".items").slick("unslick");
-    }
-    $(".items").removeAttr("dir");
-  }
+      // showing green gradient on hover
+      $(".item").hover(function() {
+        console.log($(".item"));
+        $(this)
+          .children(".green-gradient")
+          .toggleClass("active-gradient");
+      });
+      // increase cart value
+      $(".buy-btn").click(function() {
+        $("#cart").text(parseInt($("#cart").text()) + 1);
+      });
+      // increase vart value
+      $(".fa-plus").click(function() {
+        $("#cart").text(parseInt($("#cart").text()) + 1);
+      });
+      //  increase wishlist value
+      $(".fa-heart").click(function() {
+        $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
+      });
 
-  // showing green gradient on hover
-  $(".item").hover(function() {
-    console.log($(".item"));
-    $(this)
-      .children(".green-gradient")
-      .toggleClass("active-gradient");
-  });
-  // increase cart value
-  $(".buy-btn").click(function() {
-    $("#cart").text(parseInt($("#cart").text()) + 1);
-  });
-  // increase vart value
-  $(".fa-plus").click(function() {
-    $("#cart").text(parseInt($("#cart").text()) + 1);
-  });
-  //  increase wishlist value
-  $(".fa-heart").click(function() {
-    $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
-  });
+      // show more products on "view more"
+      $(".popular-items>button").one("click", function() {
+        $(".item").removeClass("inactive-item");
+      });
 
-  // show more products on "view more"
-  $(".popular-items>button").one("click", function() {
-    $(".item").removeClass("inactive-item");
-  });
-
-  // redirect to countdown page
-  $(".countdown").click(function() {
-    window.location.href = "../Countdown/countdown.html";
-  });
-  // redirect to cart page
-  $(".cart-link").click(function() {
-    window.location.href = "../CartPage/cart-page.html";
-  });
-});
+      // redirect to countdown page
+      $(".countdown").click(function() {
+        window.location.href = "../Countdown/countdown.html";
+      });
+      // redirect to cart page
+      $(".cart-link").click(function() {
+        window.location.href = "../CartPage/cart-page.html";
+      });
+    })
+  );

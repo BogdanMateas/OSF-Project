@@ -264,7 +264,7 @@ $(document).ready(async () => {
   if (localStorage.getItem("cookieState") != "accepted") {
     setTimeout(function() {
       $(".active-cookie-dialog").removeClass("cookie-dialog");
-    }, 3000);
+    }, 10000);
   }
   $(".cookie-dialog button").click(function() {
     localStorage.setItem("cookieState", "accepted");

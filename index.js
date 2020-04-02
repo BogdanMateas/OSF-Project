@@ -397,14 +397,15 @@ getData()
 
 // injecting the popular items inside featured products section
 
-getData().then(data => {
-  return $(".featured-products").append(
-    `<div class="products">${data.popularItems
-      .filter(item => {
-        return item.id <= 12;
-      })
-      .map(popItem => {
-        return ` <div class="product">
+getData()
+  .then(data => {
+    return $(".featured-products").append(
+      `<div class="products">${data.popularItems
+        .filter(item => {
+          return item.id <= 12;
+        })
+        .map(popItem => {
+          return ` <div class="product">
             <img src='/Images/${popItem.imageURL}'/>
             <div class="product-details">
              <div class="product-name">
@@ -415,32 +416,37 @@ getData().then(data => {
               </div>
               </div> 
               </div> `;
-      })
-      .join("")}</div>`
-  );
-});
-
-$(window).on("load resize", () => {
-  console.log("load featured");
-  $(".products").slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    infinite: true,
-    arrows: true,
-    speed: 500,
-    cssEase: "linear",
-    nextArrow: $(".next"),
-    prevArrow: $(".prev"),
-    responsive: [
-      {
-        breakpoint: 769,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
+        })
+        .join("")}</div>`
+    );
+  })
+  .then(
+    $(window).on("load resize", () => {
+      if (!$(".products").hasClass("slick-initialized")) {
+        console.log("load featured");
+        $(".products")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            infinite: true,
+            arrows: true,
+            speed: 500,
+            cssEase: "linear",
+            nextArrow: $(".next"),
+            prevArrow: $(".prev"),
+            responsive: [
+              {
+                breakpoint: 769,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3
+                }
+              }
+            ]
+          });
       }
-    ]
-  });
-});
+    })
+  );

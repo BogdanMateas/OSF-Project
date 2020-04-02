@@ -408,29 +408,31 @@ getData()
   })
   .then(
     $(window).on("load resize", () => {
-      console.log("load featured");
-      $(".products")
-        // .not(".slick-initialized")
-        .slick({
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          autoplay: true,
-          autoplaySpeed: 5000,
-          infinite: true,
-          arrows: true,
-          speed: 500,
-          cssEase: "linear",
-          nextArrow: $(".next"),
-          prevArrow: $(".prev"),
-          responsive: [
-            {
-              breakpoint: 769,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3
+      if (!$(".products").hasClass("slick-initialized")) {
+        console.log("load featured");
+        $(".products")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            infinite: true,
+            arrows: true,
+            speed: 500,
+            cssEase: "linear",
+            nextArrow: $(".next"),
+            prevArrow: $(".prev"),
+            responsive: [
+              {
+                breakpoint: 769,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3
+                }
               }
-            }
-          ]
-        });
+            ]
+          });
+      }
     })
   );

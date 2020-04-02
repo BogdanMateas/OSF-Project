@@ -265,12 +265,13 @@ $(document).ready(async () => {
 
 // injecting the items inside popular items section
 
-getData().then(data => {
-  return data.popularItems.map(popItem => {
-    return $(".items").append(
-      ` <div class='${popItem.class} ${popItem.id > 8 ? "inactive-item" : ""} ${
-        popItem.button === true ? "buttoned" : " "
-      }'  >
+getData()
+  .then(data => {
+    return data.popularItems.map(popItem => {
+      return $(".items").append(
+        ` <div class='${popItem.class} ${
+          popItem.id > 8 ? "inactive-item" : ""
+        } ${popItem.button === true ? "buttoned" : " "}'  >
       <img src='/Images/${popItem.imageURL}'/>
       <div class="item-info">
        <div class="item-name">
@@ -303,83 +304,87 @@ getData().then(data => {
           : " "
       }
         </div>
+
+
        `
-    );
-  });
-});
-
-// when width <= 500, products become slider
-
-$(window).on("load resize", async function() {
-  if ($(window).width() <= 500) {
-    if (!$(".items").hasClass("slick-initialized")) {
-      await $(".items").attr("dir", "rtl");
-      await $(".items")
-        .not(".slick-initialized")
-        .slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          rtl: true,
-          infinite: true,
-          dots: true,
-          arrows: false,
-          speed: 500,
-          cssEase: "linear",
-          autoplaySpeed: 6000
-        });
-    }
-  } else {
-    if ($(".items").hasClass("slick-initialized")) {
-      $(".items").slick("unslick");
-    }
-    $(".items").removeAttr("dir");
-  }
-
-  // showing green gradient on hover
-  $(".item").hover(function() {
-    $(this)
-      .children(".green-gradient")
-      .toggleClass("active-gradient");
-  });
-  // increase cart value
-  $(".buy-btn").click(function() {
-    $("#cart").text(parseInt($("#cart").text()) + 1);
-  });
-  // increase vart value
-  $(".fa-plus").click(function() {
-    $("#cart").text(parseInt($("#cart").text()) + 1);
-  });
-  //  increase wishlist value
-  $(".fa-heart").click(function() {
-    $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
-  });
-
-  // show more products on "view more"
-  $(".popular-items>button").one("click", function() {
-    $(".item").removeClass("inactive-item");
-  });
-
-  // redirect to product detailed page
-  $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+      );
+    });
+  })
+  .then(
+    // showing green gradient on hover
     function() {
-      window.location.href = "../ProductPage/product-detailed-page.html";
+      $(".item").hover(function() {
+        $(this)
+          .children(".green-gradient")
+          .toggleClass("active-gradient");
+      });
+      // increase cart value
+      $(".buy-btn").click(function() {
+        $("#cart").text(parseInt($("#cart").text()) + 1);
+      });
+      // increase vart value
+      $(".fa-plus").click(function() {
+        $("#cart").text(parseInt($("#cart").text()) + 1);
+      });
+      //  increase wishlist value
+      $(".fa-heart").click(function() {
+        $("#wish-list").text(parseInt($("#wish-list").text()) + 1);
+      });
+
+      // show more products on "view more"
+      $(".popular-items>button").one("click", function() {
+        $(".item").removeClass("inactive-item");
+      });
+
+      // redirect to product detailed page
+      $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+        function() {
+          window.location.href =
+            "Components/ProductPage/product-detailed-page.html";
+        }
+      );
+
+      // redirect to countdown page
+      $(".countdown").click(function() {
+        window.location.href = "Components/Countdown/countdown.html";
+      });
+      // redirect to cart page
+      $(".cart-link").click(function() {
+        window.location.href = "Components/CartPage/cart-page.html";
+      });
+      // when width <= 500, products become slider
+      $(window).on("load resize", function() {
+        if ($(window).width() <= 500) {
+          if (!$(".items").hasClass("slick-initialized")) {
+            $(".items").attr("dir", "rtl");
+            $(".items")
+              .not(".slick-initialized")
+              .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                rtl: true,
+                infinite: true,
+                dots: true,
+                arrows: false,
+                speed: 500,
+                cssEase: "linear",
+                autoplaySpeed: 6000
+              });
+          }
+        } else {
+          if ($(".items").hasClass("slick-initialized")) {
+            $(".items").slick("unslick");
+          }
+          $(".items").removeAttr("dir");
+        }
+      });
     }
   );
 
-  // redirect to countdown page
-  $(".countdown").click(function() {
-    window.location.href = "../Countdown/countdown.html";
-  });
-  // redirect to cart page
-  $(".cart-link").click(function() {
-    window.location.href = "../CartPage/cart-page.html";
-  });
-});
-
 // injecting the popular items inside featured products section
 
-$(document).ready(async function() {
-  await getData().then(data => {
+getData()
+  .then(data => {
     return $(".featured-products").append(
       `<div class="products">${data.popularItems
         .filter(item => {
@@ -400,31 +405,32 @@ $(document).ready(async function() {
         })
         .join("")}</div>`
     );
-  });
-});
-
-$(window).on("load resize", async () => {
-  await $(".products")
-    .not(".slick-initialized")
-    .slick({
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      infinite: true,
-      arrows: true,
-      speed: 500,
-      cssEase: "linear",
-      nextArrow: $(".next"),
-      prevArrow: $(".prev"),
-      responsive: [
-        {
-          breakpoint: 769,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
-          }
-        }
-      ]
-    });
-});
+  })
+  .then(
+    $(window).on("load resize", async () => {
+      console.log("load featured");
+      await $(".products")
+        .not(".slick-initialized")
+        .slick({
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          autoplay: true,
+          autoplaySpeed: 5000,
+          infinite: true,
+          arrows: true,
+          speed: 500,
+          cssEase: "linear",
+          nextArrow: $(".next"),
+          prevArrow: $(".prev"),
+          responsive: [
+            {
+              breakpoint: 769,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+              }
+            }
+          ]
+        });
+    })
+  );

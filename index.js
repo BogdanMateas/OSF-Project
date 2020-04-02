@@ -318,38 +318,15 @@ getData()
           : " "
       }
         </div>
+
+
        `
       );
     });
   })
   .then(
-    // when width <= 500, products become slider
-    $(window).on("load resize", async function() {
-      if ($(window).width() <= 500) {
-        if (!$(".items").hasClass("slick-initialized")) {
-          await $(".items").attr("dir", "rtl");
-          await $(".items")
-            .not(".slick-initialized")
-            .slick({
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              rtl: true,
-              infinite: true,
-              dots: true,
-              arrows: false,
-              speed: 500,
-              cssEase: "linear",
-              autoplaySpeed: 6000
-            });
-        }
-      } else {
-        if ($(".items").hasClass("slick-initialized")) {
-          $(".items").slick("unslick");
-        }
-        $(".items").removeAttr("dir");
-      }
-
-      // showing green gradient on hover
+    // showing green gradient on hover
+    function() {
       $(".item").hover(function() {
         $(this)
           .children(".green-gradient")
@@ -389,12 +366,39 @@ getData()
       $(".cart-link").click(function() {
         window.location.href = "Components/CartPage/cart-page.html";
       });
-    })
+      // when width <= 500, products become slider
+      $(window).on("load resize", function() {
+        if ($(window).width() <= 500) {
+          if (!$(".items").hasClass("slick-initialized")) {
+            $(".items").attr("dir", "rtl");
+            $(".items")
+              .not(".slick-initialized")
+              .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                rtl: true,
+                infinite: true,
+                dots: true,
+                arrows: false,
+                speed: 500,
+                cssEase: "linear",
+                autoplaySpeed: 6000
+              });
+          }
+        } else {
+          if ($(".items").hasClass("slick-initialized")) {
+            $(".items").slick("unslick");
+          }
+          $(".items").removeAttr("dir");
+        }
+      });
+    }
   );
 
 // injecting the popular items inside featured products section
-$(document).ready(async function() {
-  await getData().then(data => {
+
+getData()
+  .then(data => {
     return $(".featured-products").append(
       `<div class="products">${data.popularItems
         .filter(item => {
@@ -415,32 +419,32 @@ $(document).ready(async function() {
         })
         .join("")}</div>`
     );
-  });
-});
-
-$(window).on("load resize", async () => {
-  console.log("load featured");
-  await $(".products")
-    .not(".slick-initialized")
-    .slick({
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      infinite: true,
-      arrows: true,
-      speed: 500,
-      cssEase: "linear",
-      nextArrow: $(".next"),
-      prevArrow: $(".prev"),
-      responsive: [
-        {
-          breakpoint: 769,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
-          }
-        }
-      ]
-    });
-});
+  })
+  .then(
+    $(window).on("load resize", async () => {
+      console.log("load featured");
+      await $(".products")
+        .not(".slick-initialized")
+        .slick({
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          autoplay: true,
+          autoplaySpeed: 5000,
+          infinite: true,
+          arrows: true,
+          speed: 500,
+          cssEase: "linear",
+          nextArrow: $(".next"),
+          prevArrow: $(".prev"),
+          responsive: [
+            {
+              breakpoint: 769,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+              }
+            }
+          ]
+        });
+    })
+  );

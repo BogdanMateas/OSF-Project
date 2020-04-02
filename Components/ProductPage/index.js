@@ -419,38 +419,15 @@ getData()
           : " "
       }
         </div>
+
+
        `
       );
     });
   })
   .then(
-    // when width <= 500, products become slider
-    $(window).on("load resize ", async function() {
-      if ($(window).width() <= 500) {
-        if (!$(".items").hasClass("slick-initialized")) {
-          $(".items").attr("dir", "rtl");
-          $(".items")
-            .not(".slick-initialized")
-            .slick({
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              rtl: true,
-              infinite: true,
-              dots: true,
-              arrows: false,
-              speed: 500,
-              cssEase: "linear",
-              autoplaySpeed: 6000
-            });
-        }
-      } else {
-        if ($(".items").hasClass("slick-initialized")) {
-          $(".items").slick("unslick");
-        }
-        $(".items").removeAttr("dir");
-      }
-
-      // showing green gradient on hover
+    // showing green gradient on hover
+    function() {
       $(".item").hover(function() {
         $(this)
           .children(".green-gradient")
@@ -474,13 +451,47 @@ getData()
         $(".item").removeClass("inactive-item");
       });
 
+      // redirect to product detailed page
+      $(".buttoned img , .buttoned .item-name , .buttoned .item-price").click(
+        function() {
+          window.location.href =
+            "Components/ProductPage/product-detailed-page.html";
+        }
+      );
+
       // redirect to countdown page
       $(".countdown").click(function() {
-        window.location.href = "../Countdown/countdown.html";
+        window.location.href = "Components/Countdown/countdown.html";
       });
       // redirect to cart page
       $(".cart-link").click(function() {
-        window.location.href = "../CartPage/cart-page.html";
+        window.location.href = "Components/CartPage/cart-page.html";
       });
-    })
+      // when width <= 500, products become slider
+      $(window).on("load resize", function() {
+        if ($(window).width() <= 500) {
+          if (!$(".items").hasClass("slick-initialized")) {
+            $(".items").attr("dir", "rtl");
+            $(".items")
+              .not(".slick-initialized")
+              .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                rtl: true,
+                infinite: true,
+                dots: true,
+                arrows: false,
+                speed: 500,
+                cssEase: "linear",
+                autoplaySpeed: 6000
+              });
+          }
+        } else {
+          if ($(".items").hasClass("slick-initialized")) {
+            $(".items").slick("unslick");
+          }
+          $(".items").removeAttr("dir");
+        }
+      });
+    }
   );

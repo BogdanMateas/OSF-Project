@@ -407,10 +407,10 @@ getData()
     );
   })
   .then(
-    $(window).on("load resize", async () => {
+    $(window).on("load resize", () => {
       console.log("load featured");
-      await $(".products")
-        .not(".slick-initialized")
+      $(".products")
+        // .not(".slick-initialized")
         .slick({
           slidesToShow: 4,
           slidesToScroll: 4,
